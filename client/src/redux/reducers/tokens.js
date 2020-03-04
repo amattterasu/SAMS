@@ -6,10 +6,7 @@ export const tokens = (state = [], action) => {
         case TOKENS_FETCH_DATA_SUCCESS:
             return action.tokens;
         case TOKENS_UPDATE_DATA_SUCCESS:
-            return {
-                ...state,
-                counter: action.tokens.counter + 1,
-    };
+            return action.tokens;
         default:
             return state;
     }

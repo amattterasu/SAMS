@@ -8,12 +8,12 @@ export const getTokensDataSuccess = (tokens) => {
     }
 };
 
-export const updateTokenDataSuccess = (tokens) => {
+export const updateTokenDataSuccess = (counter) => {
     return {
         type: TOKENS_UPDATE_DATA_SUCCESS,
-        tokens
+        counter
     }
-}
+};
 
 export const getTokensData = (url) => {
     return (dispatch) => {
@@ -33,10 +33,9 @@ export const getTokensData = (url) => {
 export const updateTokenData = (url, id, count) => {
     return (dispatch) => {
         fetch(url + id, {
-            method: 'PATCH',
-            mode: 'CORS',
+            method: "PUT",
             body: JSON.stringify({
-                count: 111111
+                counter: count + 1
             }),
             headers: {
                 'Content-Type': 'application/json'
@@ -49,7 +48,7 @@ export const updateTokenData = (url, id, count) => {
                 return response;
             }))
             .then(response => response.json())
-            .then(tokens => dispatch(updateTokenDataSuccess(tokens)))
+            .then(counters => dispatch(updateTokenDataSuccess(counters)))
             .catch(err => err)
     }
 }

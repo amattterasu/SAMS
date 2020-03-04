@@ -13,7 +13,7 @@ class App extends React.Component {
 
     componentDidMount() {
         this.props.fetchData("/api/token");
-        this.timer = setInterval(() => this.props.fetchData("/api/token"), 5000);
+        this.timer = setInterval(() => this.props.fetchData("/api/token"), 2000);
     }
 
     handleCounterIncrement(i) {
@@ -60,7 +60,6 @@ const mapDispatchToProps = dispatch => {
         },
         updateCounter: (url, id, count) => {
             dispatch(updateTokenData(url, id, count))
-            //console.log(url, id, count);
         }
     };
 };
