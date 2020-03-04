@@ -1,6 +1,6 @@
 const express = require("express");
 const router = express.Router();
-const Token = require("./token");
+const Token = require("./Token");
 
 router.get("/token", (request, response) => {
     Token.find({})                        // get all data from db

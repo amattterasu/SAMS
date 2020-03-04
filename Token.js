@@ -7,6 +7,4 @@ const TokenSchema = new Schema({
     counter: Number
 });
 
-const Token = mongoose.model('token', TokenSchema);
-
-module.exports = Token;
+module.exports = mongoose.model('token', TokenSchema);;

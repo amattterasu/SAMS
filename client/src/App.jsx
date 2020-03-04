@@ -2,13 +2,27 @@ import React from 'react';
 import './App.css';
 import {connect} from "react-redux";
 
-import {tokensFetchData} from "./redux/actions/tokens";
-
+import {getTokensData, updateTokenData} from "./redux/actions/tokens";
 
 class App extends React.Component {
 
+    constructor(props) {
+        super(props);
+        this.handleCounterIncrement = this.handleCounterIncrement.bind(this);
+    }
+
     componentDidMount() {
-        this.props.fetchData("/api/token")
+        this.props.fetchData("/api/token");
+        this.timer = setInterval(() => this.props.fetchData("/api/token"), 5000);
+    }
+
+    handleCounterIncrement(i) {
+        this.props.updateCounter("/api/token/", this.props.tokens[i]._id, this.props.tokens[i].counter);
+        console.log(this.props.tokens[i]._id, this.props.tokens[i].counter)
+    }
+
+    componentWillUnmount() {
+        this.timer = null;
     }
 
     render() {
@@ -17,10 +31,14 @@ class App extends React.Component {
                 <ul>
                     {this.props.tokens.map((tokens, index) => {
                         return <li key={index}>
-                            <div>MainID: {tokens._id}</div>
                             <div>ID: {tokens.id}</div>
+                            <div>MainID: {tokens._id}</div>
                             <div>token: {tokens.token}</div>
                             <div>counter: {tokens.counter}</div>
+                            <div>
+                                <button onClick={() => this.handleCounterIncrement(index)}>counter++</button>
+                            </div>
+                            <br/>
                         </li>
                     })}
                 </ul>
@@ -38,7 +56,11 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => {
     return {
         fetchData: url => {
-            dispatch(tokensFetchData(url))
+            dispatch(getTokensData(url))
+        },
+        updateCounter: (url, id, count) => {
+            dispatch(updateTokenData(url, id, count))
+            //console.log(url, id, count);
         }
     };
 };
