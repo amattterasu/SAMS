@@ -17,6 +17,7 @@ class Signup extends Component {
     handleSubmit = event => {
         event.preventDefault()
         this.props.userPostFetch(this.state)
+        console.log(this.state)
     }
 
     render() {
