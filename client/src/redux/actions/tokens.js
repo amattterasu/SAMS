@@ -1,22 +1,22 @@
 const TOKENS_FETCH_DATA_SUCCESS = "TOKENS_FETCH_DATA_SUCCESS";
 const TOKENS_UPDATE_DATA_SUCCESS = "TOKENS_UPDATE_DATA_SUCCESS";
 
-export const getTokensDataSuccess = (tokens) => {
+export const getTokensDataSuccess = tokens => {
     return {
         type: TOKENS_FETCH_DATA_SUCCESS,
         tokens
     }
 };
 
-export const updateTokenDataSuccess = (counter) => {
+export const updateTokenDataSuccess = counter => {
     return {
         type: TOKENS_UPDATE_DATA_SUCCESS,
         counter
     }
 };
 
-export const getTokensData = (url) => {
-    return (dispatch) => {
+export const getTokensData = url => {
+    return dispatch => {
         fetch(url)
             .then(response => {
                 if (!response.ok) {
@@ -31,7 +31,7 @@ export const getTokensData = (url) => {
 };
 
 export const updateTokenData = (url, id, count) => {
-    return (dispatch) => {
+    return dispatch => {
         fetch(url + id, {
             method: "PUT",
             body: JSON.stringify({

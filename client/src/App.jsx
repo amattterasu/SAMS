@@ -36,7 +36,7 @@ class App extends React.Component {
                             <div>token: {tokens.token}</div>
                             <div>counter: {tokens.counter}</div>
                             <div>
-                                <button onClick={() => this.handleCounterIncrement(index)}>counter++</button>
+                                <button onClick={ () => this.handleCounterIncrement(index) }>counter++</button>
                             </div>
                             <br/>
                         </li>

@@ -1,35 +1,35 @@
 const express = require("express");
 const router = express.Router();
-const Token = require("./Token");
+const Auth = require("./Auth");
 
-router.get("/token", (request, response) => {
-    Token.find({})                        // get all data from db
-        .then(token => {
-            response.send(token);
+router.get("/auth", (request, response) => {
+    Auth.find({})                        // get all data from db
+        .then(auth => {
+            response.send(auth);
         });
 });
 
-router.post("/token", (request, response) => {
-    Token.create(request.body)
-        .then(token => {
-            response.send(token);
+router.post("/auth", (request, response) => {
+    Auth.create(request.body)
+        .then(auth => {
+            response.send(auth);
         });
 });
 
-router.put("/token/:id", (request, response) => {
-    Token.findByIdAndUpdate({_id: request.params.id}, request.body)
+router.put("/auth/:id", (request, response) => {
+    Auth.findByIdAndUpdate({_id: request.params.id}, request.body)
         .then(() => {
-            Token.findOne({_id: request.params.id})
-                .then(token => {
-                    response.send(token);
+            Auth.findOne({_id: request.params.id})
+                .then(auth => {
+                    response.send(auth);
                 });
         });
 });
 
-router.delete("/token/:id", (request, response) => {
-    Token.deleteOne({_id: request.params.id})
-        .then(token => {
-            response.send(token);
+router.delete("/auth/:id", (request, response) => {
+    Auth.deleteOne({_id: request.params.id})
+        .then(auth => {
+            response.send(auth);
         });
 });
 
