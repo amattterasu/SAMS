@@ -6,7 +6,8 @@ const AuthSchema = new Schema({
     id: Number || null,
     token: String, //???
     username: String,
-    password: String
+    password: String,
+    role: String
 });
 
-module.exports = mongoose.model('auth', AuthSchema);;
+module.exports = mongoose.model('auth', AuthSchema);

@@ -5,7 +5,8 @@ import {userPostFetch} from '../redux/actions/actions';
 class Signup extends Component {
     state = {
         username: '',
-        password: ''
+        password: '',
+        role: ''
     }
 
     handleChange = event => {
@@ -17,7 +18,6 @@ class Signup extends Component {
     handleSubmit = event => {
         event.preventDefault()
         this.props.userPostFetch(this.state)
-        console.log(this.state)
     }
 
     render() {
@@ -41,6 +41,14 @@ class Signup extends Component {
                     value={this.state.password}
                     onChange={this.handleChange}
                 /><br/>
+                <label>Role</label>
+                <input
+                    name='role'
+                    placeholder='Who are you?'
+                    value={this.state.role}
+                    onChange={this.handleChange}
+                /><br/>
+
                 <input type='submit'/>
             </form>
         )
