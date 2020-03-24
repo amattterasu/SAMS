@@ -11,7 +11,7 @@ export const logoutUser = () => ({
 
 export const userPostFetch = user => {
     return dispatch => {
-        return fetch(URL + 'auth', {
+        return fetch(URL + 'users', {
             credentials: 'include',
             method: "POST",
             headers: {

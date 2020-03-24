@@ -16,7 +16,7 @@ router.options('*', (req, res) => {
 });
 
 router.get("/users", (request, response) => {
-    Auth.find({})                        // get all data from db
+    User.find({})                        // get all data from db
         .then(user => {
             headers(response, user)
             response.set('Access-Control-Allow-Methods', 'GET, OPTIONS');
@@ -35,7 +35,7 @@ router.post("/users", (request, response) => {
 });
 
 router.post("/users", (request, response) => {
-    Auth.create(request.body)
+    User.create(request.body)
         .then(user => {
             headers(response)
             response.set('Access-Control-Allow-Methods', 'POST, OPTIONS');
@@ -44,7 +44,7 @@ router.post("/users", (request, response) => {
 });
 
 router.put("/users/:id", (request, response) => {
-    Auth.findByIdAndUpdate({_id: request.params.id}, request.body)
+    User.findByIdAndUpdate({_id: request.params.id}, request.body)
         .then(() => {
             Auth.findOne({_id: request.params.id})
                 .then(user => {
@@ -56,7 +56,7 @@ router.put("/users/:id", (request, response) => {
 });
 
 router.delete("/users/:id", (request, response) => {
-    Auth.deleteOne({_id: request.params.id})
+    User.deleteOne({_id: request.params.id})
         .then(user => {
             headers(response,)
             response.set('Access-Control-Allow-Methods', 'DELETE, OPTIONS');

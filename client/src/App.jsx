@@ -9,7 +9,7 @@ import {compose} from "redux";
 
 class App extends Component {
     componentDidMount = () => {
-        this.props.getProfileFetch()
+        //this.props.getProfileFetch()
     }
 
     handleClick = event => {
@@ -42,7 +42,7 @@ const mapStateToProps = state => ({
 })
 
 const mapDispatchToProps = dispatch => ({
-    getProfileFetch: () => dispatch(getProfileFetch()),
+    //getProfileFetch: () => dispatch(getProfileFetch()),
     logoutUser: () => dispatch(logoutUser())
 })
 

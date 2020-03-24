@@ -5,7 +5,7 @@ const bodyParser = require('body-parser');
 const app = express();
 const PORT = 4000 || process.env.PORT;
 
-mongoose.connect('mongodb://localhost/token-db', { useNewUrlParser: true } )
+mongoose.connect('mongodb://localhost/users-db', { useNewUrlParser: true } )
     .then(() => console.log('MongoDB connected'))
     .catch(err => console.error(err));
 
