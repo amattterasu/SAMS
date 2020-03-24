@@ -1,67 +1,60 @@
-import React from 'react';
-import './App.css';
-import {connect} from "react-redux";
+import React, {Component} from 'react';
+import {Switch, Route, BrowserRouter, withRouter} from 'react-router-dom';
+import {connect, Provider} from 'react-redux';
+import {getProfileFetch, logoutUser} from './redux/actions/actions';
+import Signup from './components/Signup';
+import Login from './components/Login';
+import store from "./redux/redux-store";
+import {compose} from "redux";
 
-import {getTokensData, updateTokenData} from "./redux/actions/tokens";
-
-class App extends React.Component {
-
-    constructor(props) {
-        super(props);
-        this.handleCounterIncrement = this.handleCounterIncrement.bind(this);
+class App extends Component {
+    componentDidMount = () => {
+        this.props.getProfileFetch()
     }
 
-    componentDidMount() {
-        this.props.fetchData("/api/token");
-        this.timer = setInterval(() => this.props.fetchData("/api/token"), 2000);
-    }
-
-    handleCounterIncrement(i) {
-        this.props.updateCounter("/api/token/", this.props.tokens[i]._id, this.props.tokens[i].counter);
-        console.log(this.props.tokens[i]._id, this.props.tokens[i].counter)
-    }
-
-    componentWillUnmount() {
-        this.timer = null;
+    handleClick = event => {
+        event.preventDefault()
+        localStorage.removeItem("token")
+        this.props.logoutUser()
     }
 
     render() {
         return (
             <div>
-                <ul>
-                    {this.props.tokens.map((tokens, index) => {
-                        return <li key={index}>
-                            <div>ID: {tokens.id}</div>
-                            <div>MainID: {tokens._id}</div>
-                            <div>token: {tokens.token}</div>
-                            <div>counter: {tokens.counter}</div>
-                            <div>
-                                <button onClick={() => this.handleCounterIncrement(index)}>counter++</button>
-                            </div>
-                            <br/>
-                        </li>
-                    })}
-                </ul>
+                <Switch>
+                    <Route path="/signup"
+                           render={() => <Signup/>}/>
+                    <Route path="/login"
+                           render={() => <Login/>}/>
+                </Switch>
+                {
+                    this.props.currentUser.username
+                    ? <button onClick={this.handleClick}>Log Out</button>
+                    : null
+                }
             </div>
         );
     }
 }
 
-const mapStateToProps = state => {
-    return {
-        tokens: state.tokens
-    };
-};
+const mapStateToProps = state => ({
+    currentUser: state.auth.currentUser
+})
 
-const mapDispatchToProps = dispatch => {
-    return {
-        fetchData: url => {
-            dispatch(getTokensData(url))
-        },
-        updateCounter: (url, id, count) => {
-            dispatch(updateTokenData(url, id, count))
-        }
-    };
-};
+const mapDispatchToProps = dispatch => ({
+    getProfileFetch: () => dispatch(getProfileFetch()),
+    logoutUser: () => dispatch(logoutUser())
+})
 
-export default connect(mapStateToProps, mapDispatchToProps)(App);
+
+let AppContainer = compose(
+    withRouter,
+    connect(mapStateToProps , mapDispatchToProps))(App);
+
+const MainApp = (props) => {
+    return <BrowserRouter>
+        <Provider store={store}> <AppContainer/> </Provider>
+    </BrowserRouter>
+}
+
+export default MainApp;

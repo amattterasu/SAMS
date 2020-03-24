@@ -2,34 +2,65 @@ const express = require("express");
 const router = express.Router();
 const User = require("./User");
 
+const headers = (response) => {
+    response.set('Access-Control-Allow-Origin', 'http://localhost:3000');
+    response.set('Access-Control-Allow-Credentials', 'true');
+    response.set('Access-Control-Allow-Headers', 'Access-Control-Allow-Headers, Authorization, Content-Type');
+
+}
+
+router.options('*', (req, res) => {
+    headers(res)
+    res.set('Access-Control-Allow-Methods', 'GET, OPTIONS');
+    res.send('ok');
+});
+
 router.get("/users", (request, response) => {
-    Token.find({})                        // get all data from db
+    Auth.find({})                        // get all data from db
         .then(user => {
+            headers(response, user)
+            response.set('Access-Control-Allow-Methods', 'GET, OPTIONS');
             response.send(user);
         });
 });
 
 router.post("/users", (request, response) => {
-    Token.create(request.body)
+    const userData = {
+        login: request.body.username,
+        pass: request.body.password
+    }
+            headers(response)
+            response.set('Access-Control-Allow-Methods', 'POST, OPTIONS');
+            response.send(userData)
+});
+
+router.post("/users", (request, response) => {
+    Auth.create(request.body)
         .then(user => {
-            response.send(user);
+            headers(response)
+            response.set('Access-Control-Allow-Methods', 'POST, OPTIONS');
+            response.send(user)
         });
 });
 
 router.put("/users/:id", (request, response) => {
-    Token.findByIdAndUpdate({_id: request.params.id}, request.body)
+    Auth.findByIdAndUpdate({_id: request.params.id}, request.body)
         .then(() => {
-            Token.findOne({_id: request.params.id})
+            Auth.findOne({_id: request.params.id})
                 .then(user => {
-                    response.send(user);
+                    headers(response)
+                    response.set('Access-Control-Allow-Methods', 'PUT, OPTIONS');
+                    response.send(user)
                 });
         });
 });
 
 router.delete("/users/:id", (request, response) => {
-    Token.deleteOne({_id: request.params.id})
+    Auth.deleteOne({_id: request.params.id})
         .then(user => {
-            response.send(user);
+            headers(response,)
+            response.set('Access-Control-Allow-Methods', 'DELETE, OPTIONS');
+            response.send(user)
         });
 });
 
