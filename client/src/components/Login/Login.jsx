@@ -1,8 +1,12 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
-import {userLoginFetch} from '../../redux/actions/actions';
+import {Link} from "react-router-dom";
 import classes from './Login.module.css';
+
+import {userLoginFetch} from '../../redux/actions/actions';
+
 import Button from 'react-bootstrap/Button';
+import Input from "../UI/Input";
 
 class Login extends Component {
     state = {
@@ -25,16 +29,30 @@ class Login extends Component {
 
     }
 
+    registerHandler = () => {
+
+    }
+
     render() {
         return (
            <div className={classes.Login}>
                <div>
                    <h1>Авторизация</h1>
                    <form onSubmit={this.handleSubmit} className={classes.LoginForm}>
-                       <input type="text"/>
-                       <input type="password"/>
-                       <Button variant='primary' onClick={this.loginHandler}>Войти</Button>
-                       <Button variant='success' onClick={this.regHandler}>Зарегистрироваться</Button>
+                       <Input label={'Адрес электроной почты'} inputType={'text'}/>
+                       <Input label={'Пароль'}inputType={'password'}/>
+                       <div className={classes.buttons}>
+                           <Button className={classes.btnSuccess}
+                                   variant='primary'
+                                   onClick={this.loginHandler}>Войти</Button>
+                           <Link to={'/signup'}>
+                               <Button
+                                   variant='success'
+                                   onClick={this.registerHandler}
+                               >Зарегистрироваться</Button>
+                           </Link>
+                       </div>
+
                    </form>
                </div>
            </div>
