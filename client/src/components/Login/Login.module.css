@@ -1,0 +1,26 @@
+.Login {
+    display: flex;
+    justify-content: center;
+    padding-top: 100px;
+    flex-grow: 1;
+    width: 100%;
+    background: #fff;
+}
+
+.Login > div {
+    width: 100%;
+    max-width: 600px;
+    padding: 0 20px;
+}
+
+.Login h1 {
+    color: #000;
+    text-align: center;
+}
+
+.LoginForm {
+    background: #eee;
+    box-shadow: 2px 2px 2px rgba(0, 0, 0, .5);
+    padding: 15px;
+    border-radius: 5px;
+}
