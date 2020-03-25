@@ -1,0 +1,25 @@
+{
+  "files": {
+    "main.css": "/SAMS/static/css/main.13d1df2d.chunk.css",
+    "main.js": "/SAMS/static/js/main.8cceacf3.chunk.js",
+    "main.js.map": "/SAMS/static/js/main.8cceacf3.chunk.js.map",
+    "runtime-main.js": "/SAMS/static/js/runtime-main.ed634b2c.js",
+    "runtime-main.js.map": "/SAMS/static/js/runtime-main.ed634b2c.js.map",
+    "static/css/2.47e06e2e.chunk.css": "/SAMS/static/css/2.47e06e2e.chunk.css",
+    "static/js/2.0db51421.chunk.js": "/SAMS/static/js/2.0db51421.chunk.js",
+    "static/js/2.0db51421.chunk.js.map": "/SAMS/static/js/2.0db51421.chunk.js.map",
+    "index.html": "/SAMS/index.html",
+    "precache-manifest.c868ce65519db0cf04b3eb622e40b63e.js": "/SAMS/precache-manifest.c868ce65519db0cf04b3eb622e40b63e.js",
+    "service-worker.js": "/SAMS/service-worker.js",
+    "static/css/2.47e06e2e.chunk.css.map": "/SAMS/static/css/2.47e06e2e.chunk.css.map",
+    "static/css/main.13d1df2d.chunk.css.map": "/SAMS/static/css/main.13d1df2d.chunk.css.map",
+    "static/js/2.0db51421.chunk.js.LICENSE.txt": "/SAMS/static/js/2.0db51421.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.ed634b2c.js",
+    "static/css/2.47e06e2e.chunk.css",
+    "static/js/2.0db51421.chunk.js",
+    "static/css/main.13d1df2d.chunk.css",
+    "static/js/main.8cceacf3.chunk.js"
+  ]
+}
