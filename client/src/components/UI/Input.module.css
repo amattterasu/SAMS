@@ -3,10 +3,11 @@
 }
 
 .Input label {
-    margin-bottom: 4px;
+    margin-bottom: 3px;
     padding: 0;
     display: block;
     font-weight: bold;
+    margin-right: 10px;
 }
 
 .Input input {

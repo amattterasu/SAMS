@@ -40,3 +40,27 @@
 .btns {
     font-weight: 600;
 }
+
+.roleGroup {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-grow: 1;
+    padding: 10px;
+    flex-wrap: wrap;
+}
+
+.Login h2 {
+    font-size: 18px;
+    color: #000;
+    text-align: center;
+    display: block;
+    margin-right: 12px;
+    font-weight: 600;
+}
+
+.Login .role {
+    display: flex;
+    flex-wrap: wrap;
+
+}

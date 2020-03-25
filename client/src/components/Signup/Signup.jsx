@@ -2,15 +2,15 @@ import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import {Link} from "react-router-dom";
 
-import classes from './Login.module.css';
+import classes from "../Login/Login.module.css";
 
-import is from 'is_js';
-import {userLoginFetch} from '../../redux/actions/actions';
+import is from "is_js";
+import {userPostFetch} from '../../redux/actions/actions';
 
-import Button from 'react-bootstrap/Button';
+import Button from "react-bootstrap/Button";
 import Input from "../UI/Input";
 
-class Login extends Component {
+class Signup extends Component {
     state = {
         isFormValid: false,
         formControls: {
@@ -37,6 +37,30 @@ class Login extends Component {
                     required: true,
                     minLength: 6
                 }
+            },
+            password_confirm: {
+                value: '',
+                type: 'password',
+                label: 'Повторите пароль',
+                errorMessage: 'Длина пароля должна быть больше 6-ти символов',
+                valid: false,
+                touched: false,
+                validation: {
+                    required: true,
+                    minLength: 6
+                }
+            }
+        },
+        role: {
+            teacherRole: {
+                label: 'Преподаватель',
+                type: 'radio',
+                value: 'teacherRole'
+            },
+            StudentRole: {
+                label: 'Студент',
+                type: 'radio',
+                value: 'studentRole'
             }
         }
     }
@@ -89,13 +113,13 @@ class Login extends Component {
         //console.log(e.target.value)
     }
 
-    handleSubmit = event => {
-        event.preventDefault()
-        this.props.userLoginFetch(this.state)
+    registerHandler = () => {
+
     }
 
-    loginHandler = () => {
-
+    handleSubmit = event => {
+        event.preventDefault()
+        this.props.userPostFetch(this.state)
     }
 
     renderInputs() {
@@ -121,23 +145,41 @@ class Login extends Component {
         return (
             <div className={classes.Login}>
                 <div>
-                    <h1>Авторизация</h1>
+                    <h1>Регистрация</h1>
                     <form onSubmit={this.handleSubmit} className={classes.LoginForm}>
                         {
                             this.renderInputs()
                         }
+
+                        <div className={`${classes.roleGroup}`}>
+                            <h2>Выберите роль</h2>
+
+                            <div className={classes.role}>
+                                <Input type={'radio'}
+                                       label={'Преподаватель'}
+                                       value={'teacher'}
+                                       name={'role'}/>
+                                <Input type={'radio'}
+                                       label={'Студент'}
+                                       value={'student'}
+                                       name={'role'}/>
+                            </div>
+
+                        </div>
+
+                        <hr/>
                         <div className={classes.buttons}>
                             <Button className={`${classes.btnSuccess} ${classes.btns}`}
-                                    variant='primary'
-                                    onClick={this.loginHandler}
+                                    variant='success'
                                     disabled={!this.state.isFormValid}
-                            type={'submit'}>Войти</Button>
+                                    type={'submit'}>Зарегистрироваться</Button>
 
-                            <Link to={'/signup'}>
+                            <Link to={'/login'}>
                                 <Button
                                     className={`${classes.btns}`}
-                                    variant='success'
-                                >Зарегистрироваться</Button>
+                                    variant='primary'
+                                    onClick={this.registerHandler}
+                                >Авторизоваться</Button>
                             </Link>
                         </div>
                     </form>
@@ -148,7 +190,7 @@ class Login extends Component {
 }
 
 const mapDispatchToProps = dispatch => ({
-    userLoginFetch: userInfo => dispatch(userLoginFetch(userInfo))
+    userPostFetch: userInfo => dispatch(userPostFetch(userInfo))
 })
 
-export default connect(null, mapDispatchToProps)(Login);
+export default connect(null, mapDispatchToProps)(Signup);

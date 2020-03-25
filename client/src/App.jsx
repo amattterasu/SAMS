@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import {Switch, Route, BrowserRouter, withRouter} from 'react-router-dom';
 import {connect, Provider} from 'react-redux';
 import {getProfileFetch, logoutUser} from './redux/actions/actions';
-import Signup from './components/Signup';
+import Signup from './components/Signup/Signup';
 import Login from './components/Login/Login';
 import store from "./redux/redux-store";
 import {compose} from "redux";
