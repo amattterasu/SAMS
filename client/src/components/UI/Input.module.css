@@ -15,16 +15,18 @@
     margin: 0 0 5px;
     width: 100%;
     box-sizing: border-box;
-    border: 1px solid #bebebe;
+    border: 2px solid #dadada;
     outline: none;
     transition: all 300ms ease-in-out;
+    border-radius: 7px;
+    font-size: 16px;
 }
 
-.Input input:hover {
-    border: 1px solid blue;
-}
-.Input input:focus {
-    border: 1px solid darkblue;
+
+.Input input:focus, .Input input:hover {
+    outline: none;
+    border-color: #9ecaed;
+    box-shadow: 0 0 10px #9ecaed;
 }
 
 .Input span {

@@ -22,6 +22,7 @@ const Input = props => {
                    id={htmlFor}
                    value={props.value}
                    onChange={props.onChange}
+                   name={props.name}
             />
 
             {
@@ -29,7 +30,6 @@ const Input = props => {
                     ? <span> {props.errorMessage || 'Some error'}</span>
                     : null
             }
-
 
         </div>
     )

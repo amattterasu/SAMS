@@ -21,7 +21,7 @@
 .LoginForm {
     background: #eee;
     box-shadow: 2px 2px 2px rgba(0, 0, 0, .3);
-    padding: 15px;
+    padding: 20px;
     border-radius: 5px;
 }
 
@@ -34,4 +34,8 @@
 
 .btnSuccess {
     margin: 0 5px 5px 0;
+}
+
+.btns {
+    font-weight: 600;
 }

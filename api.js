@@ -21,18 +21,21 @@ router.get("/users", (request, response) => {
             headers(response, user)
             response.set('Access-Control-Allow-Methods', 'GET, OPTIONS');
             response.send(user);
-        });
+        })
+    //.then(response.send({status: "OK"}))
 });
 
-router.post("/users", (request, response) => {
-    const userData = {
-        login: request.body.username,
-        pass: request.body.password
-    }
-            headers(response)
-            response.set('Access-Control-Allow-Methods', 'POST, OPTIONS');
-            response.send(userData)
-});
+// router.post("/users", (request, response) => {
+//     const userData = {
+//         username: request.body.username,
+//         pass: request.body.password
+//     }
+//             headers(response)
+//             response.set('Access-Control-Allow-Methods', 'POST, OPTIONS');
+//             response.send(userData)
+// });
+
+//нельзя сразу 2 маршрута прописывать с одним и тем же методом
 
 router.post("/users", (request, response) => {
     User.create(request.body)

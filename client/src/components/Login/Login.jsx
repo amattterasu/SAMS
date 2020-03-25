@@ -18,6 +18,7 @@ class Login extends Component {
         this.setState({
             [event.target.name]: event.target.value
         });
+        console.log(this.state)
     }
 
     handleSubmit = event => {
@@ -39,14 +40,20 @@ class Login extends Component {
                <div>
                    <h1>Авторизация</h1>
                    <form onSubmit={this.handleSubmit} className={classes.LoginForm}>
-                       <Input label={'Адрес электроной почты'} inputType={'text'}/>
-                       <Input label={'Пароль'}inputType={'password'}/>
+                       <Input label={'Адрес электроной почты'}
+                              onChange={this.handleChange}
+                              name={'username'}/>
+                       <Input label={'Пароль'}
+                              type={'password'}
+                              onChange={this.handleChange}
+                              name={'password'}/>
                        <div className={classes.buttons}>
-                           <Button className={classes.btnSuccess}
+                           <Button className={`${classes.btnSuccess} ${classes.btns}`}
                                    variant='primary'
                                    onClick={this.loginHandler}>Войти</Button>
                            <Link to={'/signup'}>
                                <Button
+                                   className={`${classes.btns}`}
                                    variant='success'
                                    onClick={this.registerHandler}
                                >Зарегистрироваться</Button>
