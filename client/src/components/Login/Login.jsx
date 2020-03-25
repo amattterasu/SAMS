@@ -91,7 +91,7 @@ class Login extends Component {
 
     handleSubmit = event => {
         event.preventDefault()
-        this.props.userLoginFetch(this.state)
+        //this.props.userLoginFetch(this.state)
     }
 
     loginHandler = () => {

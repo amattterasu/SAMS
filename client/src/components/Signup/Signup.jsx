@@ -51,17 +51,9 @@ class Signup extends Component {
                 }
             }
         },
-        role: {
-            teacherRole: {
-                label: 'Преподаватель',
-                type: 'radio',
-                value: 'teacherRole'
-            },
-            StudentRole: {
-                label: 'Студент',
-                type: 'radio',
-                value: 'studentRole'
-            }
+        radioGroup: {
+            teacher: true,
+            student: false
         }
     }
 
@@ -87,10 +79,15 @@ class Signup extends Component {
         return isValid;
     }
 
+    handleRadio = event => {
+        let object = {};
+        object[event.target.value] = event.target.checked;
+
+        this.setState({radioGroup: object})
+    }
+
     onHandleChange = (e, controlName) => {
-        //     this.setState({
-        //         [e.target.name]: e.target.value
-        // });
+
         const formControls = {...this.state.formControls}
         const control = {...formControls[controlName]}
 
@@ -158,11 +155,15 @@ class Signup extends Component {
                                 <Input type={'radio'}
                                        label={'Преподаватель'}
                                        value={'teacher'}
-                                       name={'role'}/>
+                                       name={'role'}
+                                       checked={this.state.radioGroup.teacher}
+                                       onChange={this.handleRadio}/>
                                 <Input type={'radio'}
                                        label={'Студент'}
                                        value={'student'}
-                                       name={'role'}/>
+                                       name={'role'}
+                                       checked={this.state.radioGroup.student}
+                                       onChange={this.handleRadio}/>
                             </div>
 
                         </div>
