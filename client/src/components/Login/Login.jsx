@@ -10,39 +10,35 @@ import {userLoginFetch} from '../../redux/actions/actions';
 import Button from 'react-bootstrap/Button';
 import Input from "../UI/Input";
 
-// const validateEmail = (email) => {
-//     const re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-//     return re.test(String(email).toLowerCase());
-// }
-
 class Login extends Component {
     state = {
-       formControls: {
-           email: {
-               value: '',
-               type: 'email',
-               label: 'Адрес электронной почты',
-               errorMessage: 'Введите корректный email',
-               valid: false,
-               touched: false,
-               validation: {
-                   required: true,
-                   email: true
-               }
-           },
-           password: {
-               value: '',
-               type: 'password',
-               label: 'Пароль',
-               errorMessage: 'Длина пароля должна быть больше 6-ти символов',
-               valid: false,
-               touched: false,
-               validation: {
-                   required: true,
-                   minLength: 6
-               }
-           }
-       }
+        isFormValid: false,
+        formControls: {
+            email: {
+                value: '',
+                type: 'email',
+                label: 'Адрес электронной почты',
+                errorMessage: 'Введите корректный email',
+                valid: false,
+                touched: false,
+                validation: {
+                    required: true,
+                    email: true
+                }
+            },
+            password: {
+                value: '',
+                type: 'password',
+                label: 'Пароль',
+                errorMessage: 'Длина пароля должна быть больше 6-ти символов',
+                valid: false,
+                touched: false,
+                validation: {
+                    required: true,
+                    minLength: 6
+                }
+            }
+        }
     }
 
     validateControl = (value, validation) => {
@@ -68,21 +64,28 @@ class Login extends Component {
     }
 
     onHandleChange = (e, controlName) => {
-    //     this.setState({
-    //         [e.target.name]: e.target.value
-    // });
-    const formControls = { ...this.state.formControls }
-    const control = { ...formControls[controlName] }
+        //     this.setState({
+        //         [e.target.name]: e.target.value
+        // });
+        const formControls = {...this.state.formControls}
+        const control = {...formControls[controlName]}
 
-    control.value = e.target.value;
-    control.touched = true;
-    control.valid = this.validateControl(control.value, control.validation);
+        control.value = e.target.value;
+        control.touched = true;
+        control.valid = this.validateControl(control.value, control.validation);
 
-    formControls[controlName] = control;
+        formControls[controlName] = control;
 
-    this.setState({
-        formControls
-    })
+        let isFormValid = true;
+
+        Object.keys(formControls).forEach(name => {
+            isFormValid = formControls[name].value && isFormValid
+        })
+
+        this.setState({
+            formControls,
+            isFormValid
+        })
         //console.log(e.target.value)
     }
 
@@ -120,29 +123,30 @@ class Login extends Component {
 
     render() {
         return (
-           <div className={classes.Login}>
-               <div>
-                   <h1>Авторизация</h1>
-                   <form onSubmit={this.handleSubmit} className={classes.LoginForm}>
-                       {
-                           this.renderInputs()
-                       }
-                       <div className={classes.buttons}>
-                           <Button className={`${classes.btnSuccess} ${classes.btns}`}
-                                   variant='primary'
-                                   onClick={this.loginHandler}>Войти</Button>
-                           <Link to={'/signup'}>
-                               <Button
-                                   className={`${classes.btns}`}
-                                   variant='success'
-                                   onClick={this.registerHandler}
-                               >Зарегистрироваться</Button>
-                           </Link>
-                       </div>
+            <div className={classes.Login}>
+                <div>
+                    <h1>Авторизация</h1>
+                    <form onSubmit={this.handleSubmit} className={classes.LoginForm}>
+                        {
+                            this.renderInputs()
+                        }
+                        <div className={classes.buttons}>
+                            <Button className={`${classes.btnSuccess} ${classes.btns}`}
+                                    variant='primary'
+                                    onClick={this.loginHandler}
+                                    disabled={!this.state.isFormValid}>Войти</Button>
 
-                   </form>
-               </div>
-           </div>
+                            <Link to={'/signup'}>
+                                <Button
+                                    className={`${classes.btns}`}
+                                    variant='success'
+                                    onClick={this.registerHandler}
+                                >Зарегистрироваться</Button>
+                            </Link>
+                        </div>
+                    </form>
+                </div>
+            </div>
         )
     }
 }
