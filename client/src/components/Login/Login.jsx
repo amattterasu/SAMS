@@ -1,24 +1,89 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import {Link} from "react-router-dom";
+
 import classes from './Login.module.css';
 
+import is from 'is_js';
 import {userLoginFetch} from '../../redux/actions/actions';
 
 import Button from 'react-bootstrap/Button';
 import Input from "../UI/Input";
 
+// const validateEmail = (email) => {
+//     const re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+//     return re.test(String(email).toLowerCase());
+// }
+
 class Login extends Component {
     state = {
-        username: "",
-        password: ""
+       formControls: {
+           email: {
+               value: '',
+               type: 'email',
+               label: 'Адрес электронной почты',
+               errorMessage: 'Введите корректный email',
+               valid: false,
+               touched: false,
+               validation: {
+                   required: true,
+                   email: true
+               }
+           },
+           password: {
+               value: '',
+               type: 'password',
+               label: 'Пароль',
+               errorMessage: 'Длина пароля должна быть больше 6-ти символов',
+               valid: false,
+               touched: false,
+               validation: {
+                   required: true,
+                   minLength: 6
+               }
+           }
+       }
     }
 
-    handleChange = event => {
-        this.setState({
-            [event.target.name]: event.target.value
-        });
-        console.log(this.state)
+    validateControl = (value, validation) => {
+        if (!validation) {
+            return true
+        }
+
+        let isValid = true;
+
+        if (validation.required) {
+            isValid = value.trim() !== '' && isValid
+        }
+
+        if (validation.email) {
+            isValid = is.email(value) && isValid;
+        }
+
+        if (validation.minLength) {
+            isValid = value.trim().length >= validation.minLength && isValid
+        }
+
+        return isValid;
+    }
+
+    onHandleChange = (e, controlName) => {
+    //     this.setState({
+    //         [e.target.name]: e.target.value
+    // });
+    const formControls = { ...this.state.formControls }
+    const control = { ...formControls[controlName] }
+
+    control.value = e.target.value;
+    control.touched = true;
+    control.valid = this.validateControl(control.value, control.validation);
+
+    formControls[controlName] = control;
+
+    this.setState({
+        formControls
+    })
+        //console.log(e.target.value)
     }
 
     handleSubmit = event => {
@@ -34,19 +99,34 @@ class Login extends Component {
 
     }
 
+    renderInputs() {
+        return Object.keys(this.state.formControls).map((controlName, index) => {
+            const control = this.state.formControls[controlName]
+            return (
+                <Input
+                    key={controlName + index}
+                    type={control.type}
+                    touched={control.touched}
+                    value={control.value}
+                    valid={control.valid}
+                    label={control.label}
+                    shouldValidate={!!control.validation}
+                    errorMessage={control.errorMessage}
+                    onChange={e => this.onHandleChange(e, controlName)}
+                />
+            )
+        })
+    }
+
     render() {
         return (
            <div className={classes.Login}>
                <div>
                    <h1>Авторизация</h1>
                    <form onSubmit={this.handleSubmit} className={classes.LoginForm}>
-                       <Input label={'Адрес электроной почты'}
-                              onChange={this.handleChange}
-                              name={'username'}/>
-                       <Input label={'Пароль'}
-                              type={'password'}
-                              onChange={this.handleChange}
-                              name={'password'}/>
+                       {
+                           this.renderInputs()
+                       }
                        <div className={classes.buttons}>
                            <Button className={`${classes.btnSuccess} ${classes.btns}`}
                                    variant='primary'

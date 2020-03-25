@@ -23,7 +23,7 @@
 }
 
 
-.Input input:focus, .Input input:hover {
+.Input input:focus {
     outline: none;
     border-color: #9ecaed;
     box-shadow: 0 0 10px #9ecaed;
@@ -35,6 +35,3 @@
     font-weight: bold;
 }
 
-.Input.invalid label {
-    color: #ff0011;
-}
