@@ -24,6 +24,7 @@
     padding: 20px;
     border-radius: 5px;
     border: 1px solid #d7d6d6;
+    min-width: 265px;
 }
 
 .buttons {

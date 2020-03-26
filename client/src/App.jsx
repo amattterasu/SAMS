@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {Switch, Route, BrowserRouter, withRouter} from 'react-router-dom';
+import {Switch, Route, BrowserRouter, withRouter, Redirect, HashRouter} from 'react-router-dom';
 import {connect, Provider} from 'react-redux';
 import {getProfileFetch, logoutUser} from './redux/actions/actions';
 import Signup from './components/Signup/Signup';
@@ -21,7 +21,7 @@ class App extends Component {
     render() {
         return (
             <div>
-                <h1>React App</h1>
+                <h1>React Application</h1>
                 <Switch>
                     <Route path="/signup"
                            render={() => <Signup/>}/>
@@ -53,11 +53,11 @@ let AppContainer = compose(
     connect(mapStateToProps , mapDispatchToProps))(App);
 
 const MainApp = (props) => {
-    return <BrowserRouter>
+    return <HashRouter>
         <Provider store={store}>
             <AppContainer/>
         </Provider>
-    </BrowserRouter>
+    </HashRouter>
 }
 
 export default MainApp;
