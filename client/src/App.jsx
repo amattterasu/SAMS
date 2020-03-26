@@ -21,6 +21,7 @@ class App extends Component {
     render() {
         return (
             <div>
+                <h1>React App</h1>
                 <Switch>
                     <Route path="/signup"
                            render={() => <Signup/>}/>
@@ -53,7 +54,9 @@ let AppContainer = compose(
 
 const MainApp = (props) => {
     return <BrowserRouter>
-        <Provider store={store}> <AppContainer/> </Provider>
+        <Provider store={store}>
+            <AppContainer/>
+        </Provider>
     </BrowserRouter>
 }
 
