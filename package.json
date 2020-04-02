@@ -6,7 +6,7 @@
   "scripts": {
     "start": "env-cmd -f ./.env nodemon src/app.js"
   },
-  "author": "",
+  "author": "Andrey Gubaydullin <amattterasuuu@gmail.com>",
   "license": "ISC",
   "dependencies": {
     "axios": "^0.19.2",
@@ -14,5 +14,6 @@
     "express": "^4.17.1",
     "mongoose": "^5.9.2",
     "nodemon": "^2.0.2"
-  }
+  },
+  "repository": "https://github.com/amattterasu/SAMS.git"
 }
