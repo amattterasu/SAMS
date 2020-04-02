@@ -2,8 +2,7 @@ import React, {Component} from 'react';
 import {Switch, Route, BrowserRouter, withRouter, Redirect, HashRouter} from 'react-router-dom';
 import {connect, Provider} from 'react-redux';
 import {getProfileFetch, logoutUser} from './redux/actions/actions';
-import Signup from './components/Signup/Signup';
-import Login from './components/Login/Login';
+import Auth from './pages/Auth/Auth';
 import store from "./redux/redux-store";
 import {compose} from "redux";
 
@@ -20,14 +19,8 @@ class App extends Component {
 
     render() {
         return (
-            <div>
-                <h1>React Application</h1>
-                <Switch>
-                    <Route path="/signup"
-                           render={() => <Signup/>}/>
-                    <Route path="/login"
-                           render={() => <Login/>}/>
-                </Switch>
+            <div className={'wrapper'}>
+                <Auth/>
                 {
                     this.props.currentUser.username
                     ? <button onClick={this.handleClick}>Log Out</button>
@@ -53,11 +46,11 @@ let AppContainer = compose(
     connect(mapStateToProps , mapDispatchToProps))(App);
 
 const MainApp = (props) => {
-    return <HashRouter basename={process.env.PUBLIC_URL}>
+    return <BrowserRouter >
         <Provider store={store}>
             <AppContainer/>
         </Provider>
-    </HashRouter>
+    </BrowserRouter>
 }
 
 export default MainApp;
