@@ -1,8 +1,10 @@
 import React from 'react';
 import './Auth.scss';
-import LoginForm from '../../components/LoginForm/LoginForm'
 import {Route} from "react-router-dom";
+
 import RegisterForm from "../../components/RegisterForm/RegisterForm";
+import LoginForm from "../../components/LoginForm/LoginForm";
+
 
 const Auth = () => {
     return (
