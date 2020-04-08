@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 
 import {Link} from 'react-router-dom'
 import Button from "../Button/Button";
@@ -9,7 +9,6 @@ import BlockAuth from "../BlockAuth/BlockAuth";
 import {
     Form,
     Input,
-    Tooltip,
 } from 'antd';
 
 const formItemLayout = {
@@ -23,13 +22,14 @@ const formItemLayout = {
     },
 };
 
-const {success} = false;
-
 const RegisterForm = props => {
+
+    const [success, setSuccess] = useState(false);
 
     const [form] = Form.useForm();
     const onFinish = values => {
         console.log('Received values of form: ', values);
+        setSuccess(true);
     };
 
     return (
