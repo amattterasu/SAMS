@@ -49,11 +49,11 @@ let AppContainer = compose(
     connect(mapStateToProps , mapDispatchToProps))(App);
 
 const MainApp = (props) => {
-    return <BrowserRouter >
+    return <HashRouter basename={process.env.PUBLIC_URL}>
         <Provider store={store}>
             <AppContainer/>
         </Provider>
-    </BrowserRouter>
+    </HashRouter>
 }
 
 export default MainApp;

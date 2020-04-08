@@ -1,27 +1,27 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "28b9d2b723f06a3793efa49ec0aafc8d",
+    "revision": "0f5d47a7c35f9c306c1c3c4516f7c239",
     "url": "/SAMS/client/index.html"
   },
   {
-    "revision": "cc176fadd78116e59e57",
+    "revision": "8ddca3833e793a0f13d5",
     "url": "/SAMS/client/static/css/2.328d5c1c.chunk.css"
   },
   {
-    "revision": "5f03be52c1be1f136b53",
+    "revision": "7d86f395d66ce7fc389d",
     "url": "/SAMS/client/static/css/main.f530d7fb.chunk.css"
   },
   {
-    "revision": "cc176fadd78116e59e57",
-    "url": "/SAMS/client/static/js/2.a9eafdf4.chunk.js"
+    "revision": "8ddca3833e793a0f13d5",
+    "url": "/SAMS/client/static/js/2.b83ee9d1.chunk.js"
   },
   {
     "revision": "eff3b4d7e4bb0087ce53139cd90bc880",
-    "url": "/SAMS/client/static/js/2.a9eafdf4.chunk.js.LICENSE.txt"
+    "url": "/SAMS/client/static/js/2.b83ee9d1.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "5f03be52c1be1f136b53",
-    "url": "/SAMS/client/static/js/main.b381a674.chunk.js"
+    "revision": "7d86f395d66ce7fc389d",
+    "url": "/SAMS/client/static/js/main.71489b72.chunk.js"
   },
   {
     "revision": "1f801572c9993fff6be0",
