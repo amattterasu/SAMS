@@ -109,7 +109,7 @@ const RegisterForm = props => {
                                        prefix={<UserOutlined className="site-form-item-icon"/>}
                                        size="large"/>
                             </Form.Item>
-                            <Button type="primary" htmlType="submit">
+                            <Button type="primary" htmlType="submit" className='login-form-button'>
                                 Зарегистрироваться
                             </Button>
                             <Link className="auth__register-link" to={'/login'}>Войти в аккаунт</Link>
