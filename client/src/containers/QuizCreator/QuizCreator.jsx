@@ -3,8 +3,10 @@ import React from 'react';
 import './QuizCreator.scss';
 import Button from '../../components/Button/Button';
 import BlockAuth from '../../components/BlockAuth/BlockAuth';
+import Input from "../../components/UI/Input/Input";
+import Select from "../../components/UI/Select/Select";
+
 import {createControl} from '../../form/formFramework';
-import Input from "../../components/UI/Input";
 
 const createOptionControl = (number) => {
     return createControl({
@@ -32,7 +34,8 @@ class QuizCreator extends React.Component {
 
     state = {
         quiz: [],
-        formControls: createFormControls()
+        formControls: createFormControls(),
+        rightAnswerId: 1
     }
 
     submitHandler = event => {
@@ -56,20 +59,43 @@ class QuizCreator extends React.Component {
             const control = this.state.formControls[controlName]
 
             return (
-                <Input
-                    label={control.label}
-                    value={control.value}
-                    valid={control.valid}
-                    shouldValidate={!!control.validation}
-                    touched={control.touched}
-                    errorMessage={control.errorMessage}
-                    onChange={event => this.changeHandler(event.target.value, controlName)}
-                />
+                <React.Fragment key={controlName + index}>
+                    <Input
+                        label={control.label}
+                        value={control.value}
+                        valid={control.valid}
+                        shouldValidate={!!control.validation}
+                        touched={control.touched}
+                        errorMessage={control.errorMessage}
+                        onChange={event => this.changeHandler(event.target.value, controlName)}
+                    />
+                    {index === 0 ? <hr/> : null}
+                </React.Fragment>
             )
         })
     }
 
+    selectChangeHandler = event => {
+        this.setState({
+            rightAnswerId: +event.target.value
+        })
+    }
+
     render() {
+
+        const select = <Select
+            label='Выберите правильный ответ'
+            value={this.state.rightAnswerId}
+            onChange={this.selectChangeHandler}
+            options={[
+                {text: 1, value: 1},
+                {text: 2, value: 2},
+                {text: 3, value: 3},
+                {text: 4, value: 4},
+            ]}
+        />
+
+
         return (
             <div className='QuizCreator'>
                 <div>
@@ -80,12 +106,13 @@ class QuizCreator extends React.Component {
                             {
                                 this.renderControls()
                             }
-                            <select></select>
-
+                            {
+                                select
+                            }
                             <Button type="" onClick={this.addQuestionHandler}>
                                 Добавить вопрос
                             </Button>
-                            
+
                             <Button type="primary" onClick={this.createQuizHandler}>
                                 Создать тест
                             </Button>

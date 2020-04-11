@@ -8,7 +8,7 @@ import is from "is_js";
 import {userPostFetch} from '../../redux/actions/actions';
 
 import Button from "react-bootstrap/Button";
-import Input from "../../components/UI/Input";
+import Input from "../../components/UI/Input/Input";
 
 class Signup extends Component {
     state = {
