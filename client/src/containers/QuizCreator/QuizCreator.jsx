@@ -1,19 +1,38 @@
 import React from 'react';
+
 import './QuizCreator.scss';
-import Button from "../../components/Button/Button";
-import BlockAuth from "../../components/BlockAuth/BlockAuth";
+import Button from '../../components/Button/Button';
+import BlockAuth from '../../components/BlockAuth/BlockAuth';
+import {createControl} from '../../form/formFramework';
+import Input from "../../components/UI/Input";
+
+const createOptionControl = (number) => {
+    return createControl({
+            label: `Вариант ${number}`,
+            errorMessage: 'Значение не может быть пустым',
+            id: number
+        }, {required: true}
+    )
+}
+
+const createFormControls = () => {
+    return {
+        question: createControl({
+            label: 'Введите вопрос',
+            errorMessage: 'Вопрос не может быть пустым'
+        }, {required: true}),
+        option1: createOptionControl(1),
+        option2: createOptionControl(2),
+        option3: createOptionControl(3),
+        option4: createOptionControl(4)
+    }
+}
 
 class QuizCreator extends React.Component {
 
     state = {
         quiz: [],
-        formControls: {
-            question: '',
-            option1: '',
-            option2: '',
-            option3: '',
-            option4: ''
-        }
+        formControls: createFormControls()
     }
 
     submitHandler = event => {
@@ -28,6 +47,28 @@ class QuizCreator extends React.Component {
 
     }
 
+    changeHandler = (value, controlName) => {
+
+    }
+
+    renderControls = () => {
+        return Object.keys(this.state.formControls).map((controlName, index) => {
+            const control = this.state.formControls[controlName]
+
+            return (
+                <Input
+                    label={control.label}
+                    value={control.value}
+                    valid={control.valid}
+                    shouldValidate={!!control.validation}
+                    touched={control.touched}
+                    errorMessage={control.errorMessage}
+                    onChange={event => this.changeHandler(event.target.value, controlName)}
+                />
+            )
+        })
+    }
+
     render() {
         return (
             <div className='QuizCreator'>
@@ -36,18 +77,16 @@ class QuizCreator extends React.Component {
                     <BlockAuth>
                         <form onSubmit={this.submitHandler}>
 
-                            <input type="text"/>
-                            <input type="text"/>
-                            <input type="text"/>
-                            <input type="text"/>
-                            <input type="text"/>
-                            <input type="text"/>
-                            <select ></select>
+                            {
+                                this.renderControls()
+                            }
+                            <select></select>
 
-                            <Button type="primary" onClick={this.addQuestionHandler}>
+                            <Button type="" onClick={this.addQuestionHandler}>
                                 Добавить вопрос
                             </Button>
-                            <Button type="" onClick={this.createQuizHandler}>
+                            
+                            <Button type="primary" onClick={this.createQuizHandler}>
                                 Создать тест
                             </Button>
                         </form>
