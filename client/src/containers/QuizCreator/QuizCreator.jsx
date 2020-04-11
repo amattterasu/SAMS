@@ -6,7 +6,7 @@ import BlockAuth from '../../components/BlockAuth/BlockAuth';
 import Input from "../../components/UI/Input/Input";
 import Select from "../../components/UI/Select/Select";
 
-import {createControl} from '../../form/formFramework';
+import {createControl, validate, validateForm} from '../../form/formFramework';
 
 const createOptionControl = (number) => {
     return createControl({
@@ -35,7 +35,8 @@ class QuizCreator extends React.Component {
     state = {
         quiz: [],
         formControls: createFormControls(),
-        rightAnswerId: 1
+        rightAnswerId: 1,
+        isFormValid: false
     }
 
     submitHandler = event => {
@@ -51,6 +52,20 @@ class QuizCreator extends React.Component {
     }
 
     changeHandler = (value, controlName) => {
+        const formControls = {...this.state.formControls}
+        const control = {...formControls[controlName]}
+
+        control.touched = true
+        control.value = value
+        control.valid = validate(control.value, control.validation)
+
+        formControls[controlName] = control
+
+        this.setState({
+            formControls,
+            isFormValid: validateForm(formControls)
+        })
+
 
     }
 
