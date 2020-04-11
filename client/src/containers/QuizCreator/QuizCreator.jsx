@@ -43,8 +43,8 @@ class QuizCreator extends React.Component {
         event.preventDefault();
     }
 
-    addQuestionHandler = () => {
-
+    addQuestionHandler = event => {
+        event.preventDefault();
     }
 
     createQuizHandler = () => {
@@ -65,8 +65,6 @@ class QuizCreator extends React.Component {
             formControls,
             isFormValid: validateForm(formControls)
         })
-
-
     }
 
     renderControls = () => {
@@ -124,11 +122,15 @@ class QuizCreator extends React.Component {
                             {
                                 select
                             }
-                            <Button type="" onClick={this.addQuestionHandler}>
+                            <Button type=""
+                                    onClick={this.addQuestionHandler}
+                                    disabled={!this.state.isFormValid}>
                                 Добавить вопрос
                             </Button>
 
-                            <Button type="primary" onClick={this.createQuizHandler}>
+                            <Button type="primary"
+                                    onClick={this.createQuizHandler}
+                                    disabled={this.state.quiz.length === 0}>
                                 Создать тест
                             </Button>
                         </form>
