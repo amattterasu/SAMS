@@ -1,29 +1,34 @@
 import React from 'react';
-import './Select.scss'
+import './mySelect.scss'
 
-const Select = props => {
+import { Select } from 'antd';
+const { Option } = Select;
+
+
+
+const mySelect = props => {
 
     const htmlFor = `${props.label}-${Math.random()}`
 
     return (
         <div className='Select'>
             <label htmlFor={htmlFor}>{props.label}</label>
-            <select
+            <Select
                 id={htmlFor}
                 value={props.value}
                 onChange={props.onChange}>
                 {props.options.map((option, index) => {
                     return (
-                        <option
+                        <Option
                             value={option.value}
                             key={option.value + index}>
                             {option.text}
-                        </option>
+                        </Option>
                     )
                 })}
-            </select>
+            </Select>
         </div>
     );
 };
 
-export default Select;
+export default mySelect;
