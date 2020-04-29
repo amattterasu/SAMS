@@ -1,0 +1,32 @@
+.QuizCreator {
+  display: flex;
+  justify-content: center;
+  padding-top: 50px;
+  flex-grow: 1;
+  width: 100%;
+
+  > div {
+    width: 100%;
+    max-width: 600px;
+    padding: 0 20px;
+  }
+
+  h1 {
+    text-align: center;
+  }
+
+  form {
+    padding: 15px;
+  }
+
+  .block {
+    min-width: 450px;
+    padding: 20px;
+  }
+
+  .container-bnt{
+    display: flex;
+    justify-content: space-between;
+  }
+}
+

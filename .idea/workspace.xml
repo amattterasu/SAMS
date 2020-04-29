@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="4a698bd4-533b-43b2-9456-e23108b775f1" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LICENSE" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/User.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/api.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/build/asset-manifest.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/build/favicon.ico" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/build/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/build/logo192.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/build/logo512.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/build/manifest.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/build/precache-manifest.88c07c528808858699db20f41b0c0161.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/build/robots.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/build/service-worker.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/build/static/css/2.328d5c1c.chunk.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/build/static/css/2.328d5c1c.chunk.css.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/build/static/css/main.f530d7fb.chunk.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/build/static/css/main.f530d7fb.chunk.css.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/build/static/js/2.b83ee9d1.chunk.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/build/static/js/2.b83ee9d1.chunk.js.LICENSE.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/build/static/js/2.b83ee9d1.chunk.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/build/static/js/main.71489b72.chunk.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/build/static/js/main.71489b72.chunk.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/build/static/js/runtime-main.35b0b7e1.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/build/static/js/runtime-main.35b0b7e1.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/package-lock.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/package.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/public/favicon.ico" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/public/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/public/logo192.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/public/logo512.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/public/manifest.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/public/robots.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/App.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/App.jsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/components/BlockAuth/BlockAuth.jsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/components/BlockAuth/BlockAuth.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/components/Button/Button.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/components/Button/Button.jsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/components/LoginForm/LoginForm.jsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/components/RegisterForm/RegisterForm.jsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/components/UI/Input/Input.jsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/components/UI/Input/Input.module.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/components/UI/SelectComponent/SelectComponent.jsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/components/UI/SelectComponent/SelectComponent.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/containers/QuizCreator/QuizCreator.jsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/containers/QuizCreator/QuizCreator.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/form/formFramework.jsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/index.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/pages/Auth/Auth.jsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/pages/Auth/Auth.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/pages/Helpme/Signup.jsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/pages/Helpme/Signup.module.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/pages/Home/Home.jsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/pages/Home/Home.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/redux/actions/actions.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/redux/actions/tokens.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/redux/reducers/authReducer.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/redux/redux-store.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/serviceWorker.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/setupTests.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/styles/index.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/yarn.lock" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectId" id="1ZyUnMyyyRHvuNf5gnBP3qQqB6h" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="nodejs_package_manager_path" value="npm" />
+    <property name="settings.editor.selected.configurable" value="editor.preferences.fonts.default" />
+    <property name="ts.external.directory.path" value="D:\Others\WebStorm 2019.3.3\plugins\JavaScriptLanguage\jsLanguageServicesImpl\external" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\No_Name\Desktop\SAMS\client\src\components\UI\Input" />
+      <recent name="C:\Users\No_Name\Desktop\SAMS\client\src\components" />
+      <recent name="C:\Users\No_Name\Desktop\SAMS\client\src\modules\RegisterForm\containers" />
+      <recent name="C:\Users\No_Name\Desktop\SAMS\client\src\modules\RegisterForm\components" />
+      <recent name="C:\Users\No_Name\Desktop\SAMS\client\src\modules\LoginForm\components" />
+    </key>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="4a698bd4-533b-43b2-9456-e23108b775f1" name="Default Changelist" comment="" />
+      <created>1585810994371</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1585810994371</updated>
+      <workItem from="1585811000796" duration="18713000" />
+      <workItem from="1585838319319" duration="6234000" />
+      <workItem from="1585844759651" duration="8000" />
+      <workItem from="1585888456101" duration="5469000" />
+      <workItem from="1585896769849" duration="2103000" />
+      <workItem from="1586185153619" duration="2130000" />
+      <workItem from="1586340136618" duration="1346000" />
+      <workItem from="1586341579666" duration="68000" />
+      <workItem from="1586341664966" duration="3137000" />
+      <workItem from="1586353870365" duration="8165000" />
+      <workItem from="1586596107017" duration="11718000" />
+      <workItem from="1586669369859" duration="12635000" />
+      <workItem from="1587486682218" duration="653000" />
+      <workItem from="1587487518784" duration="1017000" />
+      <workItem from="1588150868923" duration="2064000" />
+      <workItem from="1588164193188" duration="76000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="2" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="339" y="326" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1585815846003">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="339" y="326" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1585815846003" />
+    <state x="107" y="301" key="EditFileWatcherDialog" timestamp="1585818804813">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="107" y="301" key="EditFileWatcherDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1585818804813" />
+    <state width="936" height="281" key="GridCell.Tab.0.bottom" timestamp="1586342790807">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="936" height="281" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1586342790807" />
+    <state width="936" height="281" key="GridCell.Tab.0.center" timestamp="1586342790807">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="936" height="281" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1586342790807" />
+    <state width="936" height="281" key="GridCell.Tab.0.left" timestamp="1586342790807">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="936" height="281" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1586342790807" />
+    <state width="936" height="281" key="GridCell.Tab.0.right" timestamp="1586342790807">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="936" height="281" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1586342790807" />
+    <state x="771" y="153" key="SettingsEditor" timestamp="1586341781220">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="771" y="153" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1586341781220" />
+    <state width="498" height="446" key="SwitcherDM" timestamp="1586606757010">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="498" height="446" key="SwitcherDM/0.0.1920.1040@0.0.1920.1040" timestamp="1586606757010" />
+    <state x="231" y="244" key="run.anything.popup" timestamp="1586679184119">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="231" y="244" key="run.anything.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1586679184119" />
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1588163350358">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1588163350358" />
+  </component>
+</project>
