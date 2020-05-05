@@ -5,7 +5,6 @@ import Button from "../Button/Button";
 import {UserOutlined, LockOutlined} from '@ant-design/icons';
 import BlockAuth from "../BlockAuth/BlockAuth";
 
-
 const onFinish = values => {
     console.log('Received values of form: ', values);
 };
@@ -32,7 +31,9 @@ class LoginForm extends React.Component {
                             <Input
                                 size="large"
                                 prefix={<UserOutlined className="site-form-item-icon"/>}
-                                placeholder="Имя пользователя"/>
+                                placeholder="Имя пользователя"
+                            />
+
                         </Form.Item>
                         <Form.Item
                             name="password"

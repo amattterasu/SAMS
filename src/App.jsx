@@ -6,8 +6,9 @@ import {Switch, Route, BrowserRouter, withRouter, HashRouter} from 'react-router
 // import store from "./redux/redux-store";
 // import {getProfileFetch, logoutUser} from './redux/actions/actions';
 import Auth from './pages/Auth/Auth';
-// import Home from "./pages/Home/Home";
+import Home from "./pages/Home/Home";
 import QuizCreator from "./containers/QuizCreator/QuizCreator";
+import Header from "./components/Header/Header";
 
 class App extends Component {
     // componentDidMount = () => {
@@ -24,11 +25,14 @@ class App extends Component {
         return (
             <div className={'wrapper'}>
                 <BrowserRouter>
-                    <Switch>
-                        <Route exact path={["/", "/login", "/signup"]} render={() => <Auth/>}/>
-                        <Route exact path='/quiz-creator' render={() => <QuizCreator/>}/>
-                        {/*<Route exact path="/im" render={() => <Home/>}/>*/}
-                    </Switch>
+                    <Header />
+                   <div>
+                       <Switch>
+                           <Route exact path={["/", "/login", "/signup"]} render={() => <Auth/>}/>
+                           <Route exact path='/quiz-creator' render={() => <QuizCreator/>}/>
+                           <Route exact path="/im" render={() => <Home/>}/>
+                       </Switch>
+                   </div>
                 </BrowserRouter>
             </div>
         );

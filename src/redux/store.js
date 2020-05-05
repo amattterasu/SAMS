@@ -1,6 +1,7 @@
 import {applyMiddleware, combineReducers, compose, createStore} from "redux";
 import authReducer from "./reducers/authReducer";
 import thunkMiddleware from "redux-thunk";
+import {logger} from "redux-logger";
 
 const reducers = combineReducers({
     auth: authReducer
@@ -11,7 +12,8 @@ const reducers = combineReducers({
 
 const store = createStore(reducers, compose(
     window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__(),
-    applyMiddleware(thunkMiddleware)
+    applyMiddleware(thunkMiddleware),
+    applyMiddleware(logger)
 ));
 
 window.__store__ = store;

@@ -2,74 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4a698bd4-533b-43b2-9456-e23108b775f1" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LICENSE" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/User.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/api.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/build/asset-manifest.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/build/favicon.ico" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/build/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/build/logo192.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/build/logo512.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/build/manifest.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/build/precache-manifest.88c07c528808858699db20f41b0c0161.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/build/robots.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/build/service-worker.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/build/static/css/2.328d5c1c.chunk.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/build/static/css/2.328d5c1c.chunk.css.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/build/static/css/main.f530d7fb.chunk.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/build/static/css/main.f530d7fb.chunk.css.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/build/static/js/2.b83ee9d1.chunk.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/build/static/js/2.b83ee9d1.chunk.js.LICENSE.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/build/static/js/2.b83ee9d1.chunk.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/build/static/js/main.71489b72.chunk.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/build/static/js/main.71489b72.chunk.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/build/static/js/runtime-main.35b0b7e1.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/build/static/js/runtime-main.35b0b7e1.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/package-lock.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/package.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/public/favicon.ico" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/public/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/public/logo192.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/public/logo512.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/public/manifest.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/public/robots.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/App.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/App.jsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/BlockAuth/BlockAuth.jsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/BlockAuth/BlockAuth.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/Button/Button.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/Button/Button.jsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/LoginForm/LoginForm.jsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/RegisterForm/RegisterForm.jsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/UI/Input/Input.jsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/UI/Input/Input.module.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/UI/SelectComponent/SelectComponent.jsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/UI/SelectComponent/SelectComponent.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/containers/QuizCreator/QuizCreator.jsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/containers/QuizCreator/QuizCreator.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/form/formFramework.jsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/index.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/index.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/pages/Auth/Auth.jsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/pages/Auth/Auth.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/pages/Helpme/Signup.jsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/pages/Helpme/Signup.module.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/pages/Home/Home.jsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/pages/Home/Home.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/redux/actions/actions.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/redux/actions/tokens.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/redux/reducers/authReducer.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/redux/redux-store.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/serviceWorker.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/setupTests.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/styles/index.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/yarn.lock" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/index.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/Header/Header.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/Header/Header.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/LoginForm/LoginForm.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/LoginForm/LoginForm.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/Auth/Auth.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Auth/Auth.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/redux/redux-store.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/redux/store.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -127,7 +67,11 @@
       <workItem from="1587486682218" duration="653000" />
       <workItem from="1587487518784" duration="1017000" />
       <workItem from="1588150868923" duration="2064000" />
-      <workItem from="1588164193188" duration="76000" />
+      <workItem from="1588164193188" duration="6177000" />
+      <workItem from="1588589534726" duration="52000" />
+      <workItem from="1588589675537" duration="97000" />
+      <workItem from="1588597460602" duration="1202000" />
+      <workItem from="1588678036884" duration="8728000" />
     </task>
     <servers />
   </component>
@@ -167,10 +111,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="498" height="446" key="SwitcherDM/0.0.1920.1040@0.0.1920.1040" timestamp="1586606757010" />
-    <state x="231" y="244" key="run.anything.popup" timestamp="1586679184119">
+    <state x="231" y="244" key="run.anything.popup" timestamp="1588696778182">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="231" y="244" key="run.anything.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1586679184119" />
+    <state x="231" y="244" key="run.anything.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1588696778182" />
     <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1588163350358">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
