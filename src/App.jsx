@@ -9,6 +9,7 @@ import Auth from './pages/Auth/Auth';
 import Home from "./pages/Home/Home";
 import QuizCreator from "./containers/QuizCreator/QuizCreator";
 import Header from "./components/Header/Header";
+import QRCreator from "./containers/QR/QR";
 
 class App extends Component {
     // componentDidMount = () => {
@@ -31,6 +32,7 @@ class App extends Component {
                            <Route exact path={["/", "/login", "/signup"]} render={() => <Auth/>}/>
                            <Route exact path='/quiz-creator' render={() => <QuizCreator/>}/>
                            <Route exact path="/im" render={() => <Home/>}/>
+                           <Route exact path="/qr-creator" render={() => <QRCreator/>}/>
                        </Switch>
                    </div>
                 </BrowserRouter>

@@ -5,7 +5,7 @@ import './Home.scss';
 const Home = () => {
     return (
         <section className={'home'}>
-           <h1>Hello world</h1>
+           <h1 style={{ textAlign: "center" }}>Hello world</h1>
         </section>
     );
 };

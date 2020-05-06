@@ -15,6 +15,9 @@ const Header = () => {
                 <div className='headerItem'>
                     <NavLink to='/quiz-creator'>Создание тестов</NavLink>
                 </div>
+                <div className='headerItem'>
+                    <NavLink to='/qr-creator'>Генерация QR-кода</NavLink>
+                </div>
             </div>
         </header>
     );
