@@ -7,9 +7,11 @@ import {Switch, Route, BrowserRouter, withRouter, HashRouter} from 'react-router
 // import {getProfileFetch, logoutUser} from './redux/actions/actions';
 import Auth from './pages/Auth/Auth';
 import Home from "./pages/Home/Home";
+
 import QuizCreator from "./containers/QuizCreator/QuizCreator";
-import Header from "./components/Header/Header";
 import QRCreator from "./containers/QR/QR";
+
+import Header from "./components/Header/Header";
 
 class App extends Component {
     // componentDidMount = () => {
@@ -33,6 +35,7 @@ class App extends Component {
                            <Route exact path='/quiz-creator' render={() => <QuizCreator/>}/>
                            <Route exact path="/im" render={() => <Home/>}/>
                            <Route exact path="/qr-creator" render={() => <QRCreator/>}/>
+                           <Route exact path="/event-creator" render={() => <Home/>}/>
                        </Switch>
                    </div>
                 </BrowserRouter>

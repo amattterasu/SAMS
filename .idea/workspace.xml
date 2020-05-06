@@ -3,8 +3,12 @@
   <component name="ChangeListManager">
     <list default="true" id="4a698bd4-533b-43b2-9456-e23108b775f1" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Header/Header.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Header/Header.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Header/Header.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Header/Header.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/containers/QR/QR.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/containers/QR/QR.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/containers/QR/QR.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/containers/QR/QR.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/containers/QuizCreator/QuizCreator.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/containers/QuizCreator/QuizCreator.jsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -66,7 +70,7 @@
       <workItem from="1588589675537" duration="97000" />
       <workItem from="1588597460602" duration="1202000" />
       <workItem from="1588678036884" duration="9982000" />
-      <workItem from="1588739243776" duration="14057000" />
+      <workItem from="1588739243776" duration="17866000" />
     </task>
     <servers />
   </component>

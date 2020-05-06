@@ -159,7 +159,7 @@ class QuizCreator extends React.Component {
 
                                 <Button type="primary"
                                         onClick={this.createQuizHandler}
-                                        disabled={this.state.quiz.length === 0}>
+                                        disabled={!this.state.quiz.length}>
                                     Создать тест
                                 </Button>
                             </div>

@@ -79,8 +79,9 @@ class QRCreator extends React.Component {
                             <Button type="primary"
                                     htmlType="submit"
                                     size='large'
-                                    loading={loadings[0]} onClick={() => this.enterLoading(0)}
-                            >
+                                    loading={loadings[0]}
+                                    onClick={() => this.enterLoading(0)}
+                                    disabled={!this.state.value.length}>
                                 Отправить на устройство
                             </Button>
                         </div>
