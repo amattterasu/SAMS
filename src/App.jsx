@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {Switch, Route, BrowserRouter, withRouter, HashRouter} from 'react-router-dom';
+import {Switch, Route, BrowserRouter} from 'react-router-dom';
 // import {connect, Provider} from 'react-redux';
 // import {compose} from "redux";
 
@@ -12,6 +12,7 @@ import QuizCreator from "./containers/QuizCreator/QuizCreator";
 import QRCreator from "./containers/QR/QR";
 
 import Header from "./components/Header/Header";
+import Events from "./containers/Events/Events";
 
 class App extends Component {
     // componentDidMount = () => {
@@ -35,7 +36,7 @@ class App extends Component {
                            <Route exact path='/quiz-creator' render={() => <QuizCreator/>}/>
                            <Route exact path="/im" render={() => <Home/>}/>
                            <Route exact path="/qr-creator" render={() => <QRCreator/>}/>
-                           <Route exact path="/event-creator" render={() => <Home/>}/>
+                           <Route exact path="/event-creator" render={() => <Events/>}/>
                        </Switch>
                    </div>
                 </BrowserRouter>

@@ -2,13 +2,16 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4a698bd4-533b-43b2-9456-e23108b775f1" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/components/MyCalendar/MyCalendar.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/containers/Events/Events.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/containers/Events/Events.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/App.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Header/Header.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Header/Header.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/Header/Header.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Header/Header.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/containers/QR/QR.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/containers/QR/QR.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/containers/QR/QR.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/containers/QR/QR.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/containers/QuizCreator/QuizCreator.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/containers/QuizCreator/QuizCreator.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/styles/index.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/styles/index.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -70,7 +73,7 @@
       <workItem from="1588589675537" duration="97000" />
       <workItem from="1588597460602" duration="1202000" />
       <workItem from="1588678036884" duration="9982000" />
-      <workItem from="1588739243776" duration="17866000" />
+      <workItem from="1588739243776" duration="26795000" />
     </task>
     <servers />
   </component>
@@ -114,10 +117,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="231" y="244" key="run.anything.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1588696778182" />
-    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1588751925049">
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1588770820707">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1588751925049" />
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1588770820707" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -126,12 +129,6 @@
           <url>file://$PROJECT_DIR$/src/pages/Auth/Auth.jsx</url>
           <properties lambdaOrdinal="-1" />
           <option name="timeStamp" value="1" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="javascript">
-          <url>file://$PROJECT_DIR$/src/containers/QR/QR.jsx</url>
-          <line>48</line>
-          <properties lambdaOrdinal="-1" />
-          <option name="timeStamp" value="3" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
