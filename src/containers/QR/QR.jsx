@@ -2,6 +2,7 @@ import React from 'react';
 import {Input} from 'antd';
 import './QR.scss'
 import Button from "../../components/Button/Button";
+import BlockAuth from "../../components/BlockAuth/BlockAuth";
 
 const QRCode = require('qrcode.react');
 const {TextArea} = Input;
@@ -42,21 +43,20 @@ class QRCreator extends React.Component {
     render() {
         const {loadings} = this.state;
         return (
-            <div className='qrcode'>
+            <div className='qrcodeContainer'>
                 <h1>Генерация QR-кода</h1>
-
-                <div>
-
-                    <form onSubmit={this.addQRHandler}>
-                        <TextArea
-                            value={this.state.value}
-                            style={{width: '400px'}}
-                            onChange={this.handleChange}
-                            maxLength={23000}
-                            placeholder='Введите что-либо для кодирования...'
-                        />
-
-                        <div>
+                <BlockAuth>
+                    <form className='qrcodeForm' onSubmit={this.addQRHandler}>
+                        <div className='formItem'>
+                            <TextArea
+                                value={this.state.value}
+                                style={{width: '400px'}}
+                                onChange={this.handleChange}
+                                maxLength={23000}
+                                placeholder='Введите что-либо для кодирования...'
+                            />
+                        </div>
+                        <div className='formItem'>
                             <QRCode //http://zpao.github.io/qrcode.react/
                                 value={this.state.value}
                                 size={256}
@@ -75,21 +75,18 @@ class QRCreator extends React.Component {
                                 }}
                             />
                         </div>
-                        <div>
-
+                        <div className='formItem'>
                             <Button type="primary"
                                     htmlType="submit"
                                     size='large'
                                     loading={loadings[0]} onClick={() => this.enterLoading(0)}
                             >
-                                Отправить на устройствао
+                                Отправить на устройство
                             </Button>
                         </div>
 
                     </form>
-
-                </div>
-
+                </BlockAuth>
 
             </div>
         );

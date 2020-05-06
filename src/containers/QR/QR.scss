@@ -1,5 +1,16 @@
-.qrcode {
+.qrcodeContainer {
   display: flex;
   align-items: center;
   flex-direction: column;
+  padding-top: 50px;
+
+  .qrcodeForm {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+
+    .formItem {
+      margin-top: 20px;
+    }
+  }
 }
