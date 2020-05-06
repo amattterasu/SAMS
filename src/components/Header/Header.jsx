@@ -10,13 +10,13 @@ const Header = () => {
                     <h1><NavLink to='/'>СКП</NavLink></h1>
                 </div>
                 <div className='headerItem'>
-                    <NavLink to='/im'>Главная</NavLink>
+                    <NavLink className='headerLink' to='/im'>Главная</NavLink>
                 </div>
                 <div className='headerItem'>
-                    <NavLink to='/quiz-creator'>Создание тестов</NavLink>
+                    <NavLink className='headerLink' to='/quiz-creator'>Создание тестов</NavLink>
                 </div>
                 <div className='headerItem'>
-                    <NavLink to='/qr-creator'>Генерация QR-кода</NavLink>
+                    <NavLink className='headerLink' to='/qr-creator'>Генерация QR-кода</NavLink>
                 </div>
             </div>
         </header>

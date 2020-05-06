@@ -9,12 +9,28 @@ const {TextArea} = Input;
 class QRCreator extends React.Component {
 
     state = {
-        value: ''
+        value: '',
+        loadings: []
     }
+
+    enterLoading = index => {
+        const newLoadings = [...this.state.loadings];
+        newLoadings[index] = true;
+        this.setState({
+            loadings: newLoadings,
+        });
+        setTimeout(() => {
+            newLoadings[index] = false;
+            this.setState({loadings: newLoadings});
+        }, 2000);
+    };
 
     addQRHandler = event => {
         event.preventDefault()
-        console.log(this.state.value)
+
+        if (this.state.value) {
+            console.log(this.state.value)
+        }
     }
 
     handleChange = event => {
@@ -24,6 +40,7 @@ class QRCreator extends React.Component {
     }
 
     render() {
+        const {loadings} = this.state;
         return (
             <div className='qrcode'>
                 <h1>Генерация QR-кода</h1>
@@ -58,12 +75,14 @@ class QRCreator extends React.Component {
                                 }}
                             />
                         </div>
-
-
-
                         <div>
-                            <Button type="primary" htmlType="submit" className="login-form-button" size='large'>
-                              Отправить на устройства
+
+                            <Button type="primary"
+                                    htmlType="submit"
+                                    size='large'
+                                    loading={loadings[0]} onClick={() => this.enterLoading(0)}
+                            >
+                                Отправить на устройствао
                             </Button>
                         </div>
 

@@ -6,9 +6,19 @@ header {
 
   a {
     color: #fff;
-    &:hover {
+  }
+
+  .headerLink {
+    color: #fff;
+
+    &:focus {
+      color: #1890ff;
+      padding-bottom: 15px;
+      border-bottom: 2px solid #1890ff;
+    }
+
+    &:active {
       color: #dadada;
-      border-bottom: 1px solid #dadada;
     }
   }
 
