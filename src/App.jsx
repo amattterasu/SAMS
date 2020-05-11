@@ -1,10 +1,11 @@
 import React, {Component} from 'react';
-import {Switch, Route, BrowserRouter} from 'react-router-dom';
-// import {connect, Provider} from 'react-redux';
-// import {compose} from "redux";
+import {Switch, Route, BrowserRouter, withRouter} from 'react-router-dom';
+import {connect, Provider} from 'react-redux';
+import {compose} from "redux";
 
-// import store from "./redux/redux-store";
-// import {getProfileFetch, logoutUser} from './redux/actions/actions';
+import store from "./redux/store";
+import {getProfileFetch, logoutUser} from './redux/actions/actions';
+
 import Auth from './pages/Auth/Auth';
 import Home from "./pages/Home/Home";
 
@@ -28,44 +29,42 @@ class App extends Component {
     render() {
         return (
             <div className={'wrapper'}>
-                <BrowserRouter>
-                    <Header />
-                   <div>
-                       <Switch>
-                           <Route exact path={["/", "/login", "/signup"]} render={() => <Auth/>}/>
-                           <Route exact path='/quiz-creator' render={() => <QuizCreator/>}/>
-                           <Route exact path="/im" render={() => <Home/>}/>
-                           <Route exact path="/qr-creator" render={() => <QRCreator/>}/>
-                           <Route exact path="/event-creator" render={() => <Events/>}/>
-                       </Switch>
-                   </div>
-                </BrowserRouter>
+                <Header/>
+                <div>
+                    <Switch>
+                        <Route exact path={["/", "/login", "/signup"]} render={() => <Auth/>}/>
+                        <Route exact path='/quiz-creator' render={() => <QuizCreator/>}/>
+                        <Route exact path="/im" render={() => <Home/>}/>
+                        <Route exact path="/qr-creator" render={() => <QRCreator/>}/>
+                        <Route exact path="/event-creator" render={() => <Events/>}/>
+                    </Switch>
+                </div>
             </div>
         );
     }
 }
 
-// const mapStateToProps = state => ({
-//     //currentUser: state.auth.currentUser
-// })
-//
-// const mapDispatchToProps = dispatch => ({
-//     //getProfileFetch: () => dispatch(getProfileFetch()),
-//     //logoutUser: () => dispatch(logoutUser())
-// })
-//
-// let AppContainer = compose(
-//     withRouter,
-//     connect(mapStateToProps, mapDispatchToProps))(App);
+const mapStateToProps = state => ({
+    //currentUser: state.auth.currentUser
+})
 
-export default App
+const mapDispatchToProps = dispatch => ({
+    //getProfileFetch: () => dispatch(getProfileFetch()),
+    //logoutUser: () => dispatch(logoutUser())
+})
 
-// const MainApp = (props) => {
-//     return <BrowserRouter>
-//         <AppContainer/>
-//     </BrowserRouter>
-// }
-//
-// export default MainApp;
+let AppContainer = compose(
+    withRouter,
+    connect(mapStateToProps, mapDispatchToProps))(App);
+
+const MainApp = props => {
+    return <BrowserRouter>
+        <Provider store={store}>
+            <AppContainer/>
+        </Provider>
+    </BrowserRouter>
+}
+
+export default MainApp;
 
 //basename={process.env.PUBLIC_URL}

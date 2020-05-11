@@ -1,10 +1,12 @@
-import React, {useState} from 'react';
-
+import React, {useState} from 'react'
 import {Link} from 'react-router-dom'
-import Button from "../Button/Button";
-import {InfoCircleTwoTone, LockOutlined, UserOutlined, MailOutlined} from '@ant-design/icons';
+import {connect} from "react-redux"
 
-import BlockAuth from "../BlockAuth/BlockAuth";
+import {userPostFetch} from "../../redux/actions/actions"
+import BlockAuth from "../BlockAuth/BlockAuth"
+
+import Button from "../Button/Button"
+import {InfoCircleTwoTone, LockOutlined, UserOutlined, MailOutlined} from '@ant-design/icons'
 
 import {
     Form,
@@ -24,13 +26,14 @@ const formItemLayout = {
 
 const RegisterForm = props => {
 
-    const [success, setSuccess] = useState(false);
+    const [success, setSuccess] = useState(false)
 
-    const [form] = Form.useForm();
+    const [form] = Form.useForm()
     const onFinish = values => {
-        console.log('Received values of form: ', values);
-        setSuccess(true);
-    };
+        props.userPostFetch(values)
+        //console.log('Received values of form: ', values);
+        setSuccess(true)
+    }
 
     return (
         <div>
@@ -129,5 +132,9 @@ const RegisterForm = props => {
     );
 }
 
-export default RegisterForm;
+const mapDispatchToProps = dispatch => ({
+    userPostFetch: user => dispatch(userPostFetch(user))
+})
+
+export default connect(null, mapDispatchToProps)(RegisterForm)
 

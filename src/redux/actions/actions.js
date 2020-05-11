@@ -1,4 +1,4 @@
-const URL = "http://localhost:4000/api/";
+const URL = "http://localhost:4000/api/"; //Path to server
 
 const loginUser = userObj => ({
     type: 'LOGIN_USER',
@@ -10,6 +10,7 @@ export const logoutUser = () => ({
 })
 
 export const userPostFetch = user => {
+    console.log(user)
     return dispatch => {
         return fetch(URL + 'users', {
             credentials: 'include',
@@ -19,10 +20,11 @@ export const userPostFetch = user => {
                 Accept: 'application/json',
             },
             body: JSON.stringify({
-                token: user.username + user.password,
-                username: user.username,
+                username: user.email,
                 password: user.password,
-                role: user.role
+                //token: user.username + user.password,
+               //confirm: user.confirm,
+               //nickname: user.nickname
             })
         })
             .then((resp => {
@@ -36,7 +38,7 @@ export const userPostFetch = user => {
                 if (data.message) {
                     // logic
                 } else {
-                    localStorage.setItem("token", data.token) // data.token = jwt (simple)
+                    localStorage.setItem("token", 'JUST TOKEN') // data.token = jwt (simple) (data.token)
                     dispatch(loginUser(data))
                 }
             })
@@ -63,7 +65,7 @@ export const userLoginFetch = user => {
                 if (data.message) {
                     //Тут прописываем логику
                 } else {
-                    localStorage.setItem("token", data.token)
+                    localStorage.setItem("token", 'JUST TOKEN') // data.token
                     dispatch(loginUser(data))
                 }
             })

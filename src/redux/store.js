@@ -7,13 +7,8 @@ const reducers = combineReducers({
     auth: authReducer
 });
 
-// const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
-// const store = createStore(reducers, composeEnhancers(applyMiddleware(thunkMiddleware)))
-
-const store = createStore(reducers, compose(
-    window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__(),
-    applyMiddleware(thunkMiddleware),
-    applyMiddleware(logger)
+const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+const store = createStore(reducers, composeEnhancers(applyMiddleware(thunkMiddleware, logger)
 ));
 
 window.__store__ = store;
