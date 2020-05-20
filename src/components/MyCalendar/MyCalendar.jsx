@@ -39,6 +39,8 @@ class MyCalendar extends Component {
                     onSelectEvent={event => alert(event.title)}
                     onSelectSlot={this.handleSelect}
                 />
+
+                {console.log(this.state.events)}
             </div>
         );
     }

@@ -41,6 +41,13 @@ class QuizCreator extends React.Component {
         title: ''
     }
 
+    checkAnswer = id => {
+        if (id === this.state.rightAnswerId) {
+            return true
+        }
+        return false
+    }
+
     submitHandler = event => {
         event.preventDefault();
     }
@@ -56,10 +63,10 @@ class QuizCreator extends React.Component {
             id: index,
             rightAnswerId: this.state.rightAnswerId,
             answers: [
-                {text: option1.value, id: option1.id},
-                {text: option2.value, id: option2.id},
-                {text: option3.value, id: option3.id},
-                {text: option4.value, id: option4.id},
+                {text: option1.value, rightAnswer: this.checkAnswer(option1.id)},
+                {text: option2.value, rightAnswer: this.checkAnswer(option2.id)},
+                {text: option3.value, rightAnswer: this.checkAnswer(option3.id)},
+                {text: option4.value, rightAnswer: this.checkAnswer(option4.id)},
             ]
         }
 
@@ -78,12 +85,22 @@ class QuizCreator extends React.Component {
 
         this.setState({
             flag: !this.state.flag,
-            quiz: this.state.quiz.unshift(this.state.title)
         })
-        // let js = JSON.stringify({quiz: this.state.quiz})
-        // console.log(js)
-        //TODO: SERVER
-        console.log(this.state.quiz)
+
+        let itemQuiz = {
+            title: this.state.title,
+            quiz: this.state.quiz
+        }
+
+        console.log(itemQuiz)
+        //console.log(JSON.stringify(itemQuiz))
+
+        this.setState({
+            quiz: [],
+            isFormValid: false,
+            flag: !this.state.flag,
+            title: ''
+        })
     }
 
     changeHandler = (value, controlName) => {
@@ -176,7 +193,7 @@ class QuizCreator extends React.Component {
                             </div>
                             :
                             <form onSubmit={this.submitHandler}>
-                                   <h2>Название теста: {this.state.title}</h2>
+                                <h2>Название теста: {this.state.title}</h2>
                                 {
                                     this.renderControls()
                                 }
@@ -198,7 +215,7 @@ class QuizCreator extends React.Component {
                                         Создать тест
                                     </Button>
                                 </div>
-                               <span>Всего вопросов: {this.state.quiz.length}</span>
+                                <span>Всего вопросов: {this.state.quiz.length}</span>
                             </form>
                         }
                     </BlockAuth>
