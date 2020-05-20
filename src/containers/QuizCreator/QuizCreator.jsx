@@ -36,7 +36,9 @@ class QuizCreator extends React.Component {
         quiz: [],
         formControls: createFormControls(),
         rightAnswerId: 1,
-        isFormValid: false
+        isFormValid: false,
+        flag: true,
+        title: ''
     }
 
     submitHandler = event => {
@@ -73,8 +75,15 @@ class QuizCreator extends React.Component {
 
     createQuizHandler = event => {
         event.preventDefault()
-        console.log(this.state.quiz)
+
+        this.setState({
+            flag: !this.state.flag,
+            quiz: this.state.quiz.unshift(this.state.title)
+        })
+        // let js = JSON.stringify({quiz: this.state.quiz})
+        // console.log(js)
         //TODO: SERVER
+        console.log(this.state.quiz)
     }
 
     changeHandler = (value, controlName) => {
@@ -92,6 +101,15 @@ class QuizCreator extends React.Component {
             isFormValid: validateForm(formControls)
         })
     }
+
+    createTitleQuizHandler = event => {
+        this.setState({flag: !this.state.flag})
+    }
+
+    titleChangeHandler = event => {
+        this.setState({title: event.target.value})
+    }
+
 
     renderControls = () => {
         return Object.keys(this.state.formControls).map((controlName, index) => {
@@ -141,29 +159,48 @@ class QuizCreator extends React.Component {
                 <div>
                     <h1>Создание теста</h1>
                     <BlockAuth>
-                        <form onSubmit={this.submitHandler}>
-
-                            {
-                                this.renderControls()
-                            }
-                            {
-                                select
-                            }
-
-                            <div className='container-bnt'>
+                        {this.state.flag
+                            ?
+                            <div className='containerCreateTitle'>
+                                <h2>Введите название теста</h2>
+                                <Input
+                                    onChange={this.titleChangeHandler}
+                                />
                                 <Button
-                                        onClick={this.addQuestionHandler}
-                                        disabled={!this.state.isFormValid}>
-                                    Добавить вопрос
-                                </Button>
-
-                                <Button type="primary"
-                                        onClick={this.createQuizHandler}
-                                        disabled={!this.state.quiz.length}>
-                                    Создать тест
+                                    type="primary"
+                                    onClick={this.createTitleQuizHandler}
+                                    disabled={!this.state.title}
+                                >
+                                    Выбрать название
                                 </Button>
                             </div>
-                        </form>
+                            :
+                            <form onSubmit={this.submitHandler}>
+                                   <h2>Название теста: {this.state.title}</h2>
+                                {
+                                    this.renderControls()
+                                }
+                                {
+                                    select
+                                }
+
+                                <div className='container-btn'>
+                                    <Button
+                                        onClick={this.addQuestionHandler}
+                                        disabled={!this.state.isFormValid}>
+                                        Добавить вопрос
+
+                                    </Button>
+
+                                    <Button type="primary"
+                                            onClick={this.createQuizHandler}
+                                            disabled={!this.state.quiz.length}>
+                                        Создать тест
+                                    </Button>
+                                </div>
+                               <span>Всего вопросов: {this.state.quiz.length}</span>
+                            </form>
+                        }
                     </BlockAuth>
                 </div>
             </div>

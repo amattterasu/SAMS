@@ -16,6 +16,7 @@ import Header from "./components/Header/Header";
 import Events from "./containers/Events/Events";
 
 class App extends Component {
+
     // componentDidMount = () => {
     //     //this.props.getProfileFetch()
     // }
