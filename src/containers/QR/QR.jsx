@@ -3,6 +3,7 @@ import {Input} from 'antd';
 import './QR.scss'
 import Button from "../../components/Button/Button";
 import BlockAuth from "../../components/BlockAuth/BlockAuth";
+import {Redirect} from "react-router-dom";
 
 const QRCode = require('qrcode.react');
 const {TextArea} = Input;
@@ -41,7 +42,11 @@ class QRCreator extends React.Component {
     }
 
     render() {
-        const {loadings} = this.state;
+
+        if (this.props.isAuth) return <Redirect to={'/login'}/>
+
+        const {loadings} = this.state
+
         return (
             <div className='qrcodeContainer'>
                 <h1>Генерация QR-кода</h1>

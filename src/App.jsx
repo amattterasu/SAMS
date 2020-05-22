@@ -1,19 +1,18 @@
-import React, {Component} from 'react';
-import {Switch, Route, BrowserRouter, withRouter} from 'react-router-dom';
-import {connect, Provider} from 'react-redux';
-import {compose} from "redux";
+import React, {Component} from 'react'
+import {Switch, Route, BrowserRouter, withRouter} from 'react-router-dom'
+import {connect, Provider} from 'react-redux'
+import {compose} from "redux"
 
-import store from "./redux/store";
+import store from "./redux/store"
 //import {getProfileFetch, logoutUser} from './redux/actions/actions'
 
-import Auth from './pages/Auth/Auth';
-import Home from "./pages/Home/Home";
+import Auth from './pages/Auth/Auth'
+import Home from "./pages/Home/Home"
 
-import QuizCreator from "./containers/QuizCreator/QuizCreator";
-import QRCreator from "./containers/QR/QR";
-
-import Events from "./containers/Events/Events";
-import HeaderContainer from "./containers/HeaderContainer/HeaderContainer";
+import QuizCreator from "./containers/QuizCreator/QuizCreatorContainer"
+import QRCreator from "./containers/QR/QRContainer"
+import Events from "./containers/Events/Events"
+import HeaderContainer from "./containers/HeaderContainer/HeaderContainer"
 
 class App extends Component {
 
@@ -67,6 +66,6 @@ const MainApp = props => {
     </BrowserRouter>
 }
 
-export default MainApp;
+export default MainApp
 
 //basename={process.env.PUBLIC_URL}

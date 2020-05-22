@@ -1,12 +1,13 @@
-import React from 'react';
+import React from 'react'
+import {Redirect} from "react-router-dom"
 
-import './QuizCreator.scss';
-import BlockAuth from '../../components/BlockAuth/BlockAuth';
-import Button from '../../components/Button/Button';
-import Input from "../../components/UI/Input/Input";
-import SelectComponent from "../../components/UI/SelectComponent/SelectComponent";
+import './QuizCreator.scss'
+import BlockAuth from '../../components/BlockAuth/BlockAuth'
+import Button from '../../components/Button/Button'
+import Input from "../../components/UI/Input/Input"
+import SelectComponent from "../../components/UI/SelectComponent/SelectComponent"
 
-import {createControl, validate, validateForm} from '../../form/formFramework';
+import {createControl, validate, validateForm} from '../../form/formFramework'
 
 const createOptionControl = (number) => {
     return createControl({
@@ -158,6 +159,8 @@ class QuizCreator extends React.Component {
     }
 
     render() {
+
+        if (this.props.isAuth) return <Redirect to={'/login'}/>
 
         const select = <SelectComponent
             label='Укажите правильный ответ на вопрос'

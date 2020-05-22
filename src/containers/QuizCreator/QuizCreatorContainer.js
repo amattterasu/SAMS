@@ -1,21 +1,21 @@
-import React from 'react'
-import './Events.scss'
-import MyCalendar from "../../components/MyCalendar/MyCalendar"
-import {compose} from "redux"
+import React from "react"
 import {connect} from "react-redux"
+import {compose} from "redux"
 import {withAuthRedirect} from "../../hoc/withAuthRedirect"
+import QuizCreator from "./QuizCreator"
 
-class Events extends React.Component {
+
+class QuizCreatorContainer extends React.Component {
     render() {
-        return <MyCalendar/>
+        return <QuizCreator />
     }
 }
 
-let mapStateToProps = state => ({})
+let mapStateToProps = state =>({})
 
 let  mapDispatchToProps = dispatch => ({})
 
 export default compose(
     connect(mapStateToProps, mapDispatchToProps),
     withAuthRedirect
-)(Events)
+)(QuizCreatorContainer)
