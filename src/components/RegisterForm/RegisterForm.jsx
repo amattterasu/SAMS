@@ -1,5 +1,5 @@
 import React, {useState} from 'react'
-import {Link} from 'react-router-dom'
+import {Link, Redirect} from 'react-router-dom'
 import {connect} from "react-redux"
 
 import {userRegFetch} from "../../redux/actions/actions"
@@ -33,8 +33,9 @@ const RegisterForm = props => {
         props.userRegFetch(values)
         //console.log('Received values of form: ', values);
         setSuccess(true)
-
     }
+
+    if (props.isAuth) return <Redirect to={'/im'}/>
 
     return (
         <div>

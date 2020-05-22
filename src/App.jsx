@@ -6,9 +6,9 @@ import {compose} from "redux"
 import store from "./redux/store"
 //import {getProfileFetch, logoutUser} from './redux/actions/actions'
 
-import Auth from './pages/Auth/Auth'
-import Home from "./pages/Home/Home"
+import Auth from './containers/Auth/Auth'
 
+import Personal from "./containers/Personal/PersonalContainer"
 import QuizCreator from "./containers/QuizCreator/QuizCreatorContainer"
 import QRCreator from "./containers/QR/QRContainer"
 import Events from "./containers/Events/Events"
@@ -32,10 +32,9 @@ class App extends Component {
                 <HeaderContainer/>
                 <div>
                     <Switch>
-                        <Route exact> <Redirect from='/' to='/im'/></Route>
                         <Route exact path={["/login", "/signup"]} render={() => <Auth history={this.props.history}/>}/>
                         <Route exact path='/quiz-creator' render={() => <QuizCreator/>}/>
-                        <Route exact path={["/", "/im"]} render={() => <Home/>}/>
+                        <Route exact path={["/", "/im"]} render={() => <Personal/>}/>
                         <Route exact path="/qr-creator" render={() => <QRCreator/>}/>
                         <Route exact path="/event-creator" render={() => <Events/>}/>
                         <Route path='*'render={() => <h1 style={{textAlign: 'center'}}>Error 404 PAGE NOT FOUND</h1>}/>

@@ -1,5 +1,5 @@
 import React from 'react'
-import {Link} from 'react-router-dom'
+import {Link, Redirect} from 'react-router-dom'
 import BlockAuth from "../BlockAuth/BlockAuth"
 import Button from "../Button/Button"
 
@@ -14,11 +14,9 @@ const LoginForm = props => {
     const onFinish = values => {
         props.userLoginFetch(values)
         console.log('Received values of form: ', values)
-
-        if(true) {
-            props.history.push('/im')
-        }
     }
+
+    if (props.isAuth) return <Redirect to={'/im'}/>
 
     return (
         <div>
@@ -67,8 +65,12 @@ const LoginForm = props => {
     );
 }
 
+const mapStateToProps = state => ({
+    isAuth: state.auth.isAuth
+})
+
 const mapDispatchToProps = dispatch => ({
     userLoginFetch: user => dispatch(userLoginFetch(user))
 })
 
-export default connect(null, mapDispatchToProps)(LoginForm)
+export default connect(mapStateToProps, mapDispatchToProps)(LoginForm)

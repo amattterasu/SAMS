@@ -5,6 +5,12 @@ const loginUser = userObj => ({
     payload: userObj
 })
 
+const regUser = userObj => ({
+    type: 'REG_USER',
+    payload: userObj
+})
+
+
 export const logoutUser = () => ({
     type: 'LOGOUT_USER'
 })
@@ -39,7 +45,7 @@ export const userRegFetch = user => {
                     // logic
                 } else {
                     localStorage.setItem("token", 'JUST TOKEN') // data.token = jwt (simple) (data.token)
-                    dispatch(loginUser(data))
+                    dispatch(regUser(data))
                 }
             })
             .catch(err => err)
