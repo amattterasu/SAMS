@@ -11,7 +11,7 @@ const Header = (props) => {
             <div className='headerContainer'>
                 <div className='headerContainerMenu'>
                     <div className='headerItem'>
-                        <h1><NavLink to='/'>СКП</NavLink></h1>
+                        <h1><NavLink to='/im'>СКП</NavLink></h1>
                     </div>
                     <div className='headerItem'>
                         <NavLink className='headerLink' to='/im'>Главная</NavLink>

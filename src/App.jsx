@@ -1,5 +1,5 @@
 import React, {Component} from 'react'
-import {Switch, Route, BrowserRouter, withRouter} from 'react-router-dom'
+import {Switch, Route, BrowserRouter, withRouter, Redirect} from 'react-router-dom'
 import {connect, Provider} from 'react-redux'
 import {compose} from "redux"
 
@@ -32,12 +32,13 @@ class App extends Component {
                 <HeaderContainer/>
                 <div>
                     <Switch>
-
+                        <Route exact> <Redirect from='/' to='/im'/></Route>
                         <Route exact path={["/login", "/signup"]} render={() => <Auth history={this.props.history}/>}/>
                         <Route exact path='/quiz-creator' render={() => <QuizCreator/>}/>
                         <Route exact path={["/", "/im"]} render={() => <Home/>}/>
                         <Route exact path="/qr-creator" render={() => <QRCreator/>}/>
                         <Route exact path="/event-creator" render={() => <Events/>}/>
+                        <Route path='*'render={() => <h1 style={{textAlign: 'center'}}>Error 404 PAGE NOT FOUND</h1>}/>
                     </Switch>
                 </div>
             </div>
