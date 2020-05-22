@@ -1,4 +1,4 @@
-const URL = "http://localhost:4000/api/"; //Path to server
+const URL = "http://localhost:3000/post/"; //Path to server
 
 const loginUser = userObj => ({
     type: 'LOGIN_USER',
@@ -9,10 +9,10 @@ export const logoutUser = () => ({
     type: 'LOGOUT_USER'
 })
 
-export const userPostFetch = user => {
+export const userRegFetch = user => {
     console.log(user)
     return dispatch => {
-        return fetch(URL + 'users', {
+        return fetch(URL, {
             credentials: 'include',
             method: "POST",
             headers: {
@@ -48,7 +48,7 @@ export const userPostFetch = user => {
 
 export const userLoginFetch = user => {
     return dispatch => {
-        return fetch(URL + 'login', {
+        return fetch(URL, {
             credentials: 'include',
             method: "POST",
             headers: {

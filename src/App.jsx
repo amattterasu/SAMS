@@ -4,7 +4,7 @@ import {connect, Provider} from 'react-redux';
 import {compose} from "redux";
 
 import store from "./redux/store";
-import {getProfileFetch, logoutUser} from './redux/actions/actions';
+//import {getProfileFetch, logoutUser} from './redux/actions/actions'
 
 import Auth from './pages/Auth/Auth';
 import Home from "./pages/Home/Home";
@@ -12,8 +12,8 @@ import Home from "./pages/Home/Home";
 import QuizCreator from "./containers/QuizCreator/QuizCreator";
 import QRCreator from "./containers/QR/QR";
 
-import Header from "./components/Header/Header";
 import Events from "./containers/Events/Events";
+import HeaderContainer from "./containers/HeaderContainer/HeaderContainer";
 
 class App extends Component {
 
@@ -30,12 +30,13 @@ class App extends Component {
     render() {
         return (
             <div className={'wrapper'}>
-                <Header/>
+                <HeaderContainer/>
                 <div>
                     <Switch>
-                        <Route exact path={["/", "/login", "/signup"]} render={() => <Auth/>}/>
+
+                        <Route exact path={["/login", "/signup"]} render={() => <Auth history={this.props.history}/>}/>
                         <Route exact path='/quiz-creator' render={() => <QuizCreator/>}/>
-                        <Route exact path="/im" render={() => <Home/>}/>
+                        <Route exact path={["/", "/im"]} render={() => <Home/>}/>
                         <Route exact path="/qr-creator" render={() => <QRCreator/>}/>
                         <Route exact path="/event-creator" render={() => <Events/>}/>
                     </Switch>

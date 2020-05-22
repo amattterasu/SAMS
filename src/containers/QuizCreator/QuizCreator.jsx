@@ -88,6 +88,7 @@ class QuizCreator extends React.Component {
         })
 
         let itemQuiz = {
+            token: '',
             title: this.state.title,
             quiz: this.state.quiz
         }

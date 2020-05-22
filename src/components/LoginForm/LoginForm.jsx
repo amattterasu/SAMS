@@ -14,6 +14,10 @@ const LoginForm = props => {
     const onFinish = values => {
         props.userLoginFetch(values)
         console.log('Received values of form: ', values)
+
+        if(true) {
+            props.history.push('/im')
+        }
     }
 
     return (

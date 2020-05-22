@@ -2,7 +2,7 @@ import React, {useState} from 'react'
 import {Link} from 'react-router-dom'
 import {connect} from "react-redux"
 
-import {userPostFetch} from "../../redux/actions/actions"
+import {userRegFetch} from "../../redux/actions/actions"
 import BlockAuth from "../BlockAuth/BlockAuth"
 
 import Button from "../Button/Button"
@@ -30,9 +30,10 @@ const RegisterForm = props => {
 
     const [form] = Form.useForm()
     const onFinish = values => {
-        props.userPostFetch(values)
+        props.userRegFetch(values)
         //console.log('Received values of form: ', values);
         setSuccess(true)
+
     }
 
     return (
@@ -133,7 +134,7 @@ const RegisterForm = props => {
 }
 
 const mapDispatchToProps = dispatch => ({
-    userPostFetch: user => dispatch(userPostFetch(user))
+    userRegFetch: user => dispatch(userRegFetch(user))
 })
 
 export default connect(null, mapDispatchToProps)(RegisterForm)

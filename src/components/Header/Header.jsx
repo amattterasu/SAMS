@@ -2,9 +2,10 @@ import React from 'react';
 import './Header.scss'
 import {NavLink} from "react-router-dom";
 
-import {LogoutOutlined} from '@ant-design/icons';
+import {LogoutOutlined, LoginOutlined} from '@ant-design/icons';
 
-const Header = () => {
+const Header = (props) => {
+
     return (
         <header>
             <div className='headerContainer'>
@@ -25,14 +26,16 @@ const Header = () => {
                         <NavLink className='headerLink' to='/event-creator'>События</NavLink>
                     </div>
                 </div>
-                <div className='headerItem' >
-                    <NavLink to='/'>
-                        <LogoutOutlined /> Выйти
-                    </NavLink>
+                <div className='headerItem'>
+                    {props.isAuth
+                        ? <div> <div>{props.login} &nbsp;</div> <NavLink onClick={props.logout} to='/login'>
+                            <LogoutOutlined/> Выйти
+                        </NavLink></div>
+                        : <NavLink to={'/login'}> <LoginOutlined /> Войти</NavLink>}
                 </div>
             </div>
         </header>
-    );
-};
+    )
+}
 
 export default Header;

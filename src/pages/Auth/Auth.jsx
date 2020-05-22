@@ -6,11 +6,11 @@ import RegisterForm from "../../components/RegisterForm/RegisterForm";
 import LoginForm from "../../components/LoginForm/LoginForm";
 
 
-const Auth = () => {
+const Auth = props => {
     return (
         <section className={'auth'}>
             <div className={'auth__content'}>
-                <Route exact path={["/", "/login"]} render={() => <LoginForm/>}/>
+                <Route exact path={'/login'} render={() => <LoginForm history={props.history}/>}/>
                 <Route exact path="/signup" render={() => <RegisterForm/>}/>
             </div>
         </section>
