@@ -8,6 +8,8 @@ import Input from "../../components/UI/Input/Input"
 import SelectComponent from "../../components/UI/SelectComponent/SelectComponent"
 
 import {createControl, validate, validateForm} from '../../form/formFramework'
+import Quiz from "../../components/Quiz/Quiz"
+
 
 const createOptionControl = (number) => {
     return createControl({
@@ -39,7 +41,21 @@ class QuizCreator extends React.Component {
         rightAnswerId: 1,
         isFormValid: false,
         flag: true,
-        title: ''
+        title: '',
+
+        showQuiz: []
+    }
+
+    componentDidMount() {
+        fetch('http://localhost:3000/posts')
+            .then(res => res.json())
+            .then(
+                (result) => {
+                    this.setState({
+                        showQuiz: result
+                    })
+                }
+            )
     }
 
     checkAnswer = id => {
@@ -56,18 +72,16 @@ class QuizCreator extends React.Component {
     addQuestionHandler = event => {
         event.preventDefault();
         const quiz = this.state.quiz.concat()
-        const index = quiz.length + 1
+        //const index = quiz.length + 1, id: index,
         const {question, option1, option2, option3, option4} = this.state.formControls
 
         const questionItem = {
             question: question.value,
-            id: index,
-            rightAnswerId: this.state.rightAnswerId,
             answers: [
                 {text: option1.value, rightAnswer: this.checkAnswer(option1.id)},
                 {text: option2.value, rightAnswer: this.checkAnswer(option2.id)},
                 {text: option3.value, rightAnswer: this.checkAnswer(option3.id)},
-                {text: option4.value, rightAnswer: this.checkAnswer(option4.id)},
+                {text: option4.value, rightAnswer: this.checkAnswer(option4.id)}
             ]
         }
 
@@ -94,7 +108,7 @@ class QuizCreator extends React.Component {
             quiz: this.state.quiz
         }
 
-        console.log(itemQuiz)
+        //console.log(itemQuiz)
         //console.log(JSON.stringify(itemQuiz))
 
         this.setState({
@@ -103,6 +117,8 @@ class QuizCreator extends React.Component {
             flag: !this.state.flag,
             title: ''
         })
+
+        this.props.quizFetch(itemQuiz)
     }
 
     changeHandler = (value, controlName) => {
@@ -128,7 +144,6 @@ class QuizCreator extends React.Component {
     titleChangeHandler = event => {
         this.setState({title: event.target.value})
     }
-
 
     renderControls = () => {
         return Object.keys(this.state.formControls).map((controlName, index) => {
@@ -159,7 +174,6 @@ class QuizCreator extends React.Component {
     }
 
     render() {
-
         if (this.props.isAuth) return <Redirect to={'/login'}/>
 
         const select = <SelectComponent
@@ -176,57 +190,60 @@ class QuizCreator extends React.Component {
         />
 
         return (
-            <div className='QuizCreator'>
-                <div>
-                    <h1>Создание теста</h1>
-                    <BlockAuth>
-                        {this.state.flag
-                            ?
-                            <div className='containerCreateTitle'>
-                                <h2>Введите название теста</h2>
-                                <Input
-                                    onChange={this.titleChangeHandler}
-                                />
-                                <Button
-                                    type="primary"
-                                    onClick={this.createTitleQuizHandler}
-                                    disabled={!this.state.title}
-                                >
-                                    Выбрать название
-                                </Button>
-                            </div>
-                            :
-                            <form onSubmit={this.submitHandler}>
-                                <h2>Название теста: {this.state.title}</h2>
-                                {
-                                    this.renderControls()
-                                }
-                                {
-                                    select
-                                }
-
-                                <div className='container-btn'>
+            <div className='QuizContainer'>
+                <div className='QuizCreator'>
+                    <div>
+                        <h1>Создание теста</h1>
+                        <BlockAuth>
+                            {this.state.flag
+                                ?
+                                <div className='containerCreateTitle'>
+                                    <h2>Введите название теста</h2>
+                                    <Input
+                                        onChange={this.titleChangeHandler}
+                                    />
                                     <Button
-                                        onClick={this.addQuestionHandler}
-                                        disabled={!this.state.isFormValid}>
-                                        Добавить вопрос
-
-                                    </Button>
-
-                                    <Button type="primary"
-                                            onClick={this.createQuizHandler}
-                                            disabled={!this.state.quiz.length}>
-                                        Создать тест
+                                        type="primary"
+                                        onClick={this.createTitleQuizHandler}
+                                        disabled={!this.state.title}
+                                    >
+                                        Выбрать название
                                     </Button>
                                 </div>
-                                <span>Всего вопросов: {this.state.quiz.length}</span>
-                            </form>
-                        }
-                    </BlockAuth>
+                                :
+                                <form onSubmit={this.submitHandler}>
+                                    <h2>Название теста: {this.state.title}</h2>
+                                    {
+                                        this.renderControls()
+                                    }
+                                    {
+                                        select
+                                    }
+
+                                    <div className='container-btn'>
+                                        <Button
+                                            onClick={this.addQuestionHandler}
+                                            disabled={!this.state.isFormValid}>
+                                            Добавить вопрос
+
+                                        </Button>
+
+                                        <Button type="primary"
+                                                onClick={this.createQuizHandler}
+                                                disabled={!this.state.quiz.length}>
+                                            Создать тест
+                                        </Button>
+                                    </div>
+                                    <span>Всего вопросов: {this.state.quiz.length}</span>
+                                </form>
+                            }
+                        </BlockAuth>
+                    </div>
                 </div>
+                <Quiz quiz={this.state.showQuiz}/>
             </div>
-        );
+        )
     }
 }
 
-export default QuizCreator;
+export default QuizCreator

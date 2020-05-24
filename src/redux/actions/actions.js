@@ -1,4 +1,4 @@
-const URL = "http://localhost:3000/post/"; //Path to server
+const URL = "http://localhost:3000/posts/"; //Path to server
 
 const loginUser = userObj => ({
     type: 'LOGIN_USER',
@@ -29,8 +29,8 @@ export const userRegFetch = user => {
                 username: user.email,
                 password: user.password,
                 //token: user.username + user.password,
-               //confirm: user.confirm,
-               //nickname: user.nickname
+                //confirm: user.confirm,
+                //nickname: user.nickname
             })
         })
             .then((resp => {
@@ -86,11 +86,10 @@ export const getProfileFetch = () => {
                 credentials: 'include',
                 method: "GET",
                 headers: {
-                    'Access-Control-Allow-Headers' : 'Version, Authorization, Content-Type',
+                    'Access-Control-Allow-Headers': 'Version, Authorization, Content-Type',
                     'Content-Type': 'application/json',
                     Accept: 'application/json',
                     'Authorization': `Bearer ${token}`
-
                 }
             })
                 .then(resp => resp.json())
@@ -102,6 +101,27 @@ export const getProfileFetch = () => {
                         dispatch(loginUser(data))
                     }
                 })
+        }
+    }
+}
+
+export const quizFetch = quiz => {
+    console.log(quiz)
+    return dispatch => {
+        const token = localStorage.token
+        if (true) {
+            return fetch(URL, {
+                credentials: 'include',
+                method: "POST",
+                headers: {
+                    'Content-Type': 'application/json',
+                    Accept: 'application/json',
+                },
+                body: JSON.stringify({
+                    title: quiz.title,
+                    quiz: quiz.quiz
+                })
+            })
         }
     }
 }

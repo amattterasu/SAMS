@@ -8,7 +8,7 @@ const Personal = props => {
 
     return (
         <section className={'personal'}>
-           <h1 style={{ textAlign: "center" }}>Hello world</h1>
+           <h1 style={{ textAlign: "center" }}>Developing...</h1>
         </section>
     );
 };

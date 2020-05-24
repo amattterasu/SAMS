@@ -1,0 +1,32 @@
+.quiz {
+  width: 800px;
+  margin: 0 auto;
+
+  h1 {
+    margin-top: 50px;
+    text-align: center;
+  }
+
+  ol li {
+    font-size: 16px;
+    cursor: pointer;
+    &:hover {
+      border-bottom: 2px solid #dadada;
+    }
+  }
+
+  ul {
+    margin-right: 10px;
+  }
+
+  .quizInfoElementContainer{
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+
+    .quizInfo {
+      overflow-y: auto;
+      max-height: 500px;
+    }
+  }
+}

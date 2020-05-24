@@ -1,5 +1,5 @@
 import React, {Component} from 'react'
-import {Switch, Route, BrowserRouter, withRouter, Redirect} from 'react-router-dom'
+import {Switch, Route, BrowserRouter, withRouter} from 'react-router-dom'
 import {connect, Provider} from 'react-redux'
 import {compose} from "redux"
 
@@ -41,7 +41,7 @@ class App extends Component {
                     </Switch>
                 </div>
             </div>
-        );
+        )
     }
 }
 

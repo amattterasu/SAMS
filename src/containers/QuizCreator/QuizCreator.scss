@@ -1,9 +1,13 @@
+.QuizContainer {
+  display: flex;
+  flex-wrap: wrap;
+}
+
 .QuizCreator {
   display: flex;
   justify-content: center;
   padding-top: 50px;
   flex-grow: 1;
-  width: 100%;
 
   > div {
     width: 100%;

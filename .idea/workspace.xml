@@ -2,16 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4a698bd4-533b-43b2-9456-e23108b775f1" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/containers/Personal/Personal.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/containers/Personal/PersonalContainer.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/Quiz/Quiz.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/Quiz/Quiz.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/App.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/LoginForm/LoginForm.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/LoginForm/LoginForm.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/RegisterForm/RegisterForm.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/RegisterForm/RegisterForm.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/Auth/Auth.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/containers/Auth/Auth.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/Auth/Auth.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/containers/Auth/Auth.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/Home/Home.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/containers/Personal/Personal.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/Home/Home.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/containers/Auth/AuthContainer.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/containers/Personal/Personal.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/containers/Personal/Personal.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/containers/QuizCreator/QuizCreator.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/containers/QuizCreator/QuizCreator.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/containers/QuizCreator/QuizCreator.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/containers/QuizCreator/QuizCreator.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/containers/QuizCreator/QuizCreatorContainer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/containers/QuizCreator/QuizCreatorContainer.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/redux/actions/actions.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/redux/actions/actions.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/redux/reducers/authReducer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/redux/reducers/authReducer.js" afterDir="false" />
     </list>
@@ -94,7 +92,13 @@
       <workItem from="1590035063325" duration="2636000" />
       <workItem from="1590061300164" duration="1524000" />
       <workItem from="1590136726000" duration="11788000" />
-      <workItem from="1590162985724" duration="5032000" />
+      <workItem from="1590162985724" duration="6094000" />
+      <workItem from="1590209448983" duration="598000" />
+      <workItem from="1590210573673" duration="4835000" />
+      <workItem from="1590238367120" duration="1657000" />
+      <workItem from="1590301773005" duration="1429000" />
+      <workItem from="1590310551902" duration="18417000" />
+      <workItem from="1590334095249" duration="481000" />
     </task>
     <servers />
   </component>
@@ -102,10 +106,10 @@
     <option name="version" value="2" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="339" y="326" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1585815846003">
+    <state x="339" y="326" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1590314357899">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="339" y="326" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1585815846003" />
+    <state x="339" y="326" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1590314357899" />
     <state x="107" y="301" key="EditFileWatcherDialog" timestamp="1585818804813">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -138,20 +142,9 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="231" y="244" key="run.anything.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1589977646721" />
-    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1589983552209">
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1590325270882">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1589983552209" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="javascript">
-          <url>file://$PROJECT_DIR$/src/containers/QuizCreator/QuizCreatorContainer.js</url>
-          <properties lambdaOrdinal="-1" />
-          <option name="timeStamp" value="2" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1590325270882" />
   </component>
 </project>
