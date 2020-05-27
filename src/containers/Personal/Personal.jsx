@@ -6,7 +6,6 @@ import Input from "../../components/UI/Input/Input";
 import {createControl, validate, validateForm} from "../../form/formFramework";
 import Button from "../../components/Button/Button";
 
-
 class Personal extends React.Component {
 
     state = {
@@ -35,12 +34,12 @@ class Personal extends React.Component {
                 value: this.props.currentUser.role
             }, {required: true})
         },
-        // userInfo: {
-        //     firstName: this.props.currentUser.firstName,
-        //     secondName: this.props.currentUser.secondName,
-        //     lastName: this.props.currentUser.lastName,
-        //     role: this.props.currentUser.role
-        // }
+        userInfo: {
+            firstName: this.props.currentUser.firstName,
+            secondName: this.props.currentUser.secondName,
+            lastName: this.props.currentUser.lastName,
+            role: this.props.currentUser.role
+        }
     }
 
     changeHandler = (value, controlName) => {
@@ -98,7 +97,8 @@ class Personal extends React.Component {
 
         this.setState({
             isEdit: !this.state.isEdit,
-
+            userInfo: userConfig,
+            isFormValid: false
         })
     }
 
@@ -117,15 +117,15 @@ class Personal extends React.Component {
                                 <div>
                                     <div className='profileInfo'>
                                         <span>ФИО:  </span> &nbsp;
-                                        <span>{this.props.currentUser.secondName}</span>
+                                        <span>{this.state.userInfo.secondName}</span>
                                         &nbsp;
-                                        <span>{this.props.currentUser.firstName}</span>
+                                        <span>{this.state.userInfo.firstName}</span>
                                         &nbsp;
-                                        <span>{this.props.currentUser.lastName}</span>
+                                        <span>{this.state.userInfo.lastName}</span>
                                     </div>
                                     <div className='profileInfo'>
                                         <span>Роль:</span> &nbsp;
-                                        {this.props.currentUser.role}
+                                        {this.state.userInfo.role}
                                     </div>
 
                                     <Button type="primary"
@@ -152,7 +152,6 @@ class Personal extends React.Component {
                                     </Button>
                                 </form>
                         }
-
                     </BlockAuth>
                 </div>
             </section>
