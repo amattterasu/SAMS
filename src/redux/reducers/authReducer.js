@@ -5,14 +5,12 @@ const initialState = {
     // lastName: '',
     // role: '',
     // email: '',
-    // token: '',
     // isAuth: false
     firstName: 'Андрей',
     secondName: 'Губайдуллин',
     lastName: 'Евгеньевич',
     role: 'Студент',
     email: 'admin@admin.ru',
-    token: 'aaaaaa.bbbbbb.cccccc',
     isAuth: true
 }
 

@@ -2,8 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4a698bd4-533b-43b2-9456-e23108b775f1" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/components/Datepicker/Datepicker.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/containers/Personal/Personal.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/containers/Personal/Personal.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/containers/EventsCreator/Events.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/containers/EventsCreator/Events.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/containers/EventsCreator/EventsCreator.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/containers/EventsCreator/EventsCreator.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/redux/reducers/authReducer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/redux/reducers/authReducer.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -94,7 +98,7 @@
       <workItem from="1590334095249" duration="1996000" />
       <workItem from="1590393643208" duration="8897000" />
       <workItem from="1590500831552" duration="9767000" />
-      <workItem from="1590557629983" duration="32416000" />
+      <workItem from="1590557629983" duration="36951000" />
     </task>
     <servers />
   </component>

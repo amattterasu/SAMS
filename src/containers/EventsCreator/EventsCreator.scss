@@ -1,29 +1,13 @@
-.events {
+.Events {
   display: grid;
-  grid-template-areas: "ce le de";
-  grid-template-rows: 60px 1fr 60px;
-  grid-template-columns: 1fr 25% 1fr;
-  grid-gap: 10px;
-  margin: 0;
 
-  h2 {
+  grid-gap: 20px;
+  grid-template-columns: repeat(auto-fill, minmax(550px, 1fr));
+  margin: 0;
+  padding: 30px;
+
+  h1 {
     text-align: center;
   }
 
-  .createEvents, .listEvents, .calendarEvents {
-    padding: 10px;
-    margin: 2px;
-  }
-
-  .createEvents {
-    grid-area: ce;
-  }
-
-  .listEvents {
-    grid-area: le;
-  }
-
-  .calendarEvents {
-    grid-area: de;
-  }
 }
