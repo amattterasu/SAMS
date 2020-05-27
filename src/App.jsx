@@ -13,6 +13,7 @@ import QuizCreator from "./containers/QuizCreator/QuizCreatorContainer"
 import QRCreator from "./containers/QR/QRContainer"
 import Events from "./containers/Events/Events"
 import HeaderContainer from "./containers/HeaderContainer/HeaderContainer"
+import EventsCreator from "./containers/EventsCreator/EventsCreator";
 
 class App extends Component {
 
@@ -30,7 +31,7 @@ class App extends Component {
                         <Route exact path='/quiz-creator' render={() => <QuizCreator/>}/>
                         <Route exact path={["/", "/im"]} render={() => <Personal/>}/>
                         <Route exact path="/qr-creator" render={() => <QRCreator/>}/>
-                        <Route exact path="/event-creator" render={() => <QRCreator/>}/>
+                        <Route exact path="/event-creator" render={() => <EventsCreator/>}/>
                         <Route exact path="/events" render={() => <Events/>}/>
                         <Route path='*'render={() => <h1 style={{textAlign: 'center'}}>Error 404 PAGE NOT FOUND</h1>}/>
                     </Switch>

@@ -17,7 +17,7 @@ let mapStateToProps = state =>({
 })
 
 let  mapDispatchToProps = dispatch => ({
-    profileFetch: id => dispatch(profileFetch(id))
+    profileFetch: (id, userConfig) => dispatch(profileFetch(id, userConfig))
 })
 
 export default compose(

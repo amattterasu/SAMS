@@ -34,7 +34,13 @@ class Personal extends React.Component {
                 errorMessage: 'Заполните поле роль!',
                 value: this.props.currentUser.role
             }, {required: true})
-        }
+        },
+        // userInfo: {
+        //     firstName: this.props.currentUser.firstName,
+        //     secondName: this.props.currentUser.secondName,
+        //     lastName: this.props.currentUser.lastName,
+        //     role: this.props.currentUser.role
+        // }
     }
 
     changeHandler = (value, controlName) => {
@@ -86,9 +92,14 @@ class Personal extends React.Component {
             firstName: this.state.formControls.firstName.value,
             secondName: this.state.formControls.secondName.value,
             lastName: this.state.formControls.lastName.value,
-            roleName: this.state.formControls.roleName.value
+            role: this.state.formControls.role.value
         }
         this.props.profileFetch(this.state.id, userConfig)
+
+        this.setState({
+            isEdit: !this.state.isEdit,
+
+        })
     }
 
     render() {

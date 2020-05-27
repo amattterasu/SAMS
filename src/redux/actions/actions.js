@@ -1,4 +1,4 @@
-const URL = "http://61bd636c.ngrok.io"
+const URL = "http://c895c7c3.ngrok.io"
 
 const loginUser = userObj => ({
     type: 'LOGIN_USER',
@@ -130,10 +130,12 @@ export const quizFetch = quiz => {
 }
 
 export const profileFetch = (id, userConfig) => {
+
+    console.log(id, userConfig)
     return dispatch => {
         const token = localStorage.token;
         if (token) {
-            return fetch(URL + `${id}`, {
+            return fetch(URL + `/${id}`, {
                 method: "PATCH",
                 headers: {
                     "Content-Type": "application/json",
