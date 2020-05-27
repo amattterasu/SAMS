@@ -4,7 +4,7 @@ import {connect, Provider} from 'react-redux'
 import {compose} from "redux"
 
 import store from "./redux/store"
-//import {getProfileFetch, logoutUser} from './redux/actions/actions'
+import {getProfileFetch, logoutUser} from './redux/actions/actions'
 
 import Auth from './containers/Auth/Auth'
 
@@ -16,15 +16,9 @@ import HeaderContainer from "./containers/HeaderContainer/HeaderContainer"
 
 class App extends Component {
 
-    // componentDidMount = () => {
-    //     //this.props.getProfileFetch()
-    // }
-    //
-    // handleClick = event => {
-    //     event.preventDefault()
-    //     localStorage.removeItem("token")
-    //     this.props.logoutUser()
-    // }
+    componentDidMount = () => {
+        this.props.getProfileFetch()
+    }
 
     render() {
         return (
@@ -45,14 +39,9 @@ class App extends Component {
     }
 }
 
-const mapStateToProps = state => ({
-    //currentUser: state.auth.currentUser
-})
+const mapStateToProps = state => ({})
 
-const mapDispatchToProps = dispatch => ({
-    //getProfileFetch: () => dispatch(getProfileFetch()),
-    //logoutUser: () => dispatch(logoutUser())
-})
+const mapDispatchToProps = dispatch => ({getProfileFetch: () => dispatch(getProfileFetch())})
 
 let AppContainer = compose(
     withRouter,

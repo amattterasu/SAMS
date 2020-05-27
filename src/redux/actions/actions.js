@@ -1,4 +1,4 @@
-const URL = "http://localhost:3000/posts/"; //Path to server
+const URL = "http://61bd636c.ngrok.io"
 
 const loginUser = userObj => ({
     type: 'LOGIN_USER',
@@ -10,27 +10,33 @@ const regUser = userObj => ({
     payload: userObj
 })
 
-
 export const logoutUser = () => ({
     type: 'LOGOUT_USER'
 })
 
+export const setAuthUserData = (type = 'SET_USER_DATA', userId, email, login) => ({
+    type: type,
+    payload: {userId, email, login}
+});
+
+export const logout = () => (dispatch) => {
+    localStorage.removeItem('token')
+    dispatch(setAuthUserData('LOGOUT_USER'))
+}
+
 export const userRegFetch = user => {
-    console.log(user)
     return dispatch => {
         return fetch(URL, {
-            credentials: 'include',
             method: "POST",
             headers: {
                 'Content-Type': 'application/json',
                 Accept: 'application/json',
             },
             body: JSON.stringify({
-                username: user.email,
-                password: user.password,
-                //token: user.username + user.password,
-                //confirm: user.confirm,
-                //nickname: user.nickname
+                user: {
+                    email: user.email,
+                    password: user.password
+                }
             })
         })
             .then((resp => {
@@ -42,9 +48,8 @@ export const userRegFetch = user => {
             .then(resp => resp.json())
             .then(data => {   // в случае успеха, data - ответ в JSON
                 if (data.message) {
-                    // logic
                 } else {
-                    localStorage.setItem("token", 'JUST TOKEN') // data.token = jwt (simple) (data.token)
+                    localStorage.setItem("token", 'JUST TOKEN')
                     dispatch(regUser(data))
                 }
             })
@@ -54,15 +59,14 @@ export const userRegFetch = user => {
 
 export const userLoginFetch = user => {
     return dispatch => {
-        return fetch(URL, {
-            credentials: 'include',
+        return fetch(URL + "/login", {
             method: "POST",
             headers: {
-                'Content-Type': 'application/json',
-                Accept: 'application/json',
+                "Content-Type": "application/json",
+                Accept: "application/json"
             },
             body: JSON.stringify({
-                username: user.username,
+                email: user.username,
                 password: user.password
             })
         })
@@ -71,7 +75,7 @@ export const userLoginFetch = user => {
                 if (data.message) {
                     //Тут прописываем логику
                 } else {
-                    localStorage.setItem("token", 'JUST TOKEN') // data.token
+                    localStorage.setItem("token", data.authentication_token) // data.token
                     dispatch(loginUser(data))
                 }
             })
@@ -82,8 +86,7 @@ export const getProfileFetch = () => {
     return dispatch => {
         const token = localStorage.token;
         if (token) {
-            return fetch(URL + 'auth', {
-                credentials: 'include',
+            return fetch(URL + '/user', {
                 method: "GET",
                 headers: {
                     'Access-Control-Allow-Headers': 'Version, Authorization, Content-Type',
@@ -115,7 +118,7 @@ export const quizFetch = quiz => {
                 method: "POST",
                 headers: {
                     'Content-Type': 'application/json',
-                    Accept: 'application/json',
+                    Accept: 'application/json'
                 },
                 body: JSON.stringify({
                     title: quiz.title,

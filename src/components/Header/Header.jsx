@@ -14,7 +14,7 @@ const Header = (props) => {
                         <h1><NavLink to='/im'>СКП</NavLink></h1>
                     </div>
                     <div className='headerItem'>
-                        <NavLink className='headerLink' to='/im'>Главная</NavLink>
+                        <NavLink className='headerLink' to='/im'>Профиль</NavLink>
                     </div>
                     <div className='headerItem'>
                         <NavLink className='headerLink' to='/quiz-creator'>Создание тестов</NavLink>

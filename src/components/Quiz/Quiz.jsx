@@ -32,14 +32,12 @@ class Quiz extends React.Component {
                                 quizElements
                             }
                         </ol>
-
                         <div className='quizInfo'>
                             <h3>{this.state.title}</h3>
                             {this.state.quiz.map((el, i) =>
-                                <div>
+                                <div key={Math.random()}>
                                     <span>{`${i + 1}) ${el.questions}`}</span>
-                                    <ul> {el.answers.map(ans => <li>ans.text</li>)} </ul>
-
+                                    <ul> {el.answers.map(ans => <li key={Math.random()}>{ans.text}</li>)} </ul>
                                 </div>)}
                         </div>
                     </div>

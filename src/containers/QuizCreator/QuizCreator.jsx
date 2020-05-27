@@ -66,7 +66,7 @@ class QuizCreator extends React.Component {
     }
 
     submitHandler = event => {
-        event.preventDefault();
+        event.preventDefault()
     }
 
     addQuestionHandler = event => {
@@ -97,10 +97,6 @@ class QuizCreator extends React.Component {
 
     createQuizHandler = event => {
         event.preventDefault()
-
-        this.setState({
-            flag: !this.state.flag,
-        })
 
         let itemQuiz = {
             token: '',
@@ -229,6 +225,7 @@ class QuizCreator extends React.Component {
                                         </Button>
 
                                         <Button type="primary"
+                                                htmlType='submit'
                                                 onClick={this.createQuizHandler}
                                                 disabled={!this.state.quiz.length}>
                                             Создать тест

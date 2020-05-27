@@ -1,32 +1,43 @@
 const initialState = {
-    currentUser: {
-        username: 'Admin'
-    },
-    isAuth: true
+    firstName: '',
+    secondName: '',
+    lastName: '',
+    role: '',
+    email: '',
+    token: '',
+    isAuth: false
 }
 
 const authReducer = (state = initialState, action) => {
     switch (action.type) {
         case 'SET_USER_DATA':
-            return  {...state, currentUser: action.payload, isAuth: true}
+            return {...state, currentUser: action.payload, isAuth: true}
         case 'REG_USER':
             return {...state, currentUser: action.payload}
         case 'LOGIN_USER':
-            return {...state, currentUser: action.payload, isAuth: true}
+            return {...state,
+                firstName: action.payload.first_name,
+                secondName: action.payload.second_name,
+                lastName:action.payload.last_name,
+                role: action.payload.role,
+                email: action.payload.email,
+                token: action.payload.authentication_token,
+                isAuth: true
+            }
         case 'LOGOUT_USER':
-            return {...state, currentUser: {}, isAuth: false}
+            return {...state,
+                firstName: '',
+                secondName: '',
+                lastName: '',
+                role: '',
+                email: '',
+                token: '',
+                isAuth: false
+            }
         default:
             return state
     }
 }
 
-export const setAuthUserData = (type = 'SET_USER_DATA', userId, email, login) => ({
-    type: type ,
-    payload: {userId, email, login}
-});
-
-export const logout = () => (dispatch) => {
-    dispatch(setAuthUserData('LOGOUT_USER', null, null, null))
-}
 
 export default authReducer
