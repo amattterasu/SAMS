@@ -4,7 +4,7 @@ import {connect, Provider} from 'react-redux'
 import {compose} from "redux"
 
 import store from "./redux/store"
-import {getProfileFetch} from './redux/actions/actions'
+import {getProfileFetch} from './redux/actions/userActions'
 
 import Auth from './containers/Auth/Auth'
 

@@ -7,11 +7,13 @@ import Events from "./Events";
 
 class EventsCreator extends React.Component {
     render() {
-        return <Events />
+        return <Events date={this.props.date}/>
     }
 }
 
-let mapStateToProps = state => ({})
+let mapStateToProps = state => ({
+    date: state.events.date
+})
 
 let  mapDispatchToProps = dispatch => ({})
 

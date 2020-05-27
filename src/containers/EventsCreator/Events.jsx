@@ -2,53 +2,73 @@ import React from 'react'
 import BlockAuth from "../../components/BlockAuth/BlockAuth";
 import Input from "../../components/UI/Input/Input";
 import Button from "../../components/Button/Button";
-import {createControl} from "../../form/formFramework";
-import Datepicker from "../../components/Datepicker/Datepicker";
+import {createControl, validate, validateForm} from "../../form/formFramework";
+import Datepicker from "../../components/Datepicker/DatepickerContainer";
+import {renderControls} from "../../utils/utils";
 
 class Events extends React.Component {
 
-    // state = {
-    //     id: this.props.currentUser.id,
-    //     isFormValid: false,
-    //     isEdit: false,
-    //     formControls: {
-    //         title: createControl({
-    //             label: 'Имя',
-    //             errorMessage: 'Заполните поле имя!',
-    //             value: this.props.currentUser.firstName
-    //         }, {required: true}),
-    //         location: createControl({
-    //             label: 'Фамилия',
-    //             errorMessage: 'Заполните поле фамилия!',
-    //             value: this.props.currentUser.secondName
-    //         }, {required: true}),
-    //         qrTitle: createControl({
-    //             label: 'Отчество',
-    //             errorMessage: 'Заполните поле отчество!',
-    //             value: this.props.currentUser.lastName
-    //         }, {required: true}),
-    //         timeStart: createControl({
-    //             label: 'Роль',
-    //             errorMessage: 'Заполните поле роль!',
-    //             value: this.props.currentUser.role
-    //         }, {required: true})
-    //     },
-    // }
+    state = {
+        isFormValid: false,
+        formControls: {
+            title: createControl({
+                label: 'Название',
+                errorMessage: 'Заполните поле название!',
+                value: ''
+            }, {required: true}),
+            location: createControl({
+                label: 'Место проведения',
+                errorMessage: 'Заполните поле место проведения!',
+                value: ''
+            }, {required: true}),
+            qrTitle: createControl({
+                label: 'QR-код фраза',
+                errorMessage: 'Заполните поле QR-код!',
+                value: ''
+            }),
+           comments: createControl({
+                label: 'Комментарий',
+                errorMessage: 'Заполните поле комментарий!',
+                value: ''
+            })
+        }
+    }
 
 
+    changeHandler = (value, controlName) => {
+
+        const formControls = {...this.state.formControls}
+        const control = {...formControls[controlName]}
+
+        control.touched = true
+        control.value = value
+        control.valid = validate(control.value, control.validation)
+
+        formControls[controlName] = control
+
+        this.setState({
+            formControls,
+            isFormValid: validateForm(formControls)
+        })
+    }
 
     submitHandler = event => {
 
     }
 
     render() {
+        console.log(this.props.date[0], this.props.date[1])
         return (
             <div className='Events'>
                 <div className='Events_createEvent'>
                     <h1>Создание события</h1>
                     <BlockAuth>
                         <form onSubmit={this.submitHandler}>
-                            <Datepicker/>
+                            {
+                                renderControls(this.state.formControls)
+                            }
+
+                            <Datepicker />
 
                             <div className='container-btn'>
                                 <Button type="primary"
@@ -67,11 +87,6 @@ class Events extends React.Component {
 
                     </BlockAuth>
                 </div>
-
-
-
-
-
             </div>
         );
     }

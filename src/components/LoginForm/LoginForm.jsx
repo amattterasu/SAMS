@@ -6,7 +6,7 @@ import Button from "../Button/Button"
 import {Form, Input} from "antd"
 import {LockOutlined, UserOutlined} from '@ant-design/icons'
 
-import {userLoginFetch} from "../../redux/actions/actions"
+import {userLoginFetch} from "../../redux/actions/userActions"
 import {connect} from "react-redux";
 
 const LoginForm = props => {

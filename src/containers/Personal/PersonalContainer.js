@@ -3,7 +3,7 @@ import {connect} from "react-redux"
 import {compose} from "redux"
 import {withAuthRedirect} from "../../hoc/withAuthRedirect"
 import Personal from "./Personal";
-import {profileFetch, userLoginFetch} from "../../redux/actions/actions";
+import {profileFetch} from "../../redux/actions/userActions";
 
 
 class PersonalContainer extends React.Component {

@@ -4,7 +4,7 @@ export const createControl = (config, validation) => {
         validation,
         valid: !validation,
         touched: false,
-        value: config.value
+        value: config.value,
     }
 }
 

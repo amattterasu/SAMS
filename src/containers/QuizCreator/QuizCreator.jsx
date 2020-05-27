@@ -9,7 +9,7 @@ import SelectComponent from "../../components/UI/SelectComponent/SelectComponent
 
 import {createControl, validate, validateForm} from '../../form/formFramework'
 import Quiz from "../../components/Quiz/Quiz"
-
+import {renderControls} from "../../utils/utils";
 
 const createOptionControl = (number) => {
     return createControl({
@@ -141,27 +141,6 @@ class QuizCreator extends React.Component {
         this.setState({title: event.target.value})
     }
 
-    renderControls = () => {
-        return Object.keys(this.state.formControls).map((controlName, index) => {
-            const control = this.state.formControls[controlName]
-
-            return (
-                <React.Fragment key={controlName + index}>
-                    <Input
-                        label={control.label}
-                        value={control.value}
-                        valid={control.valid}
-                        shouldValidate={!!control.validation}
-                        touched={control.touched}
-                        errorMessage={control.errorMessage}
-                        onChange={event => this.changeHandler(event.target.value, controlName)}
-                    />
-                    {index === 0 ? <hr/> : null}
-                </React.Fragment>
-            )
-        })
-    }
-
     selectChangeHandler = event => {
 
         this.setState({
@@ -210,7 +189,7 @@ class QuizCreator extends React.Component {
                                 <form onSubmit={this.submitHandler}>
                                     <h2>Название теста: {this.state.title}</h2>
                                     {
-                                        this.renderControls()
+                                        renderControls(this.state.formControls)
                                     }
                                     {
                                         select
