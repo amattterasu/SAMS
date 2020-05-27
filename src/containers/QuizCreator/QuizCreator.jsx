@@ -47,7 +47,7 @@ class QuizCreator extends React.Component {
     }
 
     componentDidMount() {
-        fetch('http://localhost:3000/posts')
+        fetch('')
             .then(res => res.json())
             .then(
                 (result) => {

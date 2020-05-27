@@ -49,7 +49,7 @@ export const userRegFetch = user => {
             .then(data => {   // в случае успеха, data - ответ в JSON
                 if (data.message) {
                 } else {
-                    localStorage.setItem("token", 'JUST TOKEN')
+                    localStorage.removeItem('token')
                     dispatch(regUser(data))
                 }
             })
@@ -75,6 +75,7 @@ export const userLoginFetch = user => {
                 if (data.message) {
                     //Тут прописываем логику
                 } else {
+                    localStorage.removeItem('token')
                     localStorage.setItem("token", data.authentication_token) // data.token
                     dispatch(loginUser(data))
                 }
@@ -86,20 +87,20 @@ export const getProfileFetch = () => {
     return dispatch => {
         const token = localStorage.token;
         if (token) {
-            return fetch(URL + '/user', {
+            return fetch(URL + `/user`, {
                 method: "GET",
                 headers: {
                     'Access-Control-Allow-Headers': 'Version, Authorization, Content-Type',
                     'Content-Type': 'application/json',
                     Accept: 'application/json',
-                    'Authorization': `Bearer ${token}`
-                }
+                    'Authorization': `${token}`
+                },
             })
                 .then(resp => resp.json())
                 .then(data => {
                     if (data.message) {
                         // Будет ошибка если token не дествительный
-                        localStorage.removeItem("token")
+                        localStorage.removeItem('token')
                     } else {
                         dispatch(loginUser(data))
                     }
@@ -109,10 +110,9 @@ export const getProfileFetch = () => {
 }
 
 export const quizFetch = quiz => {
-    console.log(quiz)
     return dispatch => {
         const token = localStorage.token
-        if (true) {
+        if (token) {
             return fetch(URL, {
                 credentials: 'include',
                 method: "POST",
@@ -128,3 +128,47 @@ export const quizFetch = quiz => {
         }
     }
 }
+
+export const profileFetch = (id, userConfig) => {
+    return dispatch => {
+        const token = localStorage.token;
+        if (token) {
+            return fetch(URL + `${id}`, {
+                method: "PATCH",
+                headers: {
+                    "Content-Type": "application/json",
+                    Accept: "application/json"
+                },
+                body: JSON.stringify({
+                    first_name: userConfig.firstName,
+                    second_name: userConfig.secondName,
+                    last_name: userConfig.lastName,
+                    role: userConfig.role,
+                    authentication_token: token
+                })
+            })
+        }
+    }
+}
+
+// export const qrFetch = (id, userConfig) => {
+//     return dispatch => {
+//         const token = localStorage.token;
+//         if (token) {
+//             return fetch(URL + `${id}`, {
+//                 method: "PATCH",
+//                 headers: {
+//                     "Content-Type": "application/json",
+//                     Accept: "application/json"
+//                 },
+//                 body: JSON.stringify({
+//                     first_name: userConfig.firstName,
+//                     second_name: userConfig.secondName,
+//                     last_name: userConfig.lastName,
+//                     role: userConfig.role,
+//                     authentication_token: token
+//                 })
+//             })
+//         }
+//     }
+// }

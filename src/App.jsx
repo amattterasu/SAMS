@@ -4,7 +4,7 @@ import {connect, Provider} from 'react-redux'
 import {compose} from "redux"
 
 import store from "./redux/store"
-import {getProfileFetch, logoutUser} from './redux/actions/actions'
+import {getProfileFetch} from './redux/actions/actions'
 
 import Auth from './containers/Auth/Auth'
 
@@ -30,7 +30,8 @@ class App extends Component {
                         <Route exact path='/quiz-creator' render={() => <QuizCreator/>}/>
                         <Route exact path={["/", "/im"]} render={() => <Personal/>}/>
                         <Route exact path="/qr-creator" render={() => <QRCreator/>}/>
-                        <Route exact path="/event-creator" render={() => <Events/>}/>
+                        <Route exact path="/event-creator" render={() => <QRCreator/>}/>
+                        <Route exact path="/events" render={() => <Events/>}/>
                         <Route path='*'render={() => <h1 style={{textAlign: 'center'}}>Error 404 PAGE NOT FOUND</h1>}/>
                     </Switch>
                 </div>

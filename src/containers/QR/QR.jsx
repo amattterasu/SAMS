@@ -1,12 +1,12 @@
-import React from 'react';
-import {Input} from 'antd';
+import React from 'react'
+import {Input} from 'antd'
 import './QR.scss'
-import Button from "../../components/Button/Button";
-import BlockAuth from "../../components/BlockAuth/BlockAuth";
-import {Redirect} from "react-router-dom";
+import Button from "../../components/Button/Button"
+import BlockAuth from "../../components/BlockAuth/BlockAuth"
+import {Redirect} from "react-router-dom"
 
-const QRCode = require('qrcode.react');
-const {TextArea} = Input;
+const QRCode = require('qrcode.react')
+const {TextArea} = Input
 
 class QRCreator extends React.Component {
 
@@ -15,23 +15,23 @@ class QRCreator extends React.Component {
         loadings: []
     }
 
-    enterLoading = index => {
-        const newLoadings = [...this.state.loadings];
-        newLoadings[index] = true;
-        this.setState({
-            loadings: newLoadings,
-        });
-        setTimeout(() => {
-            newLoadings[index] = false;
-            this.setState({loadings: newLoadings});
-        }, 2000);
-    };
+    // enterLoading = index => {
+    //     const newLoadings = [...this.state.loadings];
+    //     newLoadings[index] = true;
+    //     this.setState({
+    //         loadings: newLoadings,
+    //     });
+    //     setTimeout(() => {
+    //         newLoadings[index] = false;
+    //         this.setState({loadings: newLoadings});
+    //     }, 1000);
+    // };
 
     addQRHandler = event => {
         event.preventDefault()
 
         if (this.state.value) {
-            console.log(this.state.value)
+
         }
     }
 
@@ -93,7 +93,6 @@ class QRCreator extends React.Component {
 
                     </form>
                 </BlockAuth>
-
             </div>
         );
     }

@@ -23,7 +23,10 @@ const Header = (props) => {
                         <NavLink className='headerLink' to='/qr-creator'>Генерация QR-кода</NavLink>
                     </div>
                     <div className='headerItem'>
-                        <NavLink className='headerLink' to='/event-creator'>События</NavLink>
+                        <NavLink className='headerLink' to='/event-creator'>Создать событие</NavLink>
+                    </div>
+                    <div className='headerItem'>
+                        <NavLink className='headerLink' to='/events'>События</NavLink>
                     </div>
                 </div>
                 <div className='headerItem'>

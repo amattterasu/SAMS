@@ -1,0 +1,43 @@
+.personal {
+  display: flex;
+  justify-content: center;
+  padding-top: 50px;
+  flex-grow: 1;
+
+  > div {
+    width: 100%;
+    max-width: 700px;
+    padding: 0 20px;
+    text-align: right;
+  }
+
+  label {
+    text-align: left;
+  }
+
+  button {
+    margin-top: 5px;
+    margin-left: 10px;
+
+  }
+
+  h1 {
+    text-align: center;
+  }
+
+  .block {
+    min-width: 300px;
+    padding: 20px;
+  }
+
+  .profileInfo {
+    font-size: 24px;
+    display: flex;
+    flex-wrap: wrap;
+
+    span {
+      display: block;
+    }
+  }
+
+}

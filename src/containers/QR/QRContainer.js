@@ -13,7 +13,9 @@ class QRContainer extends React.Component {
 
 let mapStateToProps = state =>({})
 
-let  mapDispatchToProps = dispatch => ({})
+let  mapDispatchToProps = dispatch => ({
+
+})
 
 export default compose(
     connect(mapStateToProps, mapDispatchToProps),

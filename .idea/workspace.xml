@@ -2,13 +2,18 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4a698bd4-533b-43b2-9456-e23108b775f1" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/components/ProfileInfo/ProfileInfo.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/App.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/Header/Header.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Header/Header.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Quiz/Quiz.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Quiz/Quiz.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Quiz/Quiz.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Quiz/Quiz.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/containers/HeaderContainer/HeaderContainer.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/containers/HeaderContainer/HeaderContainer.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/UI/Input/Input.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/UI/Input/Input.module.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/containers/Personal/Personal.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/containers/Personal/Personal.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/containers/Personal/Personal.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/containers/Personal/Personal.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/containers/Personal/PersonalContainer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/containers/Personal/PersonalContainer.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/containers/QR/QR.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/containers/QR/QR.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/containers/QR/QRContainer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/containers/QR/QRContainer.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/containers/QuizCreator/QuizCreator.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/containers/QuizCreator/QuizCreator.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/form/formFramework.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/form/formFramework.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/redux/actions/actions.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/redux/actions/actions.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/redux/reducers/authReducer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/redux/reducers/authReducer.js" afterDir="false" />
     </list>
@@ -42,16 +47,16 @@
     <property name="ts.external.directory.path" value="D:\Others\WebStorm 2019.3.3\plugins\JavaScriptLanguage\jsLanguageServicesImpl\external" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\No_Name\Desktop\SAMS\src\containers\Personal" />
-      <recent name="C:\Users\No_Name\Desktop\SAMS\src\containers\QuizCreator" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\No_Name\Desktop\SAMS\src\containers" />
       <recent name="C:\Users\No_Name\Desktop\SAMS\src\containers\Personal" />
       <recent name="C:\Users\No_Name\Desktop\SAMS\src" />
       <recent name="C:\Users\No_Name\Desktop\SAMS\client\src\components\UI\Input" />
       <recent name="C:\Users\No_Name\Desktop\SAMS\client\src\components" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\No_Name\Desktop\SAMS\src\containers\Personal" />
+      <recent name="C:\Users\No_Name\Desktop\SAMS\src\containers\QuizCreator" />
     </key>
   </component>
   <component name="SvnConfiguration">
@@ -100,7 +105,7 @@
       <workItem from="1590334095249" duration="1996000" />
       <workItem from="1590393643208" duration="8897000" />
       <workItem from="1590500831552" duration="9767000" />
-      <workItem from="1590557629983" duration="6495000" />
+      <workItem from="1590557629983" duration="28836000" />
     </task>
     <servers />
   </component>
@@ -140,10 +145,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="498" height="446" key="SwitcherDM/0.0.1920.1040@0.0.1920.1040" timestamp="1586606757010" />
-    <state x="231" y="244" key="run.anything.popup" timestamp="1589977646721">
+    <state x="231" y="244" key="run.anything.popup" timestamp="1590586035881">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="231" y="244" key="run.anything.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1589977646721" />
+    <state x="231" y="244" key="run.anything.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1590586035881" />
     <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1590567167226">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
