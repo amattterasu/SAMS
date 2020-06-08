@@ -2,26 +2,21 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4a698bd4-533b-43b2-9456-e23108b775f1" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/components/Datepicker/DatepickerContainer.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/redux/actions/userActions.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/redux/reducers/eventsReducer.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/utils/utils.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/App.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/Datepicker/Datepicker.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Datepicker/Datepicker.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/LoginForm/LoginForm.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/LoginForm/LoginForm.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/RegisterForm/RegisterForm.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/RegisterForm/RegisterForm.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Quiz/Quiz.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Quiz/Quiz.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/UI/SelectComponent/SelectComponent.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/UI/SelectComponent/SelectComponent.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/containers/EventsCreator/Events.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/containers/EventsCreator/Events.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/containers/EventsCreator/EventsCreator.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/containers/EventsCreator/EventsCreator.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/containers/HeaderContainer/HeaderContainer.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/containers/HeaderContainer/HeaderContainer.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/containers/EventsCreator/EventsCreator.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/containers/EventsCreator/EventsCreator.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/containers/Personal/Personal.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/containers/Personal/Personal.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/containers/Personal/PersonalContainer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/containers/Personal/PersonalContainer.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/containers/QR/QR.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/containers/QR/QR.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/containers/QuizCreator/QuizCreator.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/containers/QuizCreator/QuizCreator.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/containers/QuizCreator/QuizCreatorContainer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/containers/QuizCreator/QuizCreatorContainer.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/form/formFramework.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/form/formFramework.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/redux/actions/actions.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/redux/actions/actions.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/redux/actions/userActions.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/redux/actions/userActions.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/redux/reducers/authReducer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/redux/reducers/authReducer.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/redux/store.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/redux/store.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/utils/utils.js" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -46,6 +41,7 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="TERMINAL_CUSTOM_COMMANDS_GOT_IT" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/src/containers" />
     <property name="nodejs_package_manager_path" value="npm" />
@@ -112,7 +108,12 @@
       <workItem from="1590334095249" duration="1996000" />
       <workItem from="1590393643208" duration="8897000" />
       <workItem from="1590500831552" duration="9767000" />
-      <workItem from="1590557629983" duration="40853000" />
+      <workItem from="1590557629983" duration="45857000" />
+      <workItem from="1591176749227" duration="2596000" />
+      <workItem from="1591185733917" duration="805000" />
+      <workItem from="1591249916937" duration="10725000" />
+      <workItem from="1591595051303" duration="52000" />
+      <workItem from="1591595171232" duration="8670000" />
     </task>
     <servers />
   </component>
@@ -120,6 +121,10 @@
     <option name="version" value="2" />
   </component>
   <component name="WindowStateProjectService">
+    <state x="0" y="174" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1591604108459">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="0" y="174" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1591604108459" />
     <state x="339" y="326" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1590314357899">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -156,9 +161,19 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="231" y="244" key="run.anything.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1590586035881" />
-    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1590567167226">
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1591598274762">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1590567167226" />
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1591598274762" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/src/components/Datepicker/Datepicker.jsx</url>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

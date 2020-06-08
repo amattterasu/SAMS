@@ -1,13 +1,27 @@
 .Events {
   display: grid;
-
-  grid-gap: 20px;
-  grid-template-columns: repeat(auto-fill, minmax(550px, 1fr));
+  grid-gap: 1em;
+  justify-content: space-between;
+  justify-content: center;
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
   margin: 0;
   padding: 30px;
-
+w
   h1 {
     text-align: center;
   }
 
+  .container-btn {
+    text-align: right;
+    button {
+      margin-top: 10px;
+    }
+  }
+  label {
+    margin-bottom: 3px;
+    padding: 0;
+    display: block;
+    font-weight: bold;
+    margin-right: 10px;
+  }
 }

@@ -5,24 +5,23 @@ import BlockAuth from "../BlockAuth/BlockAuth";
 class Quiz extends React.Component {
 
     state = {
-        quiz: [],
+      body_of_test: [],
         title: ''
     }
 
     clickHandler = (el) => {
-        this.setState({quiz: el.quiz, title: el.title})
-        console.log(el)
+        this.setState({body_of_test: el.body_of_test, title: el.title})
     }
 
     render() {
 
-        const newQuiz = this.props.quiz.map((el, index) => ({title: el.title, quiz: el.quiz, id: index}))
+        const newQuiz = this.props.body_of_test.length && this.props.body_of_test.map((el, index) => ({title: el.title, body_of_test: el.body_of_test, id: index}))
 
         const quizElements = newQuiz.map(el => <li onClick={() => this.clickHandler(el)}
                                                    key={el.title + Math.random()}>{el.title}</li>)
 
-
         return (
+
             <div className='quiz'>
                 <h1>Созданные тесты</h1>
                 <BlockAuth>
@@ -34,10 +33,10 @@ class Quiz extends React.Component {
                         </ol>
                         <div className='quizInfo'>
                             <h3>{this.state.title}</h3>
-                            {this.state.quiz.map((el, i) =>
+                            {this.state.body_of_test.map((el, i) =>
                                 <div key={Math.random()}>
-                                    <span>{`${i + 1}) ${el.questions}`}</span>
-                                    <ul> {el.answers.map(ans => <li key={Math.random()}>{ans.text}</li>)} </ul>
+                                    <span>{`${i + 1}) ${el.body_of_question}`}</span>
+                                    <ul> {el.answers.map(ans => <li key={Math.random()}>{ans.body_of_answers}</li>)} </ul>
                                 </div>)}
                         </div>
                     </div>

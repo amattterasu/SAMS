@@ -7,18 +7,18 @@ import {quizFetch} from "../../redux/actions/userActions";
 
 
 class QuizCreatorContainer extends React.Component {
-    render() {
-        return <QuizCreator quizFetch={this.props.quizFetch}/>
-    }
+  render() {
+    return <QuizCreator quizFetch={this.props.quizFetch}/>
+  }
 }
 
-let mapStateToProps = state =>({})
+let mapStateToProps = state => ({})
 
 const mapDispatchToProps = dispatch => ({
-    quizFetch: quiz => dispatch(quizFetch(quiz))
+  quizFetch: quiz => dispatch(quizFetch(quiz))
 })
 
 export default compose(
-    connect(mapStateToProps, mapDispatchToProps),
-    withAuthRedirect
+  connect(mapStateToProps, mapDispatchToProps),
+  withAuthRedirect
 )(QuizCreatorContainer)

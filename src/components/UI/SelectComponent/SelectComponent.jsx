@@ -21,7 +21,7 @@ const SelectComponent = props => {
                         <Option
                             value={option.value}
                             key={option.value + index}>
-                            {option.text}
+                            {option.body_of_answers}
                         </Option>
                     )
                 })}
