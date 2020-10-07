@@ -27,8 +27,7 @@
   <component name="ChangeListManager">
     <list default="true" id="4a698bd4-533b-43b2-9456-e23108b775f1" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/containers/EventsCreator/Events.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/containers/EventsCreator/Events.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/containers/EventsCreator/EventsCreator.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/containers/EventsCreator/EventsCreator.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Quiz/Quiz.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Quiz/Quiz.jsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -133,7 +132,7 @@
       <workItem from="1591595051303" duration="52000" />
       <workItem from="1591595171232" duration="8670000" />
       <workItem from="1602081625244" duration="7745000" />
-      <workItem from="1602089631991" duration="3388000" />
+      <workItem from="1602089631991" duration="3553000" />
     </task>
     <servers />
   </component>
