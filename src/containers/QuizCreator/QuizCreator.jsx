@@ -258,7 +258,7 @@ class QuizCreator extends React.Component {
                                     <Button
                                         type="primary"
                                         onClick={this.createTitleQuizHandler}
-                                        disabled={!this.state.title}
+                                        disabled={!this.state.title.trim()}
                                     >
                                         Выбрать название
                                     </Button>
