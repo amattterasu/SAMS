@@ -1,5 +1,6 @@
 import React from 'react'
 import {Input} from 'antd'
+
 import './QR.scss'
 import Button from "../../components/Button/Button"
 import BlockAuth from "../../components/BlockAuth/BlockAuth"
@@ -16,16 +17,16 @@ class QRCreator extends React.Component {
   }
 
   enterLoading = index => {
-    const newLoadings = [...this.state.loadings];
+    const newLoadings = [...this.state.loadings]
     newLoadings[index] = true;
     this.setState({
       loadings: newLoadings,
     });
     setTimeout(() => {
       newLoadings[index] = false;
-      this.setState({loadings: newLoadings});
-    }, 1000);
-  };
+      this.setState({loadings: newLoadings})
+    }, 1000)
+  }
 
   addQRHandler = event => {
     event.preventDefault()
@@ -90,12 +91,11 @@ class QRCreator extends React.Component {
                 Отправить на устройство
               </Button>
             </div>
-
           </form>
         </BlockAuth>
       </div>
-    );
+    )
   }
 }
 
-export default QRCreator;
+export default QRCreator

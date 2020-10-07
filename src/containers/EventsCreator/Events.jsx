@@ -1,9 +1,9 @@
 import React from 'react'
-import BlockAuth from "../../components/BlockAuth/BlockAuth";
-import Input from "../../components/UI/Input/Input";
-import Button from "../../components/Button/Button";
-import {createControl, validate, validateForm} from "../../form/formFramework";
-import Datepicker from "../../components/Datepicker/DatepickerContainer";
+import BlockAuth from "../../components/BlockAuth/BlockAuth"
+import Input from "../../components/UI/Input/Input"
+import Button from "../../components/Button/Button"
+import {createControl, validate, validateForm} from "../../form/formFramework"
+import Datepicker from "../../components/Datepicker/DatepickerContainer"
 
 class Events extends React.Component {
 

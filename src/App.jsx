@@ -47,7 +47,7 @@ const mapDispatchToProps = dispatch => ({getProfileFetch: () => dispatch(getProf
 
 let AppContainer = compose(
   withRouter,
-  connect(mapStateToProps, mapDispatchToProps))(App);
+  connect(mapStateToProps, mapDispatchToProps))(App)
 
 const MainApp = props => {
   return <BrowserRouter>

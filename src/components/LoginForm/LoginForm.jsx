@@ -7,7 +7,7 @@ import {Form, Input} from "antd"
 import {LockOutlined, UserOutlined} from '@ant-design/icons'
 
 import {userLoginFetch} from "../../redux/actions/userActions"
-import {connect} from "react-redux";
+import {connect} from "react-redux"
 
 const LoginForm = props => {
 
@@ -40,7 +40,6 @@ const LoginForm = props => {
                             prefix={<UserOutlined className="site-form-item-icon"/>}
                             placeholder="Имя пользователя"
                         />
-
                     </Form.Item>
                     <Form.Item
                         name="password"
@@ -52,7 +51,6 @@ const LoginForm = props => {
                             size="large"
                         />
                     </Form.Item>
-
                     <Form.Item>
                         <Button type="primary" htmlType="submit" className="login-form-button" size='large'>
                             Войти в аккаунт
@@ -62,7 +60,7 @@ const LoginForm = props => {
                 </Form>
             </BlockAuth>
         </div>
-    );
+    )
 }
 
 const mapStateToProps = state => ({

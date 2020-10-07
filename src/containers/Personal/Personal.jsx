@@ -1,10 +1,10 @@
-import React from 'react';
-import './Personal.scss';
-import {Redirect} from "react-router-dom";
-import BlockAuth from "../../components/BlockAuth/BlockAuth";
-import Input from "../../components/UI/Input/Input";
-import {createControl, validate, validateForm} from "../../form/formFramework";
-import Button from "../../components/Button/Button";
+import React from 'react'
+import './Personal.scss'
+import {Redirect} from "react-router-dom"
+import BlockAuth from "../../components/BlockAuth/BlockAuth"
+import Input from "../../components/UI/Input/Input"
+import {createControl, validate, validateForm} from "../../form/formFramework"
+import Button from "../../components/Button/Button"
 
 class Personal extends React.Component {
 
@@ -138,7 +138,6 @@ class Personal extends React.Component {
                 :
                 <form onSubmit={this.submitHandler}>
                   {this.renderControls()}
-
 
                   <Button type="primary"
                           disabled={!this.state.isFormValid}
