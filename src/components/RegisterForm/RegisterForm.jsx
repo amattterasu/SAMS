@@ -11,7 +11,7 @@ import {InfoCircleTwoTone, LockOutlined, UserOutlined, MailOutlined} from '@ant-
 import {
     Form,
     Input,
-} from 'antd';
+} from 'antd'
 
 const formItemLayout = {
     labelCol: {
@@ -131,7 +131,7 @@ const RegisterForm = props => {
                 }
             </BlockAuth>
         </div>
-    );
+    )
 }
 
 const mapDispatchToProps = dispatch => ({

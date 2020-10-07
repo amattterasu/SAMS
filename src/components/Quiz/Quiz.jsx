@@ -1,6 +1,6 @@
 import React from 'react'
 import './Quiz.scss'
-import BlockAuth from "../BlockAuth/BlockAuth";
+import BlockAuth from "../BlockAuth/BlockAuth"
 
 class Quiz extends React.Component {
 

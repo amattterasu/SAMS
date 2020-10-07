@@ -219,15 +219,12 @@ class QuizCreator extends React.Component {
                   {
                     select
                   }
-
                   <div className='container-btn'>
                     <Button
                       onClick={this.addQuestionHandler}
                       disabled={!this.state.isFormValid}>
                       Добавить вопрос
-
                     </Button>
-
                     <Button type="primary"
                             htmlType='submit'
                             onClick={this.createQuizHandler}
@@ -241,10 +238,7 @@ class QuizCreator extends React.Component {
             </BlockAuth>
           </div>
         </div>
-        {
-          console.log(this.state.showQuiz)
-        }
-        {/*<Quiz body_of_test={this.state.showQuiz}/>*/}
+          {/*<Quiz body_of_test={this.state.showQuiz}/>*/}
       </div>
     )
   }

@@ -1,8 +1,8 @@
-import React from 'react';
+import React from 'react'
 import './Header.scss'
-import {NavLink} from "react-router-dom";
+import {NavLink} from "react-router-dom"
 
-import {LogoutOutlined, LoginOutlined} from '@ant-design/icons';
+import {LogoutOutlined, LoginOutlined} from '@ant-design/icons'
 
 const Header = (props) => {
 

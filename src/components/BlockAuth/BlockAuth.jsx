@@ -1,5 +1,5 @@
-import React from "react";
-import classNames from 'classnames';
+import React from "react"
+import classNames from 'classnames'
 
 import "./BlockAuth.scss"
 
@@ -11,4 +11,4 @@ const BlockAuth = ({children, className}) => {
     )
 }
 
-export default BlockAuth;
+export default BlockAuth

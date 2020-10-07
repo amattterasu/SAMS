@@ -1,8 +1,8 @@
-import React from 'react';
+import React from 'react'
 import './SelectComponent.scss'
 
-import { Select } from 'antd';
-const { Option } = Select;
+import { Select } from 'antd'
+const { Option } = Select
 
 const SelectComponent = props => {
 
@@ -27,7 +27,7 @@ const SelectComponent = props => {
                 })}
             </Select>
         </div>
-    );
-};
+    )
+}
 
-export default SelectComponent;
+export default SelectComponent

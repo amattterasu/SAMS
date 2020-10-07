@@ -1,15 +1,15 @@
-import React from 'react';
-import 'antd/dist/antd.css';
-import moment from 'moment';
-import {DatePicker} from 'antd';
+import React from 'react'
+import 'antd/dist/antd.css'
+import moment from 'moment'
+import {DatePicker} from 'antd'
 
-const {RangePicker} = DatePicker;
+const {RangePicker} = DatePicker
 
 const Datepicker = props => {
 
   function disabledDate(current) {
     // Can not select days before today and today
-    return current && current < moment().endOf('day');
+    return current && current < moment().endOf('day')
   }
 
   const onChangePicker = (date) => {
@@ -31,7 +31,7 @@ const Datepicker = props => {
         placeholder={['Начало', 'Конец']}
       />
     </div>
-  );
-};
+  )
+}
 
-export default Datepicker;
+export default Datepicker

@@ -1,19 +1,20 @@
 const initialState = {
     id: '',
-    firstName: '',
-    secondName: '',
-    lastName: '',
-    role: '',
-    email: '',
-    isAuth: false
-    // firstName: 'Андрей',
-    // secondName: 'Губайдуллин',
-    // lastName: 'Евгеньевич',
-    // role: 'Студент',
-    // email: 'admin@admin.ru',
-    // isAuth: true
-}
+    // firstName: '',
+    // secondName: '',
+    // lastName: '',
+    // role: '',
+    // email: '',
+    // isAuth: false
 
+    // Моковые данные
+    firstName: 'Андрей',
+    secondName: 'Губайдуллин',
+    lastName: 'Евгеньевич',
+    role: 'Студент',
+    email: 'admin@admin.ru',
+    isAuth: true
+}
 
 const authReducer = (state = initialState, action) => {
     switch (action.type) {

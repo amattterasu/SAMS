@@ -3,8 +3,7 @@ import {connect} from "react-redux"
 import {compose} from "redux"
 import {withAuthRedirect} from "../../hoc/withAuthRedirect"
 import QuizCreator from "./QuizCreator"
-import {quizFetch} from "../../redux/actions/userActions";
-
+import {quizFetch} from "../../redux/actions/userActions"
 
 class QuizCreatorContainer extends React.Component {
   render() {

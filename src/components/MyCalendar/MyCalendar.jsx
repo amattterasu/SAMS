@@ -1,9 +1,9 @@
-import React, { Component } from "react";
-import { Calendar, momentLocalizer } from "react-big-calendar";
-import moment from "moment";
+import React, { Component } from "react"
+import { Calendar, momentLocalizer } from "react-big-calendar"
+import moment from "moment"
 
-import "react-big-calendar/lib/css/react-big-calendar.css";
-import {Redirect} from "react-router-dom";
+import "react-big-calendar/lib/css/react-big-calendar.css"
+import {Redirect} from "react-router-dom"
 
 const localizer = momentLocalizer(moment)
 
@@ -29,7 +29,7 @@ class MyCalendar extends Component {
 
     render() {
 
-        if (this.props.isAuth) return <Redirect to={'/login'}/>;
+        if (this.props.isAuth) return <Redirect to={'/login'}/>
 
         return (
             <div className="App">
@@ -43,8 +43,6 @@ class MyCalendar extends Component {
                     onSelectEvent={event => alert(event.title)}
                     onSelectSlot={this.handleSelect}
                 />
-
-                {console.log(this.state.events)}
             </div>
         );
     }
