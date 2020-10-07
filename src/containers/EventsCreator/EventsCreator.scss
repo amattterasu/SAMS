@@ -17,11 +17,27 @@ w
       margin-top: 10px;
     }
   }
+
   label {
     margin-bottom: 3px;
     padding: 0;
     display: block;
     font-weight: bold;
     margin-right: 10px;
+  }
+
+  .quizInfoElementContainer{
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+
+    .quizInfo {
+      overflow-y: auto;
+      max-height: 500px;
+      width: 300px;
+      div {
+        width: 200px;
+      }
+    }
   }
 }
