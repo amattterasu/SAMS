@@ -20,7 +20,6 @@ class Quiz extends React.Component {
                                                    key={el.title + Math.random()}>{el.title}</li>)
 
         return (
-
             <div className='quiz'>
                 <h1>Созданные тесты</h1>
                 <BlockAuth>
