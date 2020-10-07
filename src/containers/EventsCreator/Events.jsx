@@ -31,13 +31,34 @@ class Events extends React.Component {
         value: ''
       })
     },
-    eventsInfo: []
+    title: '',
+    eventsShow: [],
+    eventsInfo: [
+      {
+        comments: 'comment',
+        location: 'location',
+        qr: 'qr',
+        timeEnd: '10/15/2020 17:59:59',
+        timeStart: '10/14/2020 17:52:59',
+        title: 'Name'
+      }
+    ]
+  }
+
+  clickHandler = (el) => {
+    this.setState({eventsShow: [{
+        comments: el.comments,
+        location: el.location,
+        qr: el.qr,
+        timeEnd: el.timeEnd,
+        timeStart: el.timeStart,
+        title: el.title}]})
   }
 
   componentDidMount() {
     const token = localStorage.token;
     if (token) {
-      return fetch('http://91.105.146.185:3000/events', {
+      return fetch('', {
         method: "GET",
         headers: {
           'Access-Control-Allow-Headers': 'Version, Authorization, Content-Type',
@@ -50,7 +71,7 @@ class Events extends React.Component {
         .then(
           (result) => {
             this.setState({
-              showQuiz: result
+              //showQuiz: result
             })
           }
         )
@@ -69,7 +90,8 @@ class Events extends React.Component {
       comments: this.state.formControls.comments.value
     }
 
-    this.props.eventsFetch(eventsConfig)
+    // Для проверки на хосте
+    //this.props.eventsFetch(eventsConfig)
 
     this.setState({
       eventsInfo: [...this.state.eventsInfo, eventsConfig],
@@ -115,6 +137,9 @@ class Events extends React.Component {
   }
 
   render() {
+
+    const eventsElements = this.state.eventsInfo?.map(el => <li onClick={() => this.clickHandler(el)} key={el.title + Math.random()}>{el.title}</li>)
+
     return (
       <div className='Events'>
         <div className='Events_createEvent'>
@@ -142,10 +167,31 @@ class Events extends React.Component {
           <h1>События</h1>
           <BlockAuth>
 
+            <div className='quizInfoElementContainer'>
+              <ol>
+                {
+                  eventsElements
+                }
+              </ol>
+              <div className='quizInfo'>
+                <h3>{this.state.title}</h3>
+                {this.state.eventsShow?.map((el, i) =>
+                    <div key={Math.random()}>
+                      <span>{`${i + 1}) ${el.title}`}</span>
+                      <ul>
+                        <li>{el.location}</li>
+                        <li>{el.qr}</li>
+                        <li>{el.timeStart}</li>
+                        <li>{el.timeEnd}</li>
+                        <li>{el.comments}</li>
+                      </ul>
+                    </div>)}
+              </div>
+            </div>
           </BlockAuth>
         </div>
       </div>
-    );
+    )
   }
 }
 
