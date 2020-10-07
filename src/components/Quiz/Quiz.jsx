@@ -6,7 +6,7 @@ class Quiz extends React.Component {
 
     state = {
       body_of_test: [],
-        title: ''
+      title: ''
     }
 
     clickHandler = (el) => {
@@ -14,9 +14,8 @@ class Quiz extends React.Component {
     }
 
     render() {
-
         const newQuiz = this.props.body_of_test.length && this.props.body_of_test.map((el, index) => ({title: el.title, body_of_test: el.body_of_test, id: index}))
-
+        
         const quizElements = newQuiz.map(el => <li onClick={() => this.clickHandler(el)}
                                                    key={el.title + Math.random()}>{el.title}</li>)
 

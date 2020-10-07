@@ -163,7 +163,7 @@ class QuizCreator extends React.Component {
         }
 
         this.setState({
-            showQuiz: itemQuiz
+            showQuiz: [...this.state.showQuiz, itemQuiz]
         })
         // Для проверки на хосте
         //this.props.quizFetch(itemQuiz)
