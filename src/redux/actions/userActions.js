@@ -154,7 +154,6 @@ export const eventsFetch = event => {
   }
 }
 
-
 export const profileFetch = (id, userConfig) => {
   return dispatch => {
     const token = localStorage.token;

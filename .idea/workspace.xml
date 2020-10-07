@@ -1,22 +1,32 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select />
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="4a698bd4-533b-43b2-9456-e23108b775f1" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/App.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Datepicker/Datepicker.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Datepicker/Datepicker.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Quiz/Quiz.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Quiz/Quiz.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/UI/SelectComponent/SelectComponent.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/UI/SelectComponent/SelectComponent.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/containers/EventsCreator/Events.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/containers/EventsCreator/Events.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/containers/EventsCreator/EventsCreator.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/containers/EventsCreator/EventsCreator.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/containers/EventsCreator/EventsCreator.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/containers/EventsCreator/EventsCreator.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/containers/Personal/Personal.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/containers/Personal/Personal.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/containers/QR/QR.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/containers/QR/QR.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/containers/QuizCreator/QuizCreator.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/containers/QuizCreator/QuizCreator.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/containers/QuizCreator/QuizCreatorContainer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/containers/QuizCreator/QuizCreatorContainer.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/redux/actions/userActions.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/redux/actions/userActions.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/redux/reducers/authReducer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/redux/reducers/authReducer.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/utils/utils.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -33,6 +43,9 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="PackageJsonUpdateNotifier">
+    <dismissed value="$PROJECT_DIR$/package.json" />
+  </component>
   <component name="ProjectId" id="1ZyUnMyyyRHvuNf5gnBP3qQqB6h" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -41,12 +54,14 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="TERMINAL_CUSTOM_COMMANDS_GOT_IT" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/src/containers" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="editor.preferences.fonts.default" />
     <property name="ts.external.directory.path" value="D:\Others\WebStorm 2019.3.3\plugins\JavaScriptLanguage\jsLanguageServicesImpl\external" />
+    <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -62,6 +77,7 @@
       <recent name="C:\Users\No_Name\Desktop\SAMS\src\containers\QuizCreator" />
     </key>
   </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="SvnConfiguration">
     <configuration />
   </component>
@@ -114,57 +130,41 @@
       <workItem from="1591249916937" duration="10725000" />
       <workItem from="1591595051303" duration="52000" />
       <workItem from="1591595171232" duration="8670000" />
+      <workItem from="1602081625244" duration="1797000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
-    <option name="version" value="2" />
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="WindowStateProjectService">
-    <state x="0" y="174" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1591604108459">
+    <state width="1068" height="281" key="GridCell.Tab.0.bottom" timestamp="1602082015232">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="0" y="174" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1591604108459" />
-    <state x="339" y="326" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1590314357899">
+    <state width="1068" height="281" key="GridCell.Tab.0.bottom/0.0.1920.1040/1920.243.1280.760@0.0.1920.1040" timestamp="1602082015232" />
+    <state width="1068" height="281" key="GridCell.Tab.0.center" timestamp="1602082015231">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="339" y="326" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1590314357899" />
-    <state x="107" y="301" key="EditFileWatcherDialog" timestamp="1585818804813">
+    <state width="1068" height="281" key="GridCell.Tab.0.center/0.0.1920.1040/1920.243.1280.760@0.0.1920.1040" timestamp="1602082015231" />
+    <state width="1068" height="281" key="GridCell.Tab.0.left" timestamp="1602082015231">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="107" y="301" key="EditFileWatcherDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1585818804813" />
-    <state width="936" height="281" key="GridCell.Tab.0.bottom" timestamp="1586342790807">
+    <state width="1068" height="281" key="GridCell.Tab.0.left/0.0.1920.1040/1920.243.1280.760@0.0.1920.1040" timestamp="1602082015231" />
+    <state width="1068" height="281" key="GridCell.Tab.0.right" timestamp="1602082015231">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="936" height="281" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1586342790807" />
-    <state width="936" height="281" key="GridCell.Tab.0.center" timestamp="1586342790807">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="936" height="281" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1586342790807" />
-    <state width="936" height="281" key="GridCell.Tab.0.left" timestamp="1586342790807">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="936" height="281" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1586342790807" />
-    <state width="936" height="281" key="GridCell.Tab.0.right" timestamp="1586342790807">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="936" height="281" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1586342790807" />
-    <state x="771" y="153" key="SettingsEditor" timestamp="1586341781220">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="771" y="153" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1586341781220" />
-    <state width="498" height="446" key="SwitcherDM" timestamp="1586606757010">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="498" height="446" key="SwitcherDM/0.0.1920.1040@0.0.1920.1040" timestamp="1586606757010" />
-    <state x="231" y="244" key="run.anything.popup" timestamp="1590586035881">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="231" y="244" key="run.anything.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1590586035881" />
-    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1591598274762">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1591598274762" />
+    <state width="1068" height="281" key="GridCell.Tab.0.right/0.0.1920.1040/1920.243.1280.760@0.0.1920.1040" timestamp="1602082015231" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

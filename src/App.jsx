@@ -13,7 +13,7 @@ import QuizCreator from "./containers/QuizCreator/QuizCreatorContainer"
 import QRCreator from "./containers/QR/QRContainer"
 import Events from "./containers/Events/Events"
 import HeaderContainer from "./containers/HeaderContainer/HeaderContainer"
-import EventsCreator from "./containers/EventsCreator/EventsCreator";
+import EventsCreator from "./containers/EventsCreator/EventsCreator"
 
 class App extends Component {
 
@@ -58,5 +58,3 @@ const MainApp = props => {
 }
 
 export default MainApp
-
-//basename={process.env.PUBLIC_URL}
