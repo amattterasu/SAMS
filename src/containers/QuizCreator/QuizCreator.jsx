@@ -87,7 +87,45 @@ class QuizCreator extends React.Component {
                             true_or_false: 0
                         }
                     ],
+                    body_of_question: 'Вопрос1'
+                }, {
+                    answers: [{
+                        body_of_answers: 'Ответ 1',
+                        true_or_false: 1
+                    },
+                        {
+                            body_of_answers: 'Ответ 2',
+                            true_or_false: 0
+                        },
+                        {
+                            body_of_answers: 'Ответ 3',
+                            true_or_false: 0
+                        },
+                        {
+                            body_of_answers: 'Ответ 4',
+                            true_or_false: 0
+                        }
+                    ],
                     body_of_question: 'Вопрос2'
+                }, {
+                    answers: [{
+                        body_of_answers: 'Ответ 1',
+                        true_or_false: 1
+                    },
+                        {
+                            body_of_answers: 'Ответ 2',
+                            true_or_false: 0
+                        },
+                        {
+                            body_of_answers: 'Ответ 3',
+                            true_or_false: 0
+                        },
+                        {
+                            body_of_answers: 'Ответ 4',
+                            true_or_false: 0
+                        }
+                    ],
+                    body_of_question: 'Вопрос3'
                 }
                 ]
             }

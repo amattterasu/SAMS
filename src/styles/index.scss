@@ -1,8 +1,19 @@
 @import '~antd/dist/antd.css';
 @import "~react-big-calendar/lib/css/react-big-calendar.css";
 
-html, body, #root, .wrapper {
-  color: #202020;
+body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
 
+html, body, #root, .wrapper {
+  height: 100%;
+  color: #202020;
+  font-family: "PT Sans", "Verdana", sans-serif;
+}
+
+.wrapper {
+  flex: 1 0 auto;
 }
 
