@@ -1,3 +1,4 @@
+
 .quiz {
   width: 800px;
   margin: 0 auto;
@@ -8,18 +9,18 @@
   }
 
   ol li {
-    font-size: 16px;
+    color: #adadad;
+    font-size: 24px;
     cursor: pointer;
+
     &:hover {
-      border-bottom: 2px solid #dadada;
+      color: #005baa;
+      border-bottom: 4px solid #005baa;
     }
   }
 
   ul {
     margin-right: 10px;
-
-    li {
-    }
   }
 
   .quizInfoElementContainer{
@@ -31,6 +32,8 @@
       overflow-y: auto;
       max-height: 500px;
       width: 300px;
+      font-size: 20px;
+
       div {
         width: 200px;
       }
