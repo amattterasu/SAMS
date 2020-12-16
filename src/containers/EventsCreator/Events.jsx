@@ -177,7 +177,7 @@ class Events extends React.Component {
                 <h3>{this.state.title}</h3>
                 {this.state.eventsShow?.map((el, i) =>
                     <div key={Math.random()}>
-                      <span>{`${i + 1}) ${el.title}`}</span>
+                      <h3>{`${i + 1}) ${el.title}`}</h3>
                       <ul>
                         <li>{el.location}</li>
                         <li>{el.qr}</li>

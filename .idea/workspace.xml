@@ -26,21 +26,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4a698bd4-533b-43b2-9456-e23108b775f1" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/components/Footer/Footer.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/Footer/Footer.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Header/Header.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Header/Header.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Header/Header.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Header/Header.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/ProfileInfo/ProfileInfo.jsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Quiz/Quiz.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Quiz/Quiz.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/containers/EventsCreator/EventsCreator.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/containers/EventsCreator/EventsCreator.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/containers/Personal/Personal.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/containers/Personal/Personal.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/containers/QuizCreator/QuizCreator.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/containers/QuizCreator/QuizCreator.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/containers/QuizCreator/QuizCreator.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/containers/QuizCreator/QuizCreator.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/styles/index.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/styles/index.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/containers/EventsCreator/Events.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/containers/EventsCreator/Events.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/hoc/withAuthRedirect.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/hoc/withAuthRedirect.jsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -149,7 +137,9 @@
       <workItem from="1602089631991" duration="4760000" />
       <workItem from="1602094850735" duration="1477000" />
       <workItem from="1603281832818" duration="6628000" />
-      <workItem from="1603293463708" duration="11078000" />
+      <workItem from="1603293463708" duration="12931000" />
+      <workItem from="1608115154928" duration="1023000" />
+      <workItem from="1608117040331" duration="1659000" />
     </task>
     <servers />
   </component>
@@ -167,45 +157,6 @@
       </map>
     </option>
     <option name="oldMeFiltersMigrated" value="true" />
-  </component>
-  <component name="WindowStateProjectService">
-    <state x="281" y="347" key="#Notifications" timestamp="1602083938600">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="281" y="347" key="#Notifications/0.0.1920.1040/1920.243.1280.760@0.0.1920.1040" timestamp="1602083938600" />
-    <state width="1068" height="281" key="GridCell.Tab.0.bottom" timestamp="1602083692828">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="1068" height="281" key="GridCell.Tab.0.bottom/0.0.1920.1040/1920.243.1280.760@0.0.1920.1040" timestamp="1602083692828" />
-    <state width="1068" height="281" key="GridCell.Tab.0.center" timestamp="1602083692827">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="1068" height="281" key="GridCell.Tab.0.center/0.0.1920.1040/1920.243.1280.760@0.0.1920.1040" timestamp="1602083692827" />
-    <state width="1068" height="281" key="GridCell.Tab.0.left" timestamp="1602083692827">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="1068" height="281" key="GridCell.Tab.0.left/0.0.1920.1040/1920.243.1280.760@0.0.1920.1040" timestamp="1602083692827" />
-    <state width="1068" height="281" key="GridCell.Tab.0.right" timestamp="1602083692827">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="1068" height="281" key="GridCell.Tab.0.right/0.0.1920.1040/1920.243.1280.760@0.0.1920.1040" timestamp="1602083692827" />
-    <state x="461" y="164" key="SettingsEditor" timestamp="1603301169345">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="461" y="164" key="SettingsEditor/0.0.1920.1040/0.1080.1920.1040@0.0.1920.1040" timestamp="1603301169345" />
-    <state x="955" y="123" width="585" height="801" key="find.popup" timestamp="1603303452415">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="955" y="123" width="585" height="801" key="find.popup/0.0.1920.1040/0.1080.1920.1040@0.0.1920.1040" timestamp="1603303452415" />
-    <state x="925" y="244" key="run.anything.popup" timestamp="1603301709985">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="925" y="244" key="run.anything.popup/0.0.1920.1040/0.1080.1920.1040@0.0.1920.1040" timestamp="1603301709985" />
-    <state x="925" y="244" key="run.anything.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1602090249156" />
-    <state x="1007" y="230" key="search.everywhere.popup" timestamp="1602087539053">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="1007" y="230" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1602087539053" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
