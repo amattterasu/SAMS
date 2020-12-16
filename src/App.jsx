@@ -14,14 +14,16 @@ import QRCreator from "./containers/QR/QRContainer"
 import Events from "./containers/Events/Events"
 import HeaderContainer from "./containers/HeaderContainer/HeaderContainer"
 import EventsCreator from "./containers/EventsCreator/EventsCreator"
-import Footer from "./components/Footer/Footer";
+import Footer from "./components/Footer/Footer"
 
 import './App.scss'
 
 class App extends Component {
 
     componentDidMount = () => {
-        this.props.getProfileFetch()
+        if (localStorage.accessToken !== 'undefined') {
+            this.props.getProfileFetch()
+        }
     }
 
     render() {

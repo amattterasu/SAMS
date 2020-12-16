@@ -13,32 +13,32 @@ class Personal extends React.Component {
     isFormValid: false,
     isEdit: false,
     formControls: {
-      firstName: createControl({
+      name: createControl({
         label: 'Имя',
         errorMessage: 'Заполните поле имя!',
-        value: this.props.currentUser.firstName
+        value: this.props.currentUser.name
       }, {required: true}),
-      secondName: createControl({
+      surname: createControl({
         label: 'Фамилия',
         errorMessage: 'Заполните поле фамилия!',
-        value: this.props.currentUser.secondName
+        value: this.props.currentUser.surname
       }, {required: true}),
-      lastName: createControl({
+      patronymic: createControl({
         label: 'Отчество',
         errorMessage: 'Заполните поле отчество!',
-        value: this.props.currentUser.lastName
+        value: this.props.currentUser.patronymic
       }, {required: true}),
-      role: createControl({
+      group: createControl({
         label: 'Роль',
         errorMessage: 'Заполните поле роль!',
-        value: this.props.currentUser.role
+        value: this.props.currentUser.group
       }, {required: true})
     },
     userInfo: {
-      firstName: this.props.currentUser.firstName,
-      secondName: this.props.currentUser.secondName,
-      lastName: this.props.currentUser.lastName,
-      role: this.props.currentUser.role
+      name: this.props.currentUser.name,
+      surname: this.props.currentUser.surname,
+      patronymic: this.props.currentUser.patronymic,
+      group: this.props.currentUser.group
     }
   }
 
@@ -88,10 +88,10 @@ class Personal extends React.Component {
     event.preventDefault()
 
     const userConfig = {
-      firstName: this.state.formControls.firstName.value,
-      secondName: this.state.formControls.secondName.value,
-      lastName: this.state.formControls.lastName.value,
-      role: this.state.formControls.role.value
+      name: this.state.formControls.name.value,
+      surname: this.state.formControls.surname.value,
+      patronymic: this.state.formControls.patronymic.value,
+      group: this.state.formControls.group.value
     }
     this.props.profileFetch(this.state.id, userConfig)
 
@@ -117,15 +117,15 @@ class Personal extends React.Component {
                 <div>
                   <div className='profileInfo'>
                     <span>ФИО:  </span> &nbsp;
-                    <span>{this.state.userInfo.secondName}</span>
+                    <span>{this.state.userInfo.surname}</span>
                     &nbsp;
-                    <span>{this.state.userInfo.firstName}</span>
+                    <span>{this.state.userInfo.name}</span>
                     &nbsp;
-                    <span>{this.state.userInfo.lastName}</span>
+                    <span>{this.state.userInfo.patronymic}</span>
                   </div>
                   <div className='profileInfo'>
                     <span>Роль:</span> &nbsp;
-                    {this.state.userInfo.role}
+                    {this.state.userInfo.group}
                   </div>
 
                   <Button type="primary"

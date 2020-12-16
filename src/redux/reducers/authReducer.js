@@ -1,19 +1,12 @@
 const initialState = {
     id: '',
-    // firstName: '',
-    // secondName: '',
-    // lastName: '',
-    // role: '',
-    // email: '',
-    // isAuth: false
-
-    // Моковые данные
-    firstName: 'Андрей',
-    secondName: 'Губайдуллин',
-    lastName: 'Евгеньевич',
-    role: 'Студент',
-    email: 'admin@admin.ru',
-    isAuth: true
+    name: '',
+    surname: '',
+    patronymic: '',
+    group: '',
+    email: '',
+    isAuth: false,
+    accessToken: ''
 }
 
 const authReducer = (state = initialState, action) => {
@@ -25,22 +18,22 @@ const authReducer = (state = initialState, action) => {
         case 'LOGIN_USER':
             return {...state,
                 id: action.payload.id,
-                firstName: action.payload.first_name,
-                secondName: action.payload.second_name,
-                lastName:action.payload.last_name,
-                role: action.payload.role,
+                name: action.payload.name,
+                surname: action.payload.surname,
+                patronymic:action.payload.patronymic,
+                group: action.payload.group,
                 email: action.payload.email,
-                token: action.payload.authentication_token,
+                accessToken: action.payload.accessToken,
                 isAuth: true
             }
         case 'LOGOUT_USER':
             return {...state,
-                firstName: '',
-                secondName: '',
-                lastName: '',
-                role: '',
+                name: '',
+                surname: '',
+                patronymic: '',
+                group: '',
                 email: '',
-                token: '',
+                accessToken: '',
                 isAuth: false
             }
         default:

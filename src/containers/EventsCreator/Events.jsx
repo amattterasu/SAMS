@@ -56,15 +56,15 @@ class Events extends React.Component {
   }
 
   componentDidMount() {
-    const token = localStorage.token;
-    if (token) {
+    const accessToken = localStorage.accessToken;
+    if (accessToken) {
       return fetch('', {
         method: "GET",
         headers: {
           'Access-Control-Allow-Headers': 'Version, Authorization, Content-Type',
           'Content-Type': 'application/json',
           Accept: 'application/json',
-          'Authorization': `${token}`
+          'Authorization': `${accessToken}`
         },
       })
         .then(res => res.json())

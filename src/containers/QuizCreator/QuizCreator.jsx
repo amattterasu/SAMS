@@ -42,113 +42,26 @@ class QuizCreator extends React.Component {
         flag: true,
         title: '',
 
-        showQuiz: [
-            {
-                title: 'test1',
-                body_of_test: [{
-                    answers: [{
-                        body_of_answers: 'Ответ 1',
-                        true_or_false: 1
-                    },
-                        {
-                            body_of_answers: 'Ответ 2',
-                            true_or_false: 0
-                        },
-                        {
-                            body_of_answers: 'Ответ 3',
-                            true_or_false: 0
-                        },
-                        {
-                            body_of_answers: 'Ответ 4',
-                            true_or_false: 0
-                        }
-                    ],
-                    body_of_question: 'Вопрос1'
-                }
-                ]
-            },
-            {
-                title: 'test2',
-                body_of_test: [{
-                    answers: [{
-                        body_of_answers: 'Ответ 1',
-                        true_or_false: 1
-                    },
-                        {
-                            body_of_answers: 'Ответ 2',
-                            true_or_false: 0
-                        },
-                        {
-                            body_of_answers: 'Ответ 3',
-                            true_or_false: 0
-                        },
-                        {
-                            body_of_answers: 'Ответ 4',
-                            true_or_false: 0
-                        }
-                    ],
-                    body_of_question: 'Вопрос1'
-                }, {
-                    answers: [{
-                        body_of_answers: 'Ответ 1',
-                        true_or_false: 1
-                    },
-                        {
-                            body_of_answers: 'Ответ 2',
-                            true_or_false: 0
-                        },
-                        {
-                            body_of_answers: 'Ответ 3',
-                            true_or_false: 0
-                        },
-                        {
-                            body_of_answers: 'Ответ 4',
-                            true_or_false: 0
-                        }
-                    ],
-                    body_of_question: 'Вопрос2'
-                }, {
-                    answers: [{
-                        body_of_answers: 'Ответ 1',
-                        true_or_false: 1
-                    },
-                        {
-                            body_of_answers: 'Ответ 2',
-                            true_or_false: 0
-                        },
-                        {
-                            body_of_answers: 'Ответ 3',
-                            true_or_false: 0
-                        },
-                        {
-                            body_of_answers: 'Ответ 4',
-                            true_or_false: 0
-                        }
-                    ],
-                    body_of_question: 'Вопрос3'
-                }
-                ]
-            }
-        ]
+        showQuiz: []
     }
 
     componentDidMount() {
-        const token = localStorage.token;
-        if (token) {
-            return fetch('', {
+        const accessToken = localStorage.accessToken;
+        if (accessToken) {
+            return fetch('http://2175af95fc4e.ngrok.io' + '/events', {
                 method: "GET",
                 headers: {
                     'Access-Control-Allow-Headers': 'Version, Authorization, Content-Type',
                     'Content-Type': 'application/json',
                     Accept: 'application/json',
-                    'Authorization': `${token}`
+                    'Authorization': `${accessToken}`
                 },
             })
                 .then(res => res.json())
                 .then(
                     (result) => {
                         this.setState({
-                            //showQuiz: result
+                            showQuiz: result
                         })
                     }
                 )
@@ -203,8 +116,8 @@ class QuizCreator extends React.Component {
         this.setState({
             showQuiz: [...this.state.showQuiz, itemQuiz]
         })
-        // Для проверки на хосте
-        //this.props.quizFetch(itemQuiz)
+
+        this.props.quizFetch(itemQuiz)
 
         this.setState({
             body_of_test: [],

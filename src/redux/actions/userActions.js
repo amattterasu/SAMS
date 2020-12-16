@@ -1,4 +1,4 @@
-const URL = "http://91.105.146.185:3000"
+const URL = "http://06bdb1315eac.ngrok.io"
 
 const loginUser = userObj => ({
   type: 'LOGIN_USER',
@@ -20,23 +20,21 @@ export const setAuthUserData = (type = 'SET_USER_DATA', userId, email, login) =>
 });
 
 export const logout = () => (dispatch) => {
-  localStorage.removeItem('token')
+  localStorage.removeItem('accessToken')
   dispatch(setAuthUserData('LOGOUT_USER'))
 }
 
 export const userRegFetch = user => {
   return dispatch => {
-    return fetch(URL, {
+    return fetch(URL + "/register", {
       method: "POST",
       headers: {
-        'Content-Type': 'application/json',
-        Accept: 'application/json',
+        "Content-Type": "application/json",
+        Accept: "application/json"
       },
       body: JSON.stringify({
-        user: {
-          email: user.email,
-          password: user.password
-        }
+        email: user.email,
+        password: user.password
       })
     })
       .then((resp => {
@@ -49,7 +47,8 @@ export const userRegFetch = user => {
       .then(data => {   // в случае успеха, data - ответ в JSON
         if (data.message) {
         } else {
-          localStorage.removeItem('token')
+          console.log(data)
+          localStorage.removeItem('accessToken')
           dispatch(regUser(data))
         }
       })
@@ -66,7 +65,7 @@ export const userLoginFetch = user => {
         Accept: "application/json"
       },
       body: JSON.stringify({
-        email: user.username,
+        email: user.email,
         password: user.password
       })
     })
@@ -75,9 +74,12 @@ export const userLoginFetch = user => {
         if (data.message) {
           //Тут прописываем логику
         } else {
-          localStorage.removeItem('token')
-          localStorage.setItem("token", data.authentication_token) // data.token
-          dispatch(loginUser(data))
+          localStorage.removeItem('accessToken')
+          localStorage.setItem("accessToken", data.accessToken)
+
+          if (data.accessToken) {
+            dispatch(loginUser(data))
+          }
         }
       })
   }
@@ -85,22 +87,22 @@ export const userLoginFetch = user => {
 
 export const getProfileFetch = () => {
   return dispatch => {
-    const token = localStorage.token;
-    if (token) {
+    const accessToken = localStorage.accessToken;
+    if (accessToken) {
       return fetch(URL + `/user`, {
         method: "GET",
         headers: {
           'Access-Control-Allow-Headers': 'Version, Authorization, Content-Type',
           'Content-Type': 'application/json',
           Accept: 'application/json',
-          'Authorization': `${token}`
+          'Authorization': `${accessToken}`
         },
       })
         .then(resp => resp.json())
         .then(data => {
           if (data.message) {
             // Будет ошибка если token не дествительный
-            localStorage.removeItem('token')
+            localStorage.removeItem('accessToken')
           } else {
             dispatch(loginUser(data))
           }
@@ -111,8 +113,8 @@ export const getProfileFetch = () => {
 
 export const quizFetch = quiz => {
   return dispatch => {
-    const token = localStorage.token
-    if (token) {
+    const accessToken = localStorage.accessToken
+    if (accessToken) {
       return fetch(URL + '/tests', {
         method: "POST",
         headers: {
@@ -120,7 +122,7 @@ export const quizFetch = quiz => {
           'Content-Type': 'application/json'
         },
         body: JSON.stringify({
-          authentication_token: token,
+          authentication_token: accessToken,
           title: quiz.title,
           time_limit: 10,
           body_of_test: quiz.body_of_test
@@ -132,8 +134,8 @@ export const quizFetch = quiz => {
 
 export const eventsFetch = event => {
   return dispatch => {
-    const token = localStorage.token
-    if (token) {
+    const accessToken = localStorage.accessToken
+    if (accessToken) {
       return fetch(URL + '/events', {
         method: "POST",
         headers: {
@@ -141,7 +143,7 @@ export const eventsFetch = event => {
           'Content-Type': 'application/json'
         },
         body: JSON.stringify({
-          authentication_token: token,
+          accessToken: accessToken,
           title: event.title,
           location: event.location,
           qr: event.qr,
@@ -156,8 +158,8 @@ export const eventsFetch = event => {
 
 export const profileFetch = (id, userConfig) => {
   return dispatch => {
-    const token = localStorage.token;
-    if (token) {
+    const accessToken = localStorage.accessToken;
+    if (accessToken) {
       return fetch(URL + `/${id}`, {
         method: "PATCH",
         headers: {
@@ -165,11 +167,11 @@ export const profileFetch = (id, userConfig) => {
           Accept: "application/json"
         },
         body: JSON.stringify({
-          first_name: userConfig.firstName,
-          second_name: userConfig.secondName,
-          last_name: userConfig.lastName,
-          role: userConfig.role,
-          authentication_token: token
+          name: userConfig.name,
+          surname: userConfig.surname,
+          patronymic: userConfig.patronymic,
+          group: userConfig.group,
+          accessToken: accessToken
         })
       })
     }

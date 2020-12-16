@@ -4,7 +4,7 @@ import BlockAuth from "../BlockAuth/BlockAuth"
 import Button from "../Button/Button"
 
 import {Form, Input} from "antd"
-import {LockOutlined, UserOutlined} from '@ant-design/icons'
+import {LockOutlined, MailOutlined} from '@ant-design/icons'
 
 import {userLoginFetch} from "../../redux/actions/userActions"
 import {connect} from "react-redux"
@@ -13,7 +13,6 @@ const LoginForm = props => {
 
     const onFinish = values => {
         props.userLoginFetch(values)
-        console.log('Received values of form: ', values)
     }
 
     if (props.isAuth) return <Redirect to={'/im'}/>
@@ -31,15 +30,20 @@ const LoginForm = props => {
                     initialValues={{remember: true}}
                     onFinish={onFinish}
                 >
-                    <Form.Item
-                        name="username"
-                        rules={[{required: true, message: 'Пожалуйста, введите имя пользователя!'}]}
-                    >
-                        <Input
-                            size="large"
-                            prefix={<UserOutlined className="site-form-item-icon"/>}
-                            placeholder="Имя пользователя"
-                        />
+                    <Form.Item name="email"
+                               rules={[
+                                   {
+                                       type: 'email',
+                                       message: 'Некорректный адрес E-mail!',
+                                   },
+                                   {
+                                       required: true,
+                                       message: 'Пожалуйста, введите адрес электронной почты!',
+                                   },
+                               ]}>
+                        <Input placeholder="Адрес электронной почты"
+                               prefix={<MailOutlined className="site-form-item-icon"/>}
+                               size="large"/>
                     </Form.Item>
                     <Form.Item
                         name="password"
