@@ -180,6 +180,22 @@ export const profileFetch = (id, userConfig) => {
   }
 }
 
+export const deleteEvent = id => {
+  return dispatch => {
+    const accessToken = localStorage.accessToken
+    if (accessToken) {
+      return fetch(URL + `/events/${id}`, {
+        method: "DELETE",
+        headers: {
+          'Content-Type': 'application/json',
+          Accept: 'application/json',
+          'Authorization': `Bearer ${accessToken}`
+        }
+      })
+    }
+  }
+}
+
 // export const qrFetch = (id, userConfig) => {
 //     return dispatch => {
 //         const token = localStorage.token;

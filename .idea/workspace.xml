@@ -25,7 +25,21 @@
     </select>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4a698bd4-533b-43b2-9456-e23108b775f1" name="Default Changelist" comment="" />
+    <list default="true" id="4a698bd4-533b-43b2-9456-e23108b775f1" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/components/Modal/Modal.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/Modal/Modal.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/containers/Events/Events.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/containers/Events/Events.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/containers/Events/Events.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/containers/Events/Events.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/containers/EventsCreator/Events.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/containers/EventsCreator/Events.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/containers/EventsCreator/EventsCreator.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/containers/EventsCreator/EventsCreator.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/redux/actions/userActions.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/redux/actions/userActions.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/styles/index.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/styles/index.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -55,25 +69,26 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="TERMINAL_CUSTOM_COMMANDS_GOT_IT" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/components/Footer" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/components" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="preferences.keymap" />
-    <property name="ts.external.directory.path" value="D:\Others\WebStorm 2019.3.3\plugins\JavaScriptLanguage\jsLanguageServicesImpl\external" />
+    <property name="ts.external.directory.path" value="D:\Others\WebStorm 2020.2.3\plugins\JavaScriptLanguage\jsLanguageServicesImpl\external" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\No_Name\Desktop\Projects\SAMS\src\components" />
+      <recent name="C:\Users\No_Name\Desktop\Projects\SAMS\src\components\Footer" />
+      <recent name="C:\Users\No_Name\Desktop\SAMS\src\containers" />
+      <recent name="C:\Users\No_Name\Desktop\SAMS\src\containers\Personal" />
+      <recent name="C:\Users\No_Name\Desktop\SAMS\src\containers\QuizCreator" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\No_Name\Desktop\SAMS\src\containers" />
       <recent name="C:\Users\No_Name\Desktop\SAMS\src\containers\Personal" />
       <recent name="C:\Users\No_Name\Desktop\SAMS\src" />
       <recent name="C:\Users\No_Name\Desktop\SAMS\client\src\components\UI\Input" />
       <recent name="C:\Users\No_Name\Desktop\SAMS\client\src\components" />
-    </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\No_Name\Desktop\Projects\SAMS\src\components\Footer" />
-      <recent name="C:\Users\No_Name\Desktop\SAMS\src\containers" />
-      <recent name="C:\Users\No_Name\Desktop\SAMS\src\containers\Personal" />
-      <recent name="C:\Users\No_Name\Desktop\SAMS\src\containers\QuizCreator" />
     </key>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
@@ -138,6 +153,7 @@
       <workItem from="1608117040331" duration="1659000" />
       <workItem from="1608123406567" duration="10584000" />
       <workItem from="1608135631152" duration="3547000" />
+      <workItem from="1608371252231" duration="19821000" />
     </task>
     <servers />
   </component>

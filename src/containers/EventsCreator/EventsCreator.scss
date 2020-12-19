@@ -1,10 +1,13 @@
-.Events {
+.EventsCreator {
   display: grid;
   grid-gap: 1em;
   justify-content: center;
   grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-  margin: 0;
+  margin: 0 auto;
   padding: 30px;
+  width: 100%;
+  max-width: 1024px;
+
 
   ol li {
     color: #adadad;

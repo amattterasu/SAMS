@@ -38,7 +38,7 @@ class App extends Component {
                             <Route exact path={["/", "/im"]} render={() => <Personal/>}/>
                             <Route exact path="/qr-creator" render={() => <QRCreator/>}/>
                             <Route exact path="/event-creator" render={() => <EventsCreator/>}/>
-                            <Route exact path="/events" render={() => <Events/>}/>
+                            <Route exact path="/events"  render={() => <Events history={this.props.history}/>}/>
                             <Route path='*'
                                    render={() => <h1 style={{textAlign: 'center'}}>Error 404 PAGE NOT FOUND</h1>}/>
                         </Switch>

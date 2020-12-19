@@ -1,29 +1,60 @@
 .events {
-  display: grid;
-  grid-template-areas: "ce le de";
-  grid-template-rows: 60px 1fr 60px;
-  grid-template-columns: 1fr 25% 1fr;
-  grid-gap: 10px;
-  margin: 0;
+  width: 100%;
+  min-width: 600px;
 
-  h2 {
+  h1 {
+    margin-top: 50px;
     text-align: center;
   }
 
-  .createEvents, .listEvents, .calendarEvents {
-    padding: 10px;
-    margin: 2px;
+  ol li {
+    color: #adadad;
+    font-size: 24px;
+    cursor: pointer;
+
+    &:hover {
+      color: #005baa;
+      border-bottom: 4px solid #005baa;
+    }
   }
 
-  .createEvents {
-    grid-area: ce;
-  }
+  .table {
+    border-collapse: collapse;
+    width: 100%;
+    min-width: 300px;
 
-  .listEvents {
-    grid-area: le;
-  }
+    &__title {
+      display: flex;
+      justify-content: space-between;
+      border-bottom: 1px solid #adadad;
+      border-top: 1px solid #adadad;
+      background: #fafbfc;
+      font-weight: bold;
+      padding: .625rem;
+    }
 
-  .calendarEvents {
-    grid-area: de;
+    &__row {
+      border-bottom: 1px solid #adadad;
+      padding: .35rem;
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      overflow: auto;
+    }
+
+    &__btn-primary {
+      margin-top: 10px;
+    }
+
+    &__btn-delete {
+      &:hover {
+        border-color: red;
+        color: red
+      }
+    }
+
+    a svg {
+      margin-bottom: 5px;
+    }
   }
 }

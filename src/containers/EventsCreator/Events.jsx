@@ -8,8 +8,7 @@ import {createControl, validate, validateForm} from "../../form/formFramework"
 import Datepicker from "../../components/Datepicker/DatepickerContainer"
 import SelectComponent from "../../components/UI/SelectComponent/SelectComponent"
 
-import {NotificationContainer, NotificationManager} from 'react-notifications';
-
+import {NotificationContainer, NotificationManager} from 'react-notifications'
 
 class Events extends React.Component {
 
@@ -23,12 +22,10 @@ class Events extends React.Component {
           NotificationManager.success(message, title);
           break;
         case 'warning':
-          NotificationManager.warning('Warning message', 'Close after 3000ms', 3000);
+          NotificationManager.warning(message, title);
           break;
         case 'error':
-          NotificationManager.error('Error message', 'Click me!', 5000, () => {
-            alert('callback');
-          });
+          NotificationManager.error(message, title);
           break;
       }
     };
@@ -47,10 +44,10 @@ class Events extends React.Component {
         value: ''
       }),
       qrCode: createControl({
-        label: 'QR-код фраза',
+        label: 'QR-код фраза*',
         errorMessage: 'Заполните поле QR-код!',
         value: ''
-      }),
+      }, {required: true}),
       comments: createControl({
         label: 'Комментарий',
         errorMessage: 'Заполните поле комментарий!',
@@ -58,8 +55,6 @@ class Events extends React.Component {
       })
     },
     title: '',
-    eventsShow: [],
-    eventsInfo: [],
 
     eventType: 'lecture', //по умолчанию леция
     checkMethod: 'qr' // по умолчанию qrCode
@@ -78,27 +73,7 @@ class Events extends React.Component {
   //   })
   // }
 
-  // componentDidMount() {
-  //   const accessToken = localStorage.accessToken
-  //   if (accessToken) {
-  //     return fetch('http://207.154.210.81/events/root', {
-  //       method: "GET",
-  //       headers: {
-  //         'Content-Type': 'application/json',
-  //         Accept: 'application/json',
-  //         'Authorization': `Bearer ${accessToken}`
-  //       },
-  //     })
-  //       .then(res => res.json())
-  //       .then(
-  //         (result) => {
-  //           this.setState({
-  //             eventsShow: result
-  //           })
-  //         }
-  //       )
-  //   }
-  // }
+
 
   submitHandler = event => {
     event.preventDefault()
@@ -118,15 +93,20 @@ class Events extends React.Component {
     }
 
     this.props.eventsFetch(eventsConfig)
+      .then(resp => {
+        console.log(resp)
+        if(resp.ok) {
+          this.createNotification('success')( `Событие ${eventsConfig.title} создно`,'Создание события прошло успешно!')
+        }
+        else {
+          this.createNotification('warning')( `Событие ${eventsConfig.title} не создано`,'Ошибка')
+        }
+      })
 
     this.setState({
-      eventsInfo: [...this.state.eventsInfo, eventsConfig],
+      //eventsInfo: [...this.state.eventsInfo, eventsConfig],
       isFormValid: false
     })
-
-    this.createNotification('success')( `Событие ${eventsConfig.title} создно`,'Создание события прошло успешно!')
-
-
   }
 
   changeHandler = (value, controlName) => {
@@ -204,7 +184,7 @@ class Events extends React.Component {
     />
 
     return (
-      <div className='Events'>
+      <div className='EventsCreator'>
         <div className='Events_createEvent'>
           <h1>Создание события</h1>
           <NotificationContainer/>
