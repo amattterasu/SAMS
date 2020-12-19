@@ -9,8 +9,8 @@ const SelectComponent = props => {
     const htmlFor = `${props.label}-${Math.random()}`
 
     return (
-        <div className='Select'>
-            <label htmlFor={htmlFor}>{props.label}</label>
+        <div style={props.styleContainer} className='Select'>
+            <label style={props.styleLabel} htmlFor={htmlFor}>{props.label}</label>
             <Select
                 id={htmlFor}
                 defaultValue={props.value}
@@ -21,7 +21,7 @@ const SelectComponent = props => {
                         <Option
                             value={option.value}
                             key={option.value + index}>
-                            {option.body_of_answers}
+                            {option.body}
                         </Option>
                     )
                 })}

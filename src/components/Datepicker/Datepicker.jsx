@@ -1,35 +1,39 @@
-import React from 'react'
+import React, {useState} from 'react'
 import 'antd/dist/antd.css'
 import moment from 'moment'
-import {DatePicker} from 'antd'
-
-const {RangePicker} = DatePicker
+import {DatePicker, TimePicker} from 'antd'
 
 const Datepicker = props => {
+  const { RangePicker } = TimePicker;
 
-  function disabledDate(current) {
-    // Can not select days before today and today
-    return current && current < moment().endOf('day')
-  }
-
-  const onChangePicker = (date) => {
-    if (date) {
-      props.setDateToStore(date)
+  const onChangePickerDate = (date, param) => {
+    if (date && param === 'day')  {
+        props.setDateToStore(date)
+    }
+    if (date && param === 'time')  {
+        props.setTimeToStore(date)
     }
   }
 
+  const dateFormat = 'YYYY/MM/DD'
+  const timeFormat = 'HH:mm'
+
+  const timeAfter = moment().add(10, 'minutes');
+
   return (
     <div>
-      <RangePicker
-        onChange={(_, date) => onChangePicker(date)}
-        disabledDate={disabledDate}
-        showTime={{
-          hideDisabledOptions: true,
-          defaultValue: [moment('00:00:00', 'HH:mm:ss'), moment('11:59:59', 'HH:mm:ss')],
-        }}
-        format="MM/DD/YYYY HH:mm:ss"
-        placeholder={['Начало', 'Конец']}
-      />
+
+        <DatePicker size={'default'}
+           onChange={(_, date) => onChangePickerDate(date, 'day')}
+           placeholder={'Выбрать день'}
+           showToday={true}
+           defaultValue={moment(new Date(), dateFormat)}
+        />
+        <RangePicker
+            onChange={(_, date) => onChangePickerDate(date, 'time')}
+            placeholder={['Время от', 'Время до']}
+            defaultValue={[moment(new Date(), timeFormat), moment(timeAfter, timeFormat)]}
+        />
     </div>
   )
 }

@@ -1,4 +1,4 @@
-const URL = "http://06bdb1315eac.ngrok.io"
+const URL = "http://207.154.210.81"
 
 const loginUser = userObj => ({
   type: 'LOGIN_USER',
@@ -47,7 +47,6 @@ export const userRegFetch = user => {
       .then(data => {   // в случае успеха, data - ответ в JSON
         if (data.message) {
         } else {
-          console.log(data)
           localStorage.removeItem('accessToken')
           dispatch(regUser(data))
         }
@@ -71,8 +70,9 @@ export const userLoginFetch = user => {
     })
       .then(resp => resp.json())
       .then(data => {
-        if (data.message) {
-          //Тут прописываем логику
+        if (typeof data === 'string') {
+          // TODO Прикрутить notification
+          alert('Неправильный логин или пароль')
         } else {
           localStorage.removeItem('accessToken')
           localStorage.setItem("accessToken", data.accessToken)
@@ -88,20 +88,19 @@ export const userLoginFetch = user => {
 export const getProfileFetch = () => {
   return dispatch => {
     const accessToken = localStorage.accessToken;
+
     if (accessToken) {
-      return fetch(URL + `/user`, {
+      return fetch(URL + `/users`, {
         method: "GET",
         headers: {
-          'Access-Control-Allow-Headers': 'Version, Authorization, Content-Type',
           'Content-Type': 'application/json',
           Accept: 'application/json',
-          'Authorization': `${accessToken}`
+          'Authorization': `Bearer ${accessToken}`
         },
       })
         .then(resp => resp.json())
         .then(data => {
           if (data.message) {
-            // Будет ошибка если token не дествительный
             localStorage.removeItem('accessToken')
           } else {
             dispatch(loginUser(data))
@@ -139,17 +138,20 @@ export const eventsFetch = event => {
       return fetch(URL + '/events', {
         method: "POST",
         headers: {
-          'Access-Control-Allow-Headers': 'Version, Authorization, Content-Type',
-          'Content-Type': 'application/json'
+          'Content-Type': 'application/json',
+          Accept: 'application/json',
+          'Authorization': `Bearer ${accessToken}`
         },
         body: JSON.stringify({
-          accessToken: accessToken,
-          title: event.title,
+          name: event.title,
+          type_event: event.eventType,
           location: event.location,
-          qr: event.qr,
-          timeStart: event.timeStart,
-          timeEnd: event.timeEnd,
-          comments: event.comments
+          comments: event.comments,
+          date: event.date,
+          time_start: event.timeStart,
+          time_end: event.timeEnd,
+          check_type: event.checkMethod,
+          code: event.qrCode
         })
       })
     }
@@ -160,18 +162,18 @@ export const profileFetch = (id, userConfig) => {
   return dispatch => {
     const accessToken = localStorage.accessToken;
     if (accessToken) {
-      return fetch(URL + `/${id}`, {
-        method: "PATCH",
+      return fetch(URL + `/users`, {
+        method: "PUT",
         headers: {
           "Content-Type": "application/json",
-          Accept: "application/json"
+          Accept: "application/json",
+          'Authorization': `Bearer ${accessToken}`
         },
         body: JSON.stringify({
           name: userConfig.name,
           surname: userConfig.surname,
           patronymic: userConfig.patronymic,
-          group: userConfig.group,
-          accessToken: accessToken
+          group: userConfig.group
         })
       })
     }

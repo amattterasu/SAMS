@@ -8,6 +8,10 @@ import Button from "../../components/Button/Button"
 
 class Personal extends React.Component {
 
+  componentDidMount = () => {
+      this.props.getProfileFetch()
+  }
+
   state = {
     id: this.props.currentUser.id,
     isFormValid: false,
@@ -39,7 +43,8 @@ class Personal extends React.Component {
       surname: this.props.currentUser.surname,
       patronymic: this.props.currentUser.patronymic,
       group: this.props.currentUser.group
-    }
+    },
+    load: false
   }
 
   changeHandler = (value, controlName) => {
@@ -67,7 +72,7 @@ class Personal extends React.Component {
           <Input
             placeholder={control.value}
             label={control.label}
-            value={control.value}
+            //value={control.value}
             valid={control.valid}
             shouldValidate={!!control.validation}
             touched={control.touched}
@@ -117,15 +122,15 @@ class Personal extends React.Component {
                 <div>
                   <div className='profileInfo'>
                     <span>ФИО:  </span> &nbsp;
-                    <span>{this.state.userInfo.surname}</span>
+                    <span>{this.props.currentUser.surname}</span>
                     &nbsp;
-                    <span>{this.state.userInfo.name}</span>
+                    <span>{this.props.currentUser.name}</span>
                     &nbsp;
-                    <span>{this.state.userInfo.patronymic}</span>
+                    <span>{this.props.currentUser.patronymic}</span>
                   </div>
                   <div className='profileInfo'>
                     <span>Роль:</span> &nbsp;
-                    {this.state.userInfo.group}
+                    {this.props.currentUser.group}
                   </div>
 
                   <Button type="primary"

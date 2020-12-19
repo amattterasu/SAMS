@@ -7,7 +7,6 @@ import store from "./redux/store"
 import {getProfileFetch} from './redux/actions/userActions'
 
 import Auth from './containers/Auth/Auth'
-
 import Personal from "./containers/Personal/PersonalContainer"
 import QuizCreator from "./containers/QuizCreator/QuizCreatorContainer"
 import QRCreator from "./containers/QR/QRContainer"
@@ -43,7 +42,7 @@ class App extends Component {
                             <Route path='*'
                                    render={() => <h1 style={{textAlign: 'center'}}>Error 404 PAGE NOT FOUND</h1>}/>
                         </Switch>
-                    </div>
+                     </div>
                 </div>
                 <Footer/>
             </div>
@@ -51,7 +50,9 @@ class App extends Component {
     }
 }
 
-const mapStateToProps = state => ({})
+const mapStateToProps = state => ({
+
+})
 
 const mapDispatchToProps = dispatch => ({getProfileFetch: () => dispatch(getProfileFetch())})
 

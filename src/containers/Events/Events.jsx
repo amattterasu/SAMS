@@ -7,7 +7,7 @@ import {withAuthRedirect} from "../../hoc/withAuthRedirect"
 
 class Events extends React.Component {
     render() {
-        return <MyCalendar/>
+        return <MyCalendar></MyCalendar>
     }
 }
 

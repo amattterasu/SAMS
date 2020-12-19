@@ -9,13 +9,14 @@ import {LockOutlined, MailOutlined} from '@ant-design/icons'
 import {userLoginFetch} from "../../redux/actions/userActions"
 import {connect} from "react-redux"
 
+
 const LoginForm = props => {
 
     const onFinish = values => {
         props.userLoginFetch(values)
-    }
 
-    if (props.isAuth) return <Redirect to={'/im'}/>
+    }
+    if (props.isAuth) return <Redirect to={'/im'} />
 
     return (
         <div>
@@ -34,11 +35,11 @@ const LoginForm = props => {
                                rules={[
                                    {
                                        type: 'email',
-                                       message: 'Некорректный адрес E-mail!',
+                                       message: 'Некорректный адрес E-mail!'
                                    },
                                    {
                                        required: true,
-                                       message: 'Пожалуйста, введите адрес электронной почты!',
+                                       message: 'Пожалуйста, введите адрес электронной почты!'
                                    },
                                ]}>
                         <Input placeholder="Адрес электронной почты"

@@ -3,12 +3,13 @@ import {connect} from "react-redux"
 import {compose} from "redux"
 import {withAuthRedirect} from "../../hoc/withAuthRedirect"
 import Personal from "./Personal"
-import {profileFetch} from "../../redux/actions/userActions"
+import {getProfileFetch, profileFetch} from "../../redux/actions/userActions"
 
 
 class PersonalContainer extends React.Component {
+
     render() {
-        return <Personal currentUser={this.props.currentUser} profileFetch={this.props.profileFetch}/>
+        return <Personal currentUser={this.props.currentUser} profileFetch={this.props.profileFetch} getProfileFetch={this.props.getProfileFetch}/>
     }
 }
 
@@ -17,7 +18,8 @@ let mapStateToProps = state =>({
 })
 
 let  mapDispatchToProps = dispatch => ({
-    profileFetch: (id, userConfig) => dispatch(profileFetch(id, userConfig))
+    profileFetch: (id, userConfig) => dispatch(profileFetch(id, userConfig)),
+    getProfileFetch: () => dispatch(getProfileFetch())
 })
 
 export default compose(

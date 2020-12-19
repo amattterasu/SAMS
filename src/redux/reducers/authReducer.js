@@ -15,6 +15,8 @@ const authReducer = (state = initialState, action) => {
             return {...state, currentUser: action.payload, isAuth: true}
         case 'REG_USER':
             return {...state }
+        case 'AUTH_ERROR':
+            return {...state}
         case 'LOGIN_USER':
             return {...state,
                 id: action.payload.id,
@@ -34,7 +36,8 @@ const authReducer = (state = initialState, action) => {
                 group: '',
                 email: '',
                 accessToken: '',
-                isAuth: false
+                isAuth: false,
+
             }
         default:
             return state

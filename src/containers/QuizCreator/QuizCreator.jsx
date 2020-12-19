@@ -35,7 +35,7 @@ const createFormControls = () => {
 class QuizCreator extends React.Component {
 
     state = {
-        body_of_test: [],
+        body: [],
         formControls: createFormControls(),
         rightAnswerId: 1,
         isFormValid: false,
@@ -81,24 +81,24 @@ class QuizCreator extends React.Component {
 
     addQuestionHandler = event => {
         event.preventDefault();
-        const body_of_test = this.state.body_of_test.concat()
+        const body = this.state.body.concat()
         //const index = quiz.length + 1, id: index,
         const {body_of_question, option1, option2, option3, option4} = this.state.formControls
 
         const questionItem = {
             body_of_question: body_of_question.value,
             answers: [
-                {body_of_answers: option1.value, true_or_false: this.checkAnswer(option1.id)},
-                {body_of_answers: option2.value, true_or_false: this.checkAnswer(option2.id)},
-                {body_of_answers: option3.value, true_or_false: this.checkAnswer(option3.id)},
-                {body_of_answers: option4.value, true_or_false: this.checkAnswer(option4.id)}
+                {body: option1.value, true_or_false: this.checkAnswer(option1.id)},
+                {body: option2.value, true_or_false: this.checkAnswer(option2.id)},
+                {body: option3.value, true_or_false: this.checkAnswer(option3.id)},
+                {body: option4.value, true_or_false: this.checkAnswer(option4.id)}
             ]
         }
 
-        body_of_test.push(questionItem)
+        body.push(questionItem)
 
         this.setState({
-            body_of_test,
+            body,
             formControls: createFormControls(),
             rightAnswerId: 1,
             isFormValid: false
@@ -110,7 +110,7 @@ class QuizCreator extends React.Component {
 
         let itemQuiz = {
             title: this.state.title,
-            body_of_test: this.state.body_of_test
+            body: this.state.body
         }
 
         this.setState({
@@ -120,7 +120,7 @@ class QuizCreator extends React.Component {
         this.props.quizFetch(itemQuiz)
 
         this.setState({
-            body_of_test: [],
+            body: [],
             isFormValid: false,
             flag: !this.state.flag,
             title: ''
@@ -185,10 +185,10 @@ class QuizCreator extends React.Component {
             value={this.state.rightAnswerId}
             onChange={this.selectChangeHandler}
             options={[
-                {body_of_answers: 'Вариант 1', value: 1},
-                {body_of_answers: 'Вариант 2', value: 2},
-                {body_of_answers: 'Вариант 3', value: 3},
-                {body_of_answers: 'Вариант 4', value: 4},
+                {body: 'Вариант 1', value: 1},
+                {body: 'Вариант 2', value: 2},
+                {body: 'Вариант 3', value: 3},
+                {body: 'Вариант 4', value: 4},
             ]}
             style={{width: 270}}
         />
@@ -232,17 +232,17 @@ class QuizCreator extends React.Component {
                                         <Button type="primary"
                                                 htmlType='submit'
                                                 onClick={this.createQuizHandler}
-                                                disabled={!this.state.body_of_test.length}>
+                                                disabled={!this.state.body.length}>
                                             Создать тест
                                         </Button>
                                     </div>
-                                    <span>Всего вопросов: {this.state.body_of_test.length}</span>
+                                    <span>Всего вопросов: {this.state.body.length}</span>
                                 </form>
                             }
                         </BlockAuth>
                     </div>
                 </div>
-                <Quiz body_of_test={this.state.showQuiz}/>
+                <Quiz body={this.state.showQuiz}/>
             </div>
         )
     }

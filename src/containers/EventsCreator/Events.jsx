@@ -1,26 +1,52 @@
 import React from 'react'
+import moment from 'moment'
+
 import BlockAuth from "../../components/BlockAuth/BlockAuth"
 import Input from "../../components/UI/Input/Input"
 import Button from "../../components/Button/Button"
 import {createControl, validate, validateForm} from "../../form/formFramework"
 import Datepicker from "../../components/Datepicker/DatepickerContainer"
+import SelectComponent from "../../components/UI/SelectComponent/SelectComponent"
+
+import {NotificationContainer, NotificationManager} from 'react-notifications';
+
 
 class Events extends React.Component {
+
+  createNotification = (type) => {
+    return (message, title) => {
+      switch (type) {
+        case 'info':
+          NotificationManager.info('Info message');
+          break;
+        case 'success':
+          NotificationManager.success(message, title);
+          break;
+        case 'warning':
+          NotificationManager.warning('Warning message', 'Close after 3000ms', 3000);
+          break;
+        case 'error':
+          NotificationManager.error('Error message', 'Click me!', 5000, () => {
+            alert('callback');
+          });
+          break;
+      }
+    };
+  };
 
   state = {
     isFormValid: false,
     formControls: {
       title: createControl({
-        label: 'Название*',
+        label: 'Название события*',
         errorMessage: 'Заполните поле название!',
         value: ''
       }, {required: true}),
       location: createControl({
-        label: 'Место проведения*',
-        errorMessage: 'Заполните поле место проведения!',
+        label: 'Место проведения',
         value: ''
-      }, {required: true}),
-      qrTitle: createControl({
+      }),
+      qrCode: createControl({
         label: 'QR-код фраза',
         errorMessage: 'Заполните поле QR-код!',
         value: ''
@@ -33,70 +59,74 @@ class Events extends React.Component {
     },
     title: '',
     eventsShow: [],
-    eventsInfo: [
-      {
-        comments: 'comment',
-        location: 'location',
-        qr: 'qr',
-        timeEnd: '10/15/2020 17:59:59',
-        timeStart: '10/14/2020 17:52:59',
-        title: 'Name'
-      }
-    ]
+    eventsInfo: [],
+
+    eventType: 'lecture', //по умолчанию леция
+    checkMethod: 'qr' // по умолчанию qrCode
   }
 
-  clickHandler = (el) => {
-    this.setState({eventsShow: [{
-        comments: el.comments,
-        location: el.location,
-        qr: el.qr,
-        timeEnd: el.timeEnd,
-        timeStart: el.timeStart,
-        title: el.title}]})
-  }
+  // clickHandler = (el) => {
+  //   this.setState({
+  //     eventsShow: [{
+  //       comments: el.comments,
+  //       location: el.location,
+  //       qr: el.qr,
+  //       timeEnd: el.timeEnd,
+  //       timeStart: el.timeStart,
+  //       title: el.title
+  //     }]
+  //   })
+  // }
 
-  componentDidMount() {
-    const accessToken = localStorage.accessToken;
-    if (accessToken) {
-      return fetch('', {
-        method: "GET",
-        headers: {
-          'Access-Control-Allow-Headers': 'Version, Authorization, Content-Type',
-          'Content-Type': 'application/json',
-          Accept: 'application/json',
-          'Authorization': `${accessToken}`
-        },
-      })
-        .then(res => res.json())
-        .then(
-          (result) => {
-            this.setState({
-              //showQuiz: result
-            })
-          }
-        )
-    }
-  }
+  // componentDidMount() {
+  //   const accessToken = localStorage.accessToken
+  //   if (accessToken) {
+  //     return fetch('http://207.154.210.81/events/root', {
+  //       method: "GET",
+  //       headers: {
+  //         'Content-Type': 'application/json',
+  //         Accept: 'application/json',
+  //         'Authorization': `Bearer ${accessToken}`
+  //       },
+  //     })
+  //       .then(res => res.json())
+  //       .then(
+  //         (result) => {
+  //           this.setState({
+  //             eventsShow: result
+  //           })
+  //         }
+  //       )
+  //   }
+  // }
 
   submitHandler = event => {
     event.preventDefault()
 
     const eventsConfig = {
       title: this.state.formControls.title.value,
+      eventType: this.state.eventType,
       location: this.state.formControls.location.value,
-      qr: this.state.formControls.qrTitle.value,
-      timeStart: this.props.date[0],
-      timeEnd: this.props.date[1],
-      comments: this.state.formControls.comments.value
+
+      checkMethod: this.state.checkMethod,
+
+      qrCode: this.state.formControls.qrCode.value,
+      date: this.props.date[0] || moment().format('YYYY/MM/DD'),
+      timeStart: this.props.time[0] || moment().format('HH:mm'),
+      timeEnd: this.props.time[1] || moment().add(10, 'minutes').format('HH:mm'),
+      comments: this.state.formControls.comments.value,
     }
 
-    // Для проверки на хосте
-    //this.props.eventsFetch(eventsConfig)
+    this.props.eventsFetch(eventsConfig)
 
     this.setState({
       eventsInfo: [...this.state.eventsInfo, eventsConfig],
       isFormValid: false
     })
+
+    this.createNotification('success')( `Событие ${eventsConfig.title} создно`,'Создание события прошло успешно!')
+
+
   }
 
   changeHandler = (value, controlName) => {
@@ -136,22 +166,61 @@ class Events extends React.Component {
     })
   }
 
+  selectChangeHandler = event => {
+    this.setState({
+      selectedItem: event
+    })
+  }
+
   render() {
 
-    const eventsElements = this.state.eventsInfo?.map(el => <li onClick={() => this.clickHandler(el)} key={el.title + Math.random()}>{el.title}</li>)
+   //const eventsElements = this.state.eventsInfo?.map(el => <li onClick={() => this.clickHandler(el)} key={el.title + Math.random()}>{el.title}</li>)
+
+    const selectTypeEvents = <SelectComponent
+        label='Тип события'
+        value={this.state.eventType}
+        onChange={this.selectChangeHandler}
+        options={[
+          {body: 'Лекция', value: 'lecture'},
+          {body: 'Лабораторная работа', value: 'lab'},
+          {body: 'Курсовая работа', value: 'coursework'},
+          {body: 'Практика', value: 'standard_practice'}
+        ]}
+        style={{width: 270}}
+        styleLabel={{marginTop: '15px'}}
+    />
+
+    const selectCheckMethod = <SelectComponent
+      label='Способ проверки'
+      value={this.state.checkMethod}
+      onChange={this.selectChangeHandler}
+      options={[
+        {body: 'QR-код', value: 'qr'},
+        {body: 'Тест', value: 'test'}
+      ]}
+      style={{width: 270}}
+      styleLabel={{marginTop: '15px'}}
+      styleContainer={{marginLeft: '10px'}}
+    />
 
     return (
       <div className='Events'>
         <div className='Events_createEvent'>
           <h1>Создание события</h1>
+          <NotificationContainer/>
           <BlockAuth>
+            <label>Время проведения события</label>
+            <Datepicker />
             <form onSubmit={this.submitHandler}>
+              {
+                selectTypeEvents
+              }
+              {
+                selectCheckMethod
+              }
               {
                 this.renderControls()
               }
-              <label>Время проведения события</label>
-              <Datepicker/>
-
               <div className='container-btn'>
                 <Button type="primary"
                         htmlType='submit'
@@ -160,36 +229,40 @@ class Events extends React.Component {
                   Создать событие
                 </Button>
               </div>
+
             </form>
           </BlockAuth>
         </div>
-        <div className='Events_showEvent'>
-          <h1>События</h1>
-          <BlockAuth>
 
-            <div className='quizInfoElementContainer'>
-              <ol>
-                {
-                  eventsElements
-                }
-              </ol>
-              <div className='quizInfo'>
-                <h3>{this.state.title}</h3>
-                {this.state.eventsShow?.map((el, i) =>
-                    <div key={Math.random()}>
-                      <h3>{`${i + 1}) ${el.title}`}</h3>
-                      <ul>
-                        <li>{el.location}</li>
-                        <li>{el.qr}</li>
-                        <li>{el.timeStart}</li>
-                        <li>{el.timeEnd}</li>
-                        <li>{el.comments}</li>
-                      </ul>
-                    </div>)}
-              </div>
-            </div>
-          </BlockAuth>
-        </div>
+        {/*<div className='Events_showEvent'>*/}
+        {/*  <h1>События</h1>*/}
+        {/*  <BlockAuth>*/}
+
+        {/*    <div className='quizInfoElementContainer'>*/}
+        {/*      <ol>*/}
+        {/*        {*/}
+        {/*          eventsElements*/}
+        {/*        }*/}
+        {/*      </ol>*/}
+        {/*      <div className='quizInfo'>*/}
+        {/*        <h3>{this.state.title}</h3>*/}
+        {/*        {*/}
+        {/*          this.state.eventsShow?.map((el, i) =>*/}
+        {/*            <div key={Math.random()}>*/}
+        {/*              <h3>{`${i + 1}) ${el.title}`}</h3>*/}
+        {/*              <ul>*/}
+        {/*                <li>{el.location}</li>*/}
+        {/*                <li>{el.qr}</li>*/}
+        {/*                <li>{el.timeStart}</li>*/}
+        {/*                <li>{el.timeEnd}</li>*/}
+        {/*                <li>{el.comments}</li>*/}
+        {/*              </ul>*/}
+        {/*            </div>)*/}
+        {/*        }*/}
+        {/*      </div>*/}
+        {/*    </div>*/}
+        {/*</BlockAuth>*/}
+        {/*</div>*/}
       </div>
     )
   }

@@ -25,17 +25,7 @@
     </select>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4a698bd4-533b-43b2-9456-e23108b775f1" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/LoginForm/LoginForm.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/LoginForm/LoginForm.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/RegisterForm/RegisterForm.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/RegisterForm/RegisterForm.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/containers/EventsCreator/Events.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/containers/EventsCreator/Events.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/containers/Personal/Personal.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/containers/Personal/Personal.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/containers/QuizCreator/QuizCreator.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/containers/QuizCreator/QuizCreator.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/redux/actions/userActions.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/redux/actions/userActions.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/redux/reducers/authReducer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/redux/reducers/authReducer.js" afterDir="false" />
-    </list>
+    <list default="true" id="4a698bd4-533b-43b2-9456-e23108b775f1" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />

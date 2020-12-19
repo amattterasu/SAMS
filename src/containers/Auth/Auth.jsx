@@ -10,8 +10,8 @@ const Auth = props => {
     return (
         <section className={'auth'}>
             <div className={'auth__content'}>
-                <Route exact path={'/login'} render={() => <LoginForm />}/>
-                <Route exact path="/signup" render={() => <RegisterForm />}/>
+                <Route exact path={'/login'} render={() => <LoginForm history={props.history}/>}/>
+                <Route exact path="/signup" render={() => <RegisterForm history={props.history}/>}/>
             </div>
         </section>
     )

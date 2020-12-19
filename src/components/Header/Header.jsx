@@ -26,7 +26,7 @@ const Header = props => {
                         <NavLink className='headerLink' to='/event-creator'>Создать событие</NavLink>
                     </div>
                     <div className='headerItem'>
-                        <NavLink className='headerLink' to='/events'>Календарь событий</NavLink>
+                        <NavLink className='headerLink' to='/events'>Мои события</NavLink>
                     </div>
                 </div>
                 <div className='headerItem'>
