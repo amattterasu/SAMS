@@ -16,17 +16,12 @@ const Header = props => {
                     <div className='headerItem'>
                         <NavLink className='headerLink' to='/im'>Профиль</NavLink>
                     </div>
-                    <div className='headerItem'>
-                        <NavLink className='headerLink' to='/quiz-creator'>Создание тестов</NavLink>
-                    </div>
-                    <div className='headerItem'>
-                        <NavLink className='headerLink' to='/qr-creator'>Генерация QR-кода</NavLink>
-                    </div>
+
                     <div className='headerItem'>
                         <NavLink className='headerLink' to='/event-creator'>Создать событие</NavLink>
                     </div>
                     <div className='headerItem'>
-                        <NavLink className='headerLink' to='/events'>Мои события</NavLink>
+                        <NavLink className='headerLink' to='/events'>События</NavLink>
                     </div>
                 </div>
                 <div className='headerItem'>
@@ -45,4 +40,4 @@ const Header = props => {
     )
 }
 
-export default Header;
+export default Header

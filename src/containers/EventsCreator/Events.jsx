@@ -9,6 +9,9 @@ import Datepicker from "../../components/Datepicker/DatepickerContainer"
 import SelectComponent from "../../components/UI/SelectComponent/SelectComponent"
 
 import {NotificationContainer, NotificationManager} from 'react-notifications'
+import QuizCreator from "../QuizCreator/QuizCreator";
+
+import {Modal, Tooltip} from "antd";
 
 class Events extends React.Component {
 
@@ -32,6 +35,11 @@ class Events extends React.Component {
   };
 
   state = {
+
+    showTestsCreate: false,
+
+    visible: false,
+
     isFormValid: false,
     formControls: {
       title: createControl({
@@ -43,11 +51,6 @@ class Events extends React.Component {
         label: 'Место проведения',
         value: ''
       }),
-      qrCode: createControl({
-        label: 'QR-код фраза*',
-        errorMessage: 'Заполните поле QR-код!',
-        value: ''
-      }, {required: true}),
       comments: createControl({
         label: 'Комментарий',
         errorMessage: 'Заполните поле комментарий!',
@@ -55,6 +58,11 @@ class Events extends React.Component {
       })
     },
     title: '',
+
+    qrCode: {
+      label: 'QR-код*',
+      value: ''
+    },
 
     eventType: 'lecture', //по умолчанию леция
     checkMethod: 'qr' // по умолчанию qrCode
@@ -73,10 +81,11 @@ class Events extends React.Component {
   //   })
   // }
 
-
-
   submitHandler = event => {
     event.preventDefault()
+
+    let checkData;
+    this.state.checkMethod === 'qr' ? checkData = this.state.qrCode.value : checkData = this.props.test
 
     const eventsConfig = {
       title: this.state.formControls.title.value,
@@ -85,21 +94,24 @@ class Events extends React.Component {
 
       checkMethod: this.state.checkMethod,
 
-      qrCode: this.state.formControls.qrCode.value,
+      checkData: checkData,
+
       date: this.props.date[0] || moment().format('YYYY/MM/DD'),
       timeStart: this.props.time[0] || moment().format('HH:mm'),
       timeEnd: this.props.time[1] || moment().add(10, 'minutes').format('HH:mm'),
       comments: this.state.formControls.comments.value,
     }
+    let promise = this.state.checkMethod === 'qr' ?
+      this.props.eventsFetch(eventsConfig, 'code') :
+      this.props.eventsFetch(eventsConfig, 'test')
 
-    this.props.eventsFetch(eventsConfig)
+    promise
       .then(resp => {
-        console.log(resp)
         if(resp.ok) {
           this.createNotification('success')( `Событие ${eventsConfig.title} создно`,'Создание события прошло успешно!')
         }
         else {
-          this.createNotification('warning')( `Событие ${eventsConfig.title} не создано`,'Ошибка')
+          this.createNotification('warning')( `Событие ${eventsConfig.title} не создано`,'Заполните обязательные поля!')
         }
       })
 
@@ -126,6 +138,15 @@ class Events extends React.Component {
     })
   }
 
+  qrCodeHandler = (event) => {
+    this.setState({
+      qrCode: {
+        label: 'QR-код*',
+        value: event.target.value
+      }
+    })
+  }
+
   renderControls = () => {
     return Object.keys(this.state.formControls).map((controlName, index) => {
       const control = this.state.formControls[controlName]
@@ -148,14 +169,30 @@ class Events extends React.Component {
 
   selectChangeHandler = event => {
     this.setState({
-      selectedItem: event
+      checkMethod: event
     })
   }
+
+  toggleEventToTest = () => {
+    this.setState({showTestsCreate: !this.state.showTestsCreate})
+  }
+
+  showModal = () => {
+    this.setState({
+      visible: true,
+    });
+  };
+
+  hideModal = () => {
+    this.setState({
+      visible: false,
+    });
+  };
+
 
   render() {
 
    //const eventsElements = this.state.eventsInfo?.map(el => <li onClick={() => this.clickHandler(el)} key={el.title + Math.random()}>{el.title}</li>)
-
     const selectTypeEvents = <SelectComponent
         label='Тип события'
         value={this.state.eventType}
@@ -184,66 +221,137 @@ class Events extends React.Component {
     />
 
     return (
-      <div className='EventsCreator'>
-        <div className='Events_createEvent'>
-          <h1>Создание события</h1>
-          <NotificationContainer/>
-          <BlockAuth>
-            <label>Время проведения события</label>
-            <Datepicker />
-            <form onSubmit={this.submitHandler}>
-              {
-                selectTypeEvents
-              }
-              {
-                selectCheckMethod
-              }
-              {
-                this.renderControls()
-              }
-              <div className='container-btn'>
-                <Button type="primary"
-                        htmlType='submit'
-                        disabled={!this.state.isFormValid}
+      <>
+        {
+          this.state.showTestsCreate
+            ?
+            <QuizCreator toggleEventToTest={this.toggleEventToTest} />
+            : (
+              <div className='EventsCreator'>
+
+
+                <Modal
+                  title="Информация о тесте"
+                  visible={this.state.visible}
+                  onOk={this.hideModal}
+                  okText="Ок"
+                  onCancel={this.hideModal}
+                  cancelText={'Выйти'}
                 >
-                  Создать событие
-                </Button>
+                  {
+                   <>
+                     <strong>Название теста: {this.props.test?.name}</strong>
+                     <br/>
+                     <strong>Время на выполнение: {this.props.test?.time_limit} секунд</strong>
+                        {
+                          this.props.test?.questions?.map((q, i) =>
+                            <ul><strong>Вопрос: {q.text}</strong>
+                                <li>
+                                  {
+                                    <ul>
+                                      {
+                                        q.answers.map((a, idx) =>
+                                          <li>{idx + 1}) {a.text} {a.true_false ? ' - ответ' : null}</li>
+                                        )
+                                      }
+                                    </ul>
+                                  }
+                                </li>
+                            </ul>
+                          )
+                        }
+                   </>
+                  }
+                </Modal>
+
+                <div className='Events_createEvent'>
+                  <h1>Создание события</h1>
+                  <NotificationContainer/>
+                  <BlockAuth>
+                    <label>Время проведения события</label>
+                    <Datepicker />
+                    <form onSubmit={this.submitHandler}>
+                      {
+                        selectTypeEvents
+                      }
+                      {
+                        selectCheckMethod
+                      }
+                      {
+                        this.state.checkMethod === 'qr'
+                          ? (
+                            <Input
+                              label={this.state.qrCode.label}
+                              value={this.state.qrCode.value}
+                              onChange={this.qrCodeHandler}
+                            />
+                          )
+                          : <Button style={{ marginLeft: '10px' }} onClick={() => this.toggleEventToTest()}>
+                            Создать тест
+                          </Button>
+                      }
+
+                      {
+                        this.state.checkMethod === 'test' && this.props.test.name ?
+                          <Tooltip title="Посмотреть тест">
+                            <div onClick={() => {this.showModal()}} className='testContainer'>
+                              <strong>
+                                Название созданного теста теста: {this.props.test.name}
+                              </strong>
+                              <span style={{fontSize: '12px', fontStyle: 'italic', textAlign: 'left'}}>Нажмите, чтобы посмотреть тест</span>
+                            </div>
+                          </Tooltip>
+                          : null
+                      }
+
+                      {
+                        this.renderControls()
+                      }
+                      <div className='container-btn'>
+                        <Button type="primary"
+                                htmlType='submit'
+                                disabled={!this.state.isFormValid}
+                        >
+                          Создать событие
+                        </Button>
+                      </div>
+
+                    </form>
+                  </BlockAuth>
+                </div>
+                {/*<div className='Events_showEvent'>*/}
+                {/*  <h1>События</h1>*/}
+                {/*  <BlockAuth>*/}
+
+                {/*    <div className='quizInfoElementContainer'>*/}
+                {/*      <ol>*/}
+                {/*        {*/}
+                {/*          eventsElements*/}
+                {/*        }*/}
+                {/*      </ol>*/}
+                {/*      <div className='quizInfo'>*/}
+                {/*        <h3>{this.state.title}</h3>*/}
+                {/*        {*/}
+                {/*          this.state.eventsShow?.map((el, i) =>*/}
+                {/*            <div key={Math.random()}>*/}
+                {/*              <h3>{`${i + 1}) ${el.title}`}</h3>*/}
+                {/*              <ul>*/}
+                {/*                <li>{el.location}</li>*/}
+                {/*                <li>{el.qr}</li>*/}
+                {/*                <li>{el.timeStart}</li>*/}
+                {/*                <li>{el.timeEnd}</li>*/}
+                {/*                <li>{el.comments}</li>*/}
+                {/*              </ul>*/}
+                {/*            </div>)*/}
+                {/*        }*/}
+                {/*      </div>*/}
+                {/*    </div>*/}
+                {/*</BlockAuth>*/}
+                {/*</div>*/}
               </div>
-
-            </form>
-          </BlockAuth>
-        </div>
-
-        {/*<div className='Events_showEvent'>*/}
-        {/*  <h1>События</h1>*/}
-        {/*  <BlockAuth>*/}
-
-        {/*    <div className='quizInfoElementContainer'>*/}
-        {/*      <ol>*/}
-        {/*        {*/}
-        {/*          eventsElements*/}
-        {/*        }*/}
-        {/*      </ol>*/}
-        {/*      <div className='quizInfo'>*/}
-        {/*        <h3>{this.state.title}</h3>*/}
-        {/*        {*/}
-        {/*          this.state.eventsShow?.map((el, i) =>*/}
-        {/*            <div key={Math.random()}>*/}
-        {/*              <h3>{`${i + 1}) ${el.title}`}</h3>*/}
-        {/*              <ul>*/}
-        {/*                <li>{el.location}</li>*/}
-        {/*                <li>{el.qr}</li>*/}
-        {/*                <li>{el.timeStart}</li>*/}
-        {/*                <li>{el.timeEnd}</li>*/}
-        {/*                <li>{el.comments}</li>*/}
-        {/*              </ul>*/}
-        {/*            </div>)*/}
-        {/*        }*/}
-        {/*      </div>*/}
-        {/*    </div>*/}
-        {/*</BlockAuth>*/}
-        {/*</div>*/}
-      </div>
+            )
+        }
+      </>
     )
   }
 }

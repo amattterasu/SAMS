@@ -6,26 +6,40 @@ import {connect} from "react-redux"
 
 import {withAuthRedirect} from "../../hoc/withAuthRedirect"
 import BlockAuth from "../../components/BlockAuth/BlockAuth";
-import {DeleteOutlined} from '@ant-design/icons';
-import {deleteEvent} from "../../redux/actions/userActions";
-import { Popconfirm, message, Button } from 'antd';
+import {DeleteOutlined, CloseOutlined, CheckOutlined, SearchOutlined} from '@ant-design/icons';
+import {deleteEvent, getEvents, getEventsUser, getVisitorUsers} from "../../redux/actions/userActions";
+import {Popconfirm, message, Button, Switch, Tooltip, Modal as BaseModal} from 'antd';
+import Modal from "../../components/Modal/Modal";
+import QR from "../QR/QR";
 
 class Events extends React.Component {
 
     state = {
-      eventsShow: []
+
+      visible: false,
+      idCode: '',
+
+      eventsShow: [],
+      title: 'Мои события',
+      isShowAll: false,
+
+      visitors: [],
+      allUsers: [],
+
+      isOpen: false,
+      titleModal: 'Участники события'
     }
 
     componentDidMount() {
       const accessToken = localStorage.accessToken
       if (accessToken) {
-        return fetch('http://207.154.210.81/events/root', {
+        return fetch(`http://207.154.210.81/events/root`, {
           method: "GET",
           headers: {
             'Content-Type': 'application/json',
             Accept: 'application/json',
             'Authorization': `Bearer ${accessToken}`
-          },
+          }
         })
           .then(res => res.json())
           .then(
@@ -50,17 +64,29 @@ class Events extends React.Component {
       this.props.history.push('/event-creator')
     }
 
-  // TODO Редактирование
-  // editPerson = person => {
-  //   setOpen(true);
-  //   setTitle('Редактирование сотрудника');
-  //   setValues({
-  //     firstName: person.firstName,
-  //     lastName: person.lastName
-  //   });
-  //   setMethod('PUT');
-  //   setId(person.id);
-  // }
+    toggleEvents = () => {
+      this.setState({isShowAll: !this.state.isShowAll})
+
+      const url = !this.state.isShowAll ? '' : '/root'
+
+      this.props.getEvents(url)
+        .then(res => res.json())
+        .then(
+          (result) => {
+            result.forEach(el => {
+              if (el.check_type === 'qr') {
+                el.check_type = 'QR-код'
+              }
+              if (el.check_type === 'test') {
+                el.check_type = 'Тест'
+              }
+            })
+            this.setState({
+              eventsShow: result
+            })
+          }
+        )
+    }
 
     deleteEvent(personId) {
       this.props.deleteEvent(personId)
@@ -70,44 +96,162 @@ class Events extends React.Component {
       })
     }
 
+    showInfo = (personId) => {
+      this.setState({isOpen: true, titleModal: 'Участники события'})
+      this.props.getEventsUser(personId)
+        .then(res => res.json())
+        .then(
+          (result) => {
+            this.setState({
+              allUsers: result.participants
+            })
+          }
+        )
+    }
+
+    showVisitors = (personId) => {
+    this.setState({isOpen: true, titleModal: 'Проверка посещаемости'})
+      this.props.getVisitorUsers(personId)
+        .then(res => res.json())
+        .then(
+          (result) => {
+            this.setState({
+              visitors: result.visitors
+            })
+          }
+        )
+    }
+
+    setOpen = () => {
+      this.setState({isOpen: false})
+    }
+
+    generateQr = (id) => {
+      this.setState({visible: !this.state.visible, idCode: id})
+    }
+
+    hideModal = () => {
+      this.setState({
+        visible: false
+      })
+    }
+
     render() {
         return <div className='events'>
-            <h1>Мои события</h1>
+
+          <Modal isOpen={this.state.isOpen}
+                 setOpen={this.setOpen}
+                 title={this.state.titleModal}
+                 allUsers={this.state.allUsers}
+                 visitors={this.state.visitors}
+          />
+
+          <BaseModal
+            title='QR-код'
+            visible={this.state.visible}
+            onOk={this.hideModal}
+            okText="Ок"
+            onCancel={this.hideModal}
+            cancelText={'Выйти'}
+            width={1000}
+          >
+            {
+              <QR {...this.state}/>
+            }
+          </BaseModal>
+
+          <h1>{this.state.isShowAll ? 'Все события' : 'Мои события'}</h1>
+
+           <div className='switchContainer'>
+             <span className='switchText'>Показать все события</span>
+             <Switch
+               checkedChildren={<CheckOutlined />}
+               unCheckedChildren={<CloseOutlined />}
+               checked={this.state.isShowAll}
+               onChange={this.toggleEvents}
+             />
+           </div>
+
             <BlockAuth>
               <div className='table'>
                 <div className='table__title'>
+                  {this.state.isShowAll ? null : <div className='table__item'>Посещаемость</div>}
                   <div className='table__item'>Название события</div>
                   <div className='table__item'>Метод</div>
                   <div className='table__item'>Дата</div>
-                  <div className='table__item'>Действие</div>
+                  {this.state.isShowAll ? null : <div className='table__item'>Действие</div>}
                 </div>
                 {
                   this.state.eventsShow.length ? this.state.eventsShow.map(event => {
                     return (
                       <div className='table__row' key={event.id}>
+                        {
+                          this.state.isShowAll ? null : (
+                            <Tooltip title="Посмотреть кто на паре">
+                              <Button
+                                type="primary"
+                                onClick={() => this.showVisitors(event.id)}
+                              >
+                                Проверка
+                                <SearchOutlined />
+                              </Button>
+                            </Tooltip>
+                          )
+                        }
+                        <Tooltip title="Просмотреть всех участников данного события">
+                          <div onClick={() => this.showInfo(event.id)} className='table__item table__item-active'>
+                            <span style={{fontSize: '12px', fontStyle: 'italic'}}>Нажмите для просмотра участников</span>
+                            <strong>
+                              <pre>
+                                {event.name.padEnd(35)}
+                              </pre>
+                            </strong>
+                          </div>
+                        </Tooltip>
 
-                        <div className='table__item'>{event.name}</div>
-                        <div className='table__item'>{event.check_type}</div>
+                        {
+                          event.check_type === 'QR-код'
+                            ?
+                              (
+                                this.state.isShowAll
+                                  ?
+                                    <div className='table__item'>{event.check_type}</div>
+                                  :
+                                    <Tooltip title="Сгенерировать QR-код данного события">
+                                      <div onClick={() => this.generateQr(event.id)} className='table__item table__item-active'>
+                                        <span style={{fontSize: '12px', fontStyle: 'italic'}}>Нажмите для генерации QR-кода</span>
+                                        <strong>
+                                          <pre>
+                                            {event.check_type}
+                                          </pre>
+                                        </strong>
+                                      </div>
+                                    </Tooltip>
+                              )
+                            :
+                            <div className='table__item'>{event.check_type}</div>
+
+                        }
+
                         <div className='table__item'>{event.time_start + ' - ' + event.time_end + ' ' + event.date}</div>
-                        <div className='table__btn'>
-                          {/* TODO Замутить редактирование*/}
-                          {/*<Button*/}
-                          {/*  //onClick={() => editPerson(person)}*/}
-                          {/*>*/}
-                          {/*  <EditTwoTone/>*/}
-                          {/*</Button>*/}
-                          <Popconfirm
-                            title="Вы действительно хотите удалить данное событие?"
-                            onConfirm={() => this.deleteEvent(event.id)}
-                            okText="Удалить"
-                            cancelText="Отмена"
-                          >
-                            <Button  className='table__btn-delete' href="#">
-                              <span >Удалить</span>
-                              <DeleteOutlined  style={ {color: 'red'} } />
-                            </Button>
-                          </Popconfirm>
-                        </div>
+                        {
+                          this.state.isShowAll ? null : (
+                            <div className='table__btn'>
+                              <Popconfirm
+                                title="Вы действительно хотите удалить данное событие?"
+                                onConfirm={() => this.deleteEvent(event.id)}
+                                okText="Удалить"
+                                cancelText="Отмена"
+                              >
+                                <Tooltip title="Удалить данное событие">
+                                    <Button  className='table__btn-delete' href="#">
+                                      <DeleteOutlined  style={ {color: 'red'} } />
+                                    </Button>
+                                </Tooltip>
+                              </Popconfirm>
+                            </div>
+                          )
+                        }
                       </div>
                     )
                   }) : <div style={{textAlign: 'center', fontSize: '18px', marginTop: '10px', color: '#adadad'}}>
@@ -122,7 +266,6 @@ class Events extends React.Component {
                   Создать событие
                 </Button>
               </div>
-
             </BlockAuth>
         </div>
     }
@@ -134,6 +277,10 @@ let mapStateToProps = state => ({
 
 let  mapDispatchToProps = dispatch => ({
   deleteEvent: (id) => dispatch(deleteEvent(id)),
+  getEvents: (url) => dispatch(getEvents(url)),
+  getEventsUser: (id) => dispatch(getEventsUser(id)),
+  getVisitorUsers: (id) => dispatch(getVisitorUsers(id)),
+
 })
 
 export default compose(

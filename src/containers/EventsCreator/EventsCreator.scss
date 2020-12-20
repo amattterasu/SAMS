@@ -8,7 +8,27 @@
   width: 100%;
   max-width: 1024px;
 
+  .testContainer {
+    margin: 10px 0;
+    text-align: center;
+    display: flex;
+    padding: 5px;
+    width: 100%;
+    box-sizing: border-box;
+    border: 1px solid #dadada;
+    outline: none;
+    border-radius: 5px;
 
+    justify-content: space-around;
+
+    &:hover {
+      border-radius: 10%;
+      background-color: #fafbfc;
+      cursor: pointer;
+    }
+  }
+
+.container-btn
   ol li {
     color: #adadad;
     font-size: 24px;

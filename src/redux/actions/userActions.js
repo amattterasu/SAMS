@@ -10,10 +10,6 @@ const regUser = userObj => ({
   payload: userObj
 })
 
-export const logoutUser = () => ({
-  type: 'LOGOUT_USER'
-})
-
 export const setAuthUserData = (type = 'SET_USER_DATA', userId, email, login) => ({
   type: type,
   payload: {userId, email, login}
@@ -131,7 +127,7 @@ export const quizFetch = quiz => {
   }
 }
 
-export const eventsFetch = event => {
+export const eventsFetch = (event, checkData) => {
   return dispatch => {
     const accessToken = localStorage.accessToken
     if (accessToken) {
@@ -151,12 +147,61 @@ export const eventsFetch = event => {
           time_start: event.timeStart,
           time_end: event.timeEnd,
           check_type: event.checkMethod,
-          code: event.qrCode
+          [checkData]: event.checkData
         })
       })
     }
   }
 }
+
+export const getEvents = (url) => {
+  return dispatch => {
+    const accessToken = localStorage.accessToken
+    if (accessToken) {
+      return fetch(`http://207.154.210.81/events${url}`, {
+        method: "GET",
+        headers: {
+          'Content-Type': 'application/json',
+          Accept: 'application/json',
+          'Authorization': `Bearer ${accessToken}`
+        }
+      })
+    }
+  }
+}
+
+export const getEventsUser = (id) => {
+  return dispatch => {
+    const accessToken = localStorage.accessToken
+    if (accessToken) {
+      return fetch(`http://207.154.210.81/events/${id}/users`, {
+        method: "GET",
+        headers: {
+          'Content-Type': 'application/json',
+          Accept: 'application/json',
+          'Authorization': `Bearer ${accessToken}`
+        }
+      })
+    }
+  }
+}
+
+export const getVisitorUsers = (id) => {
+  return dispatch => {
+    const accessToken = localStorage.accessToken
+    if (accessToken) {
+      return fetch(`http://207.154.210.81/events/${id}/visitors`, {
+        method: "GET",
+        headers: {
+          'Content-Type': 'application/json',
+          Accept: 'application/json',
+          'Authorization': `Bearer ${accessToken}`
+        }
+      })
+    }
+  }
+}
+
 
 export const profileFetch = (id, userConfig) => {
   return dispatch => {
@@ -195,25 +240,3 @@ export const deleteEvent = id => {
     }
   }
 }
-
-// export const qrFetch = (id, userConfig) => {
-//     return dispatch => {
-//         const token = localStorage.token;
-//         if (token) {
-//             return fetch(URL + `${id}`, {
-//                 method: "PATCH",
-//                 headers: {
-//                     "Content-Type": "application/json",
-//                     Accept: "application/json"
-//                 },
-//                 body: JSON.stringify({
-//                     first_name: userConfig.firstName,
-//                     second_name: userConfig.secondName,
-//                     last_name: userConfig.lastName,
-//                     role: userConfig.role,
-//                     authentication_token: token
-//                 })
-//             })
-//         }
-//     }
-// }

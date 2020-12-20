@@ -12,6 +12,7 @@ class EventsCreator extends React.Component {
         return <Events date={this.props.date}
                        time={this.props.time}
                        eventsFetch={this.props.eventsFetch}
+                       test={this.props.test}
         />
     }
 }
@@ -19,6 +20,8 @@ class EventsCreator extends React.Component {
 let mapStateToProps = state => ({
     date: state.events.date,
     time: state.events.time,
+
+    test: state.events.test
 })
 
 let  mapDispatchToProps = dispatch => ({

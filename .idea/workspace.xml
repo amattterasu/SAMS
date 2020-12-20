@@ -26,19 +26,28 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4a698bd4-533b-43b2-9456-e23108b775f1" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/components/Modal/Modal.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/Modal/Modal.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/App.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Footer/Footer.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Footer/Footer.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Footer/Footer.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Footer/Footer.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Header/Header.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Header/Header.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Modal/Modal.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Modal/Modal.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Modal/Modal.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Modal/Modal.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/containers/Events/Events.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/containers/Events/Events.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/containers/Events/Events.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/containers/Events/Events.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/containers/EventsCreator/Events.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/containers/EventsCreator/Events.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/containers/EventsCreator/EventsCreator.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/containers/EventsCreator/EventsCreator.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/containers/EventsCreator/EventsCreator.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/containers/EventsCreator/EventsCreator.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/containers/Personal/Personal.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/containers/Personal/Personal.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/containers/QR/QR.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/containers/QR/QR.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/containers/QR/QR.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/containers/QR/QR.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/containers/QR/QRContainer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/containers/QR/QRContainer.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/containers/QuizCreator/QuizCreator.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/containers/QuizCreator/QuizCreator.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/containers/QuizCreator/QuizCreator.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/containers/QuizCreator/QuizCreator.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/redux/actions/actions.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/redux/actions/actions.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/redux/actions/userActions.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/redux/actions/userActions.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/redux/reducers/eventsReducer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/redux/reducers/eventsReducer.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/styles/index.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/styles/index.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -153,7 +162,7 @@
       <workItem from="1608117040331" duration="1659000" />
       <workItem from="1608123406567" duration="10584000" />
       <workItem from="1608135631152" duration="3547000" />
-      <workItem from="1608371252231" duration="19821000" />
+      <workItem from="1608371252231" duration="57415000" />
     </task>
     <servers />
   </component>
@@ -178,6 +187,11 @@
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/src/components/Datepicker/Datepicker.jsx</url>
           <option name="timeStamp" value="1" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/src/components/Modal/Modal.jsx</url>
+          <properties lambdaOrdinal="-1" />
+          <option name="timeStamp" value="12" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

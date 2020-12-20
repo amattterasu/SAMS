@@ -34,9 +34,9 @@ class App extends Component {
                         <Switch>
                             <Route exact path={["/login", "/signup"]}
                                    render={() => <Auth history={this.props.history}/>}/>
-                            <Route exact path='/quiz-creator' render={() => <QuizCreator/>}/>
+                            {/*<Route exact path='/quiz-creator' render={() => <QuizCreator/>}/>*/}
                             <Route exact path={["/", "/im"]} render={() => <Personal/>}/>
-                            <Route exact path="/qr-creator" render={() => <QRCreator/>}/>
+                            {/*<Route exact path="/qr-creator" render={() => <QRCreator/>}/>*/}
                             <Route exact path="/event-creator" render={() => <EventsCreator/>}/>
                             <Route exact path="/events"  render={() => <Events history={this.props.history}/>}/>
                             <Route path='*'
