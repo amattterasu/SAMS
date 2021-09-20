@@ -214,7 +214,7 @@ class QuizCreator extends React.Component {
              <div className='QuizContainer'>
                  <div className='QuizCreator'>
                      <div>
-                         <h1>Создание теста</h1>
+                         <h1 style={{position: 'absolute', left: '2%'}}> Создание теста</h1>
                          <BlockAuth>
                              {/*{this.state.flag*/}
                              {/*  ?*/}

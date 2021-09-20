@@ -12,3 +12,8 @@ export const setTest = test => ({
     type: 'SET_TEST',
     payload: test
 })
+
+export const spinner = () => ({
+    type: 'spinner',
+    payload: false
+})
