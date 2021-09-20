@@ -72,7 +72,6 @@ class QuizCreator extends React.Component {
 
     submitHandler = event => {
         event.preventDefault()
-        console.log(event)
     }
 
     addQuestionHandler = event => {

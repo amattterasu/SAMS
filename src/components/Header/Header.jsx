@@ -5,23 +5,24 @@ import {NavLink} from "react-router-dom"
 import {LogoutOutlined, LoginOutlined} from '@ant-design/icons'
 
 const Header = props => {
-
     return (
         <header>
             <div className='headerContainer'>
                 <div className='headerContainerMenu'>
                     <div className='headerItem'>
-                        <h1><NavLink to='/im'>ТУСУР <br/> СКП</NavLink></h1>
+                        <h1><NavLink to='/im'>СКП</NavLink></h1>
                     </div>
                     <div className='headerItem'>
                         <NavLink className='headerLink' to='/im'>Профиль</NavLink>
                     </div>
-
                     <div className='headerItem'>
                         <NavLink className='headerLink' to='/event-creator'>Создать событие</NavLink>
                     </div>
                     <div className='headerItem'>
                         <NavLink className='headerLink' to='/events'>События</NavLink>
+                    </div>
+                    <div className='headerItem'>
+                        <NavLink className='headerLink' to='/code'>Ввести кодовое слово</NavLink>
                     </div>
                 </div>
                 <div className='headerItem'>

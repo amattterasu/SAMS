@@ -13,6 +13,7 @@ import QRCreator from "./containers/QR/QRContainer"
 import Events from "./containers/Events/Events"
 import HeaderContainer from "./containers/HeaderContainer/HeaderContainer"
 import EventsCreator from "./containers/EventsCreator/EventsCreator"
+import EnterCode from "./containers/EnterCode/EnterCode"
 import Footer from "./components/Footer/Footer"
 
 import './App.scss'
@@ -34,11 +35,10 @@ class App extends Component {
                         <Switch>
                             <Route exact path={["/login", "/signup"]}
                                    render={() => <Auth history={this.props.history}/>}/>
-                            {/*<Route exact path='/quiz-creator' render={() => <QuizCreator/>}/>*/}
                             <Route exact path={["/", "/im"]} render={() => <Personal/>}/>
-                            {/*<Route exact path="/qr-creator" render={() => <QRCreator/>}/>*/}
                             <Route exact path="/event-creator" render={() => <EventsCreator/>}/>
                             <Route exact path="/events"  render={() => <Events history={this.props.history}/>}/>
+                            <Route exact path="/code"  render={() => <EnterCode />}/>
                             <Route path='*'
                                    render={() => <h1 style={{textAlign: 'center'}}>Error 404 PAGE NOT FOUND</h1>}/>
                         </Switch>
@@ -50,9 +50,7 @@ class App extends Component {
     }
 }
 
-const mapStateToProps = state => ({
-
-})
+const mapStateToProps = state => ({})
 
 const mapDispatchToProps = dispatch => ({getProfileFetch: () => dispatch(getProfileFetch())})
 
