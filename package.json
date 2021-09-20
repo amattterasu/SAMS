@@ -52,7 +52,8 @@
   },
   "proxy": "http://localhost:4000/",
   "devDependencies": {
-    "gh-pages": "^2.2.0"
+    "gh-pages": "^2.2.0",
+    "react-notifications": "^1.7.2"
   },
   "main": "index.js",
   "license": "MIT"
