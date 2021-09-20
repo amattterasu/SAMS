@@ -1,5 +1,5 @@
-@import '~antd/dist/antd.css';
-@import '~react-notifications/lib/notifications.css';
+@import "~antd/dist/antd.css";
+@import "~react-notifications/lib/notifications.css";
 
 body {
   height: 100%;
@@ -7,14 +7,16 @@ body {
   padding: 0;
 }
 
-html, body, #root, .wrapper {
+html,
+body,
+#root,
+.wrapper {
   height: 100%;
   color: #202020;
   font-family: "PT Sans", "Verdana", sans-serif;
 }
 
 .wrapper {
-  flex: 1 0 auto;
 }
 
 .notification-container {
@@ -22,5 +24,5 @@ html, body, #root, .wrapper {
 }
 
 li {
-  list-style-type: none
+  list-style-type: none;
 }

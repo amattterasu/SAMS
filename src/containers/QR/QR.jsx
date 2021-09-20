@@ -10,7 +10,7 @@ const QRCreator = ({idCode, eventsShow})  => {
   return (
      <div className='qrcodeContainer'>
         <QRCode
-        value={phrase[0].code}
+         value={phrase[0].code}
          size={512}
          bgColor={"#ffffff"}
          fgColor={"#000000"}

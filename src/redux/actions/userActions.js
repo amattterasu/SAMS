@@ -1,4 +1,4 @@
-const URL = "http://207.154.210.81"
+import { URL } from '../../constants/const'
 
 const loginUser = userObj => ({
   type: 'LOGIN_USER',
@@ -158,7 +158,7 @@ export const getEvents = (url) => {
   return dispatch => {
     const accessToken = localStorage.accessToken
     if (accessToken) {
-      return fetch(`http://207.154.210.81/events${url}`, {
+      return fetch(`${URL}/events${url}`, {
         method: "GET",
         headers: {
           'Content-Type': 'application/json',
@@ -174,7 +174,7 @@ export const getEventsUser = (id) => {
   return dispatch => {
     const accessToken = localStorage.accessToken
     if (accessToken) {
-      return fetch(`http://207.154.210.81/events/${id}/users`, {
+      return fetch(`${URL}/events/${id}/users`, {
         method: "GET",
         headers: {
           'Content-Type': 'application/json',
@@ -190,7 +190,7 @@ export const getVisitorUsers = (id) => {
   return dispatch => {
     const accessToken = localStorage.accessToken
     if (accessToken) {
-      return fetch(`http://207.154.210.81/events/${id}/visitors`, {
+      return fetch(`${URL}/events/${id}/visitors`, {
         method: "GET",
         headers: {
           'Content-Type': 'application/json',

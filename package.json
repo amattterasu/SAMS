@@ -4,6 +4,7 @@
   "private": true,
   "dependencies": {
     "@ant-design/icons": "^4.3.0",
+    "@emotion/react": "^11.4.1",
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.4.1",
     "@testing-library/user-event": "^7.2.1",
@@ -19,9 +20,11 @@
     "react-bootstrap": "^1.0.0",
     "react-dom": "^16.13.0",
     "react-notifications": "^1.7.2",
+    "react-otp-input": "^2.4.0",
     "react-redux": "^7.2.0",
     "react-router-dom": "^5.1.2",
     "react-scripts": "3.4.0",
+    "react-spinners": "^0.11.0",
     "react-toastify": "^6.2.0",
     "redux": "^4.0.5",
     "redux-devtools-extension": "^2.13.8",
@@ -53,6 +56,13 @@
   },
   "proxy": "http://localhost:4000/",
   "devDependencies": {
+    "@babel/cli": "^7.15.7",
+    "@babel/core": "^7.15.5",
+    "@babel/node": "^7.15.4",
+    "@babel/plugin-transform-react-jsx": "^7.14.9",
+    "@babel/preset-env": "^7.15.6",
+    "@babel/preset-react": "^7.14.5",
+    "@emotion/babel-plugin": "^11.3.0",
     "gh-pages": "^2.2.0"
   },
   "main": "index.js",

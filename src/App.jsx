@@ -8,64 +8,69 @@ import {getProfileFetch} from './redux/actions/userActions'
 
 import Auth from './containers/Auth/Auth'
 import Personal from "./containers/Personal/PersonalContainer"
-import QuizCreator from "./containers/QuizCreator/QuizCreatorContainer"
-import QRCreator from "./containers/QR/QRContainer"
 import Events from "./containers/Events/Events"
 import HeaderContainer from "./containers/HeaderContainer/HeaderContainer"
 import EventsCreator from "./containers/EventsCreator/EventsCreator"
+import EnterCode from "./containers/EnterCode/EnterCode"
 import Footer from "./components/Footer/Footer"
-
 import './App.scss'
+import { Loader } from './components/Loader/Loader'
+import { spinner } from './redux/actions/actions'
 
 class App extends Component {
-
-    componentDidMount = () => {
-        if (localStorage.accessToken !== 'undefined') {
-            this.props.getProfileFetch()
-        }
+  componentDidMount = () => {
+    if (localStorage.accessToken !== 'undefined') {
+        this.props.getProfileFetch()
     }
 
-    render() {
-        return (
-            <div className={'dflex'}>
-                <HeaderContainer/>
-                <div className={'wrapper'}>
-                    <div>
-                        <Switch>
-                            <Route exact path={["/login", "/signup"]}
-                                   render={() => <Auth history={this.props.history}/>}/>
-                            {/*<Route exact path='/quiz-creator' render={() => <QuizCreator/>}/>*/}
-                            <Route exact path={["/", "/im"]} render={() => <Personal/>}/>
-                            {/*<Route exact path="/qr-creator" render={() => <QRCreator/>}/>*/}
-                            <Route exact path="/event-creator" render={() => <EventsCreator/>}/>
-                            <Route exact path="/events"  render={() => <Events history={this.props.history}/>}/>
-                            <Route path='*'
-                                   render={() => <h1 style={{textAlign: 'center'}}>Error 404 PAGE NOT FOUND</h1>}/>
-                        </Switch>
-                     </div>
-                </div>
-                <Footer/>
-            </div>
-        )
-    }
+    // TODO: выпилить
+    setTimeout(() => {
+      this.props.spinner()
+    }, 10000)
+  }
+
+  render() {
+    return (
+      <div className={'dflex'}>
+        <HeaderContainer/>  
+        {this.props.isLoading ? <Loader /> : <div className={'wrapper'}>
+            <Switch>
+              <Route exact path={["/login", "/signup"]}
+                     render={() => <Auth history={this.props.history}/>}/>
+              <Route exact path={["/", "/im"]} render={() => <Personal/>}/>
+              <Route exact path="/event-creator" render={() => <EventsCreator/>}/>
+              <Route exact path="/events"  render={() => <Events history={this.props.history}/>}/>
+              <Route exact path="/code"  render={() => <EnterCode />}/>
+              <Route path='*'
+                     render={() => <h1 style={{textAlign: 'center'}}>Error 404 PAGE NOT FOUND</h1>}/>
+            </Switch>
+        </div>}
+         
+          <Footer/>
+      </div>
+    )
+  }
 }
 
 const mapStateToProps = state => ({
-
+  isLoading: state.auth.isLoading
 })
 
-const mapDispatchToProps = dispatch => ({getProfileFetch: () => dispatch(getProfileFetch())})
+const mapDispatchToProps = dispatch => ({
+  getProfileFetch: () => dispatch(getProfileFetch()),
+  spinner: () => dispatch(spinner())
+})
 
-let AppContainer = compose(
-    withRouter,
-    connect(mapStateToProps, mapDispatchToProps))(App)
+const AppContainer = compose(
+  withRouter,
+  connect(mapStateToProps, mapDispatchToProps))(App)
 
 const MainApp = props => {
-    return <BrowserRouter>
-        <Provider store={store}>
-            <AppContainer/>
-        </Provider>
-    </BrowserRouter>
+  return <BrowserRouter>
+    <Provider store={store}>
+        <AppContainer/>
+    </Provider>
+  </BrowserRouter>
 }
 
 export default MainApp

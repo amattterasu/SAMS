@@ -85,7 +85,7 @@ class Events extends React.Component {
     event.preventDefault()
 
     let checkData;
-    this.state.checkMethod === 'qr' ? checkData = this.state.qrCode.value : checkData = this.props.test
+    this.state.checkMethod === 'qr' ? checkData = null : checkData = this.props.test
 
     const eventsConfig = {
       title: this.state.formControls.title.value,
@@ -108,7 +108,7 @@ class Events extends React.Component {
     promise
       .then(resp => {
         if(resp.ok) {
-          this.createNotification('success')( `Событие ${eventsConfig.title} создно`,'Создание события прошло успешно!')
+          this.createNotification('success')( `Событие ${eventsConfig.title} создано`,'Создание события прошло успешно!')
         }
         else {
           this.createNotification('warning')( `Событие ${eventsConfig.title} не создано`,'Заполните обязательные поля!')
@@ -280,11 +280,13 @@ class Events extends React.Component {
                       {
                         this.state.checkMethod === 'qr'
                           ? (
-                            <Input
-                              label={this.state.qrCode.label}
-                              value={this.state.qrCode.value}
-                              onChange={this.qrCodeHandler}
-                            />
+                             <>
+                             </>
+                            // <Input
+                            //   label={this.state.qrCode.label}
+                            //   value={this.state.qrCode.value}
+                            //   onChange={this.qrCodeHandler}
+                            // />
                           )
                           : <Button style={{ marginLeft: '10px' }} onClick={() => this.toggleEventToTest()}>
                             Создать тест

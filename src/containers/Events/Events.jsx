@@ -4,6 +4,8 @@ import './Events.scss'
 import {compose} from "redux"
 import {connect} from "react-redux"
 
+import { URL } from '../../constants/const'
+
 import {withAuthRedirect} from "../../hoc/withAuthRedirect"
 import BlockAuth from "../../components/BlockAuth/BlockAuth";
 import {DeleteOutlined, CloseOutlined, CheckOutlined, SearchOutlined} from '@ant-design/icons';
@@ -33,7 +35,7 @@ class Events extends React.Component {
     componentDidMount() {
       const accessToken = localStorage.accessToken
       if (accessToken) {
-        return fetch(`http://207.154.210.81/events/root`, {
+        return fetch(`${URL}/events/root`, {
           method: "GET",
           headers: {
             'Content-Type': 'application/json',
@@ -44,6 +46,7 @@ class Events extends React.Component {
           .then(res => res.json())
           .then(
             (result) => {
+              result &&
               result.forEach(el => {
                 if (el.check_type === 'qr') {
                   el.check_type = 'QR-код'
@@ -73,6 +76,7 @@ class Events extends React.Component {
         .then(res => res.json())
         .then(
           (result) => {
+            result &&
             result.forEach(el => {
               if (el.check_type === 'qr') {
                 el.check_type = 'QR-код'
