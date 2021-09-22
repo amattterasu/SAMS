@@ -5,9 +5,10 @@ import BlockAuth from "../../components/BlockAuth/BlockAuth"
 import Input from "../../components/UI/Input/Input"
 import {createControl, validate, validateForm} from "../../form/formFramework"
 import Button from "../../components/Button/Button"
+import userPhoto from "../../assets/images/user.png"
+import { Loader } from '../../components/Loader/Loader'
 
 class Personal extends React.Component {
-
   componentDidMount = () => {
       this.props.getProfileFetch()
   }
@@ -33,8 +34,8 @@ class Personal extends React.Component {
         value: this.props.currentUser.patronymic
       }, {required: true}),
       group: createControl({
-        label: 'Роль',
-        errorMessage: 'Заполните поле роль!',
+        label: 'Группа',
+        errorMessage: 'Заполните поле группа!',
         value: this.props.currentUser.group
       }, {required: true})
     },
@@ -44,18 +45,15 @@ class Personal extends React.Component {
       patronymic: this.props.currentUser.patronymic,
       group: this.props.currentUser.group
     },
-    load: false
+    isLoading: this.props.currentUser.isLoading
   }
 
   changeHandler = (value, controlName) => {
-
     const formControls = {...this.state.formControls}
     const control = {...formControls[controlName]}
-
     control.touched = true
     control.value = value
     control.valid = validate(control.value, control.validation)
-
     formControls[controlName] = control
 
     this.setState({
@@ -72,7 +70,7 @@ class Personal extends React.Component {
           <Input
             placeholder={control.value}
             label={control.label}
-            //value={control.value}
+            value={control.value}
             valid={control.valid}
             shouldValidate={!!control.validation}
             touched={control.touched}
@@ -89,8 +87,10 @@ class Personal extends React.Component {
   }
 
   submitHandler = event => {
-
     event.preventDefault()
+    this.setState({
+     isLoading: true
+    })
 
     const userConfig = {
       name: this.state.formControls.name.value,
@@ -103,34 +103,38 @@ class Personal extends React.Component {
     this.setState({
       isEdit: !this.state.isEdit,
       userInfo: userConfig,
-      isFormValid: false
+      isFormValid: false,
+      isLoading: false
     })
   }
 
   render() {
-
     if (this.props.isAuth) return <Redirect to={'/login'}/>
 
     return (
-      <section className={'personal'}>
-
+      this.state.isLoading ? <Loader /> : <section className={'personal'}>
         <div>
           <h1>Профиль</h1>
           <BlockAuth>
             {
               !this.state.isEdit ?
-                <div>
+                <>
                   <div className='profileInfo'>
-                    <span>ФИО:  </span> &nbsp;
-                    <span>{this.props.currentUser.surname}</span>
-                    &nbsp;
-                    <span>{this.props.currentUser.name}</span>
-                    &nbsp;
-                    <span>{this.props.currentUser.patronymic}</span>
+                    <img src={userPhoto} alt="user" />
                   </div>
-                  <div className='profileInfo'>
-                    <span>Роль:</span> &nbsp;
-                    {this.props.currentUser.group}
+                  <div className='container-profile'>
+                    <div className='profileInfo'>
+                      <span>ФИО:  </span> &nbsp;
+                      <span>{this.props.currentUser.surname}</span>
+                      &nbsp;
+                      <span>{this.props.currentUser.name}</span>
+                      &nbsp;
+                      <span>{this.props.currentUser.patronymic}</span>
+                    </div>
+                    <div className='profileInfo'>
+                      <span>Группа:</span> &nbsp;
+                      {this.props.currentUser.group}
+                    </div>
                   </div>
 
                   <Button type="primary"
@@ -138,8 +142,7 @@ class Personal extends React.Component {
                   >
                     Редактировать
                   </Button>
-
-                </div>
+                </>
                 :
                 <form onSubmit={this.submitHandler}>
                   {this.renderControls()}

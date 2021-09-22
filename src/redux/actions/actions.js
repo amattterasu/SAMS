@@ -13,7 +13,13 @@ export const setTest = test => ({
     payload: test
 })
 
-export const spinner = () => ({
+export const spinner = (toggle) => ({
     type: 'spinner',
-    payload: false
+    payload: toggle
 })
+
+export const setEvent = eventId => ({
+    type: 'SET_EVENT',
+    payload: { eventId }
+  })
+  

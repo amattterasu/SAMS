@@ -1,10 +1,14 @@
 footer {
-  margin-top: 5rem;
-  padding: .1rem;
-  background-color: #dadada;
+  padding: 0.5rem;
+  background-color: #c4c4c4;
   position: fixed;
   bottom: 0;
   left: 0;
   width: 100%;
-  flex: 1 0 auto;
+  flex: 1 1 auto;
+  > div {
+    font-size: 0.9rem;
+    display: flex;
+    justify-content: flex-end;
+  }
 }

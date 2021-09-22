@@ -1,12 +1,18 @@
 import { URL } from '../../constants/const'
+import {setEvent, spinner} from './actions'
 
 const loginUser = userObj => ({
   type: 'LOGIN_USER',
-  payload: userObj
+  payload: userObj,
 })
 
 const regUser = userObj => ({
   type: 'REG_USER',
+  payload: userObj
+})
+
+const updateUser = userObj => ({
+  type: 'UPDATE_USER',
   payload: userObj
 })
 
@@ -53,6 +59,7 @@ export const userRegFetch = user => {
 
 export const userLoginFetch = user => {
   return dispatch => {
+    dispatch(spinner(true))
     return fetch(URL + "/login", {
       method: "POST",
       headers: {
@@ -75,6 +82,7 @@ export const userLoginFetch = user => {
 
           if (data.accessToken) {
             dispatch(loginUser(data))
+            dispatch(spinner(false))
           }
         }
       })
@@ -84,7 +92,6 @@ export const userLoginFetch = user => {
 export const getProfileFetch = () => {
   return dispatch => {
     const accessToken = localStorage.accessToken;
-
     if (accessToken) {
       return fetch(URL + `/users`, {
         method: "GET",
@@ -150,6 +157,8 @@ export const eventsFetch = (event, checkData) => {
           [checkData]: event.checkData
         })
       })
+    } else {
+      return new Promise(() => {})
     }
   }
 }
@@ -166,12 +175,15 @@ export const getEvents = (url) => {
           'Authorization': `Bearer ${accessToken}`
         }
       })
+    } else {
+        return new Promise(() => {})
     }
   }
 }
 
 export const getEventsUser = (id) => {
   return dispatch => {
+    dispatch(setEvent(id));
     const accessToken = localStorage.accessToken
     if (accessToken) {
       return fetch(`${URL}/events/${id}/users`, {
@@ -182,6 +194,8 @@ export const getEventsUser = (id) => {
           'Authorization': `Bearer ${accessToken}`
         }
       })
+    } else {
+      return new Promise(() => {})
     }
   }
 }
@@ -198,6 +212,8 @@ export const getVisitorUsers = (id) => {
           'Authorization': `Bearer ${accessToken}`
         }
       })
+    } else {
+      return new Promise(() => {})
     }
   }
 }
@@ -220,7 +236,14 @@ export const profileFetch = (id, userConfig) => {
           patronymic: userConfig.patronymic,
           group: userConfig.group
         })
-      })
+      }).then((resp => {
+        if (!resp.ok) {
+          throw new Error(resp.statusText)
+        }
+        return resp;
+      }))
+      .then( dispatch(updateUser(userConfig)))
+      .catch(err => err)
     }
   }
 }
@@ -237,6 +260,45 @@ export const deleteEvent = id => {
           'Authorization': `Bearer ${accessToken}`
         }
       })
+    }
+  }
+}
+
+export const joinUser = (eventId) => {
+  return dispatch => {
+    const accessToken = localStorage.accessToken
+    if (accessToken) {
+      return fetch(`${URL}/events/${eventId}/users`, {
+        method: "POST",
+        headers: {
+          'Content-Type': 'application/json',
+          Accept: 'application/json',
+          'Authorization': `Bearer ${accessToken}`
+        }
+      })
+    } else {
+      return new Promise(() => {})
+    }
+  }
+}
+
+export const addCode = (id, code) => {
+  return dispatch => {
+    const accessToken = localStorage.accessToken
+    if (accessToken) {
+      return fetch(`${URL}/events/${id}/code`, {
+          method: "POST",
+          headers: {
+            'Content-Type': 'application/json',
+            Accept: 'application/json',
+            'Authorization': `Bearer ${accessToken}`
+          },
+          body: JSON.stringify({
+            code
+          })
+        })
+    } else {
+      return new Promise(() => {})
     }
   }
 }

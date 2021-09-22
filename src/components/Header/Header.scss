@@ -1,11 +1,32 @@
+@keyframes slidegdz {
+  0% {
+    top: -50%;
+  }
+  100% {
+    top: 0%;
+  }
+}
+
 header {
-  background-color: #005baa;
+  background: linear-gradient(
+    90deg,
+    rgb(0, 91, 170) 56%,
+    rgb(4, 91, 173) 76%,
+    rgb(16, 90, 201) 96%
+  );
   width: 100%;
   overflow: hidden;
   font-size: 18px;
   color: #fff;
   line-height: 1.4;
   flex: 0 0 auto;
+  top: 0;
+  overflow: hidden;
+  position: relative;
+  animation-iteration-count: 1;
+  animation-duration: 0.8s;
+  animation-name: slidegdz;
+  animation-fill-mode: forwards;
 
   .headerContainerMenu {
     display: flex;
@@ -20,13 +41,11 @@ header {
 
   .headerLink {
     color: #fff;
-
-    &:focus {
+    &.active {
       font-weight: bold;
-      padding-bottom: 15px;
-      border-bottom: 2px solid #1890ff;
+      padding-bottom: 2px;
+      border-bottom: 2px solid #fff;
     }
-
     &:hover {
       color: #dadada;
     }

@@ -19,14 +19,10 @@ import { spinner } from './redux/actions/actions'
 
 class App extends Component {
   componentDidMount = () => {
-    if (localStorage.accessToken !== 'undefined') {
-        this.props.getProfileFetch()
+    if (localStorage.accessToken && localStorage.accessToken !== 'undefined') {
+       this.props.spinner(true)
+       this.props.getProfileFetch()
     }
-
-    // TODO: выпилить
-    setTimeout(() => {
-      this.props.spinner()
-    }, 10000)
   }
 
   render() {
@@ -40,7 +36,7 @@ class App extends Component {
               <Route exact path={["/", "/im"]} render={() => <Personal/>}/>
               <Route exact path="/event-creator" render={() => <EventsCreator/>}/>
               <Route exact path="/events"  render={() => <Events history={this.props.history}/>}/>
-              <Route exact path="/code"  render={() => <EnterCode />}/>
+              <Route exact path="/code"  render={() => <EnterCode history={this.props.history}/>}/>
               <Route path='*'
                      render={() => <h1 style={{textAlign: 'center'}}>Error 404 PAGE NOT FOUND</h1>}/>
             </Switch>
@@ -53,12 +49,12 @@ class App extends Component {
 }
 
 const mapStateToProps = state => ({
-  isLoading: state.auth.isLoading
+  isLoading: state.auth.isLoading,
 })
 
 const mapDispatchToProps = dispatch => ({
   getProfileFetch: () => dispatch(getProfileFetch()),
-  spinner: () => dispatch(spinner())
+  spinner: (toggle) => dispatch(spinner(toggle))
 })
 
 const AppContainer = compose(

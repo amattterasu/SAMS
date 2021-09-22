@@ -6,7 +6,7 @@
   bottom: 0;
   right: 0;
   left: 0;
-  background: rgba(0, 0, 0, .4);
+  background: rgba(0, 0, 0, 0.4);
   padding: 10rem;
   z-index: 999;
 
@@ -42,5 +42,9 @@
       }
     }
   }
-
+  > .modal__btn-primary {
+    right: 94.15%;
+    border-top-left-radius: 10px;
+    height: 38px;
+  }
 }
