@@ -2,7 +2,8 @@ import React from 'react';
 
 import {Button,  Table} from 'antd'
 import './Modal.scss'
-
+// import { Loader } from ""
+ 
 const Modal = props => {
   const defaultValue = 'Не задано'
 
@@ -48,8 +49,7 @@ const Modal = props => {
     })
 
     showAddToEvent = () => {
-      // Если записан на событие
-      if (false) {
+      if (!props.isSub) {
         return <Button className='modal__btn-primary'
           type='primary'
           block
@@ -91,9 +91,9 @@ const Modal = props => {
 
     data = props.visitors?.map(el => {
       return {
-        name: el.first_name || 'Иванов',
-        surname: el.second_name || 'Иван',
-        patronymic: el.middle_name || 'Иванович',
+        name: el.name || 'Иванов',
+        surname: el.surname || 'Иван',
+        patronymic: el.patronymic || 'Иванович',
         visitor: el.presence ? 'Присутствует' : 'Отсутствует'
       }
     })
@@ -103,21 +103,23 @@ const Modal = props => {
     <>
       {
         props.isOpen && data &&
-        <div className='modal'>
-          <div className='modal__body'>
-            <div className='modal__title'>
-              {props.title}
+        <>
+          <div className='modal'>
+            <div className='modal__body'>
+              <div className='modal__title'>
+                {props.title}
+              </div>
+              <Table cellKey={Math.random()} columns={columns} style={{padding: '8px'}} dataSource={data}/>
+              { showAddToEvent() }
             </div>
-            <Table cellKey={Math.random()} columns={columns} style={{padding: '8px'}} dataSource={data}/>
-             { showAddToEvent() }
             <Button className='modal__btn-primary'
-                    type='primary'
-                    htmlType='submit'
-                    onClick={() => props.setOpen(false)}
-            >
-              Вернуться</Button>
+                      type='primary'
+                      htmlType='submit'
+                      onClick={() => props.setOpen(false)}
+              >
+                Вернуться</Button>
           </div>
-        </div>
+        </>
       }
     </>
   );

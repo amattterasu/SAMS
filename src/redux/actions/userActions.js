@@ -1,8 +1,9 @@
 import { URL } from '../../constants/const'
+import {setEvent, spinner} from './actions'
 
 const loginUser = userObj => ({
   type: 'LOGIN_USER',
-  payload: userObj
+  payload: userObj,
 })
 
 const regUser = userObj => ({
@@ -58,6 +59,7 @@ export const userRegFetch = user => {
 
 export const userLoginFetch = user => {
   return dispatch => {
+    dispatch(spinner(true))
     return fetch(URL + "/login", {
       method: "POST",
       headers: {
@@ -80,6 +82,7 @@ export const userLoginFetch = user => {
 
           if (data.accessToken) {
             dispatch(loginUser(data))
+            dispatch(spinner(false))
           }
         }
       })
@@ -89,7 +92,6 @@ export const userLoginFetch = user => {
 export const getProfileFetch = () => {
   return dispatch => {
     const accessToken = localStorage.accessToken;
-
     if (accessToken) {
       return fetch(URL + `/users`, {
         method: "GET",
@@ -181,6 +183,7 @@ export const getEvents = (url) => {
 
 export const getEventsUser = (id) => {
   return dispatch => {
+    dispatch(setEvent(id));
     const accessToken = localStorage.accessToken
     if (accessToken) {
       return fetch(`${URL}/events/${id}/users`, {
@@ -261,11 +264,11 @@ export const deleteEvent = id => {
   }
 }
 
-export const joinUser = (id) => {
+export const joinUser = (eventId) => {
   return dispatch => {
     const accessToken = localStorage.accessToken
     if (accessToken) {
-      return fetch(`${URL}/events/${id}/users`, {
+      return fetch(`${URL}/events/${eventId}/users`, {
         method: "POST",
         headers: {
           'Content-Type': 'application/json',

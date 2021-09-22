@@ -2,7 +2,8 @@ const initialState = {
 	date: [],
 	time: [],
 	qrCode: '',
-	test: {}
+	test: {},
+  eventId: ''
 }
 
 const eventsReducer = (state = initialState, action) => {
@@ -13,6 +14,10 @@ const eventsReducer = (state = initialState, action) => {
 			return {...state, time: [...action.payload]}
 		case 'SET_TEST':
 			return {...state, test: action.payload}
+   case 'SET_EVENT':
+    return {...state,
+      eventId: action.payload.eventId
+     }
 		default:
 			return state
 	}

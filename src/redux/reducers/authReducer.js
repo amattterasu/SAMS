@@ -5,10 +5,10 @@ const initialState = {
   patronymic: '',
   group: '',
   email: '',
-  isAuth: true,
+  isAuth: false,
   accessToken: '',
-  isLoading: true,
-  photo: ''
+  isLoading: false,
+  photo: '',
 }
 
 const authReducer = (state = initialState, action) => {

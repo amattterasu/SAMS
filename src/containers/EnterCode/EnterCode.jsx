@@ -1,11 +1,15 @@
 import React, { Component } from 'react';
 import OtpInput from 'react-otp-input';
 import './EnterCode.scss'
+import {compose} from "redux"
+import {connect} from "react-redux"
+import {withAuthRedirect} from "../../hoc/withAuthRedirect"
+import { addCode } from "../../redux/actions/userActions";
 
-export default class EnterCode extends Component {
+
+class EnterCode extends Component {
   constructor(props) {
     super(props);
-
     this.state = {
       otp: '',
       numInputs: 6,
@@ -24,35 +28,15 @@ export default class EnterCode extends Component {
     this.setState({ otp });
   };
 
-  handleChange = (e) => {
-    this.setState({ [e.target.name]: e.target.value });
-  };
-
-  handleNumInputsChange = (e) => {
-    let numInputs = e.target.value;
-    const { minLength, maxLength } = this.state;
-
-    if (numInputs < minLength || numInputs > maxLength) {
-      numInputs = 4;
-
-      console.error(`Please enter a value between ${minLength} and ${maxLength}`);
-    }
-
-    this.setState({ [e.target.name]: parseInt(numInputs, 10) });
-  };
-
   clearOtp = () => {
     this.setState({ otp: '' });
   };
 
-  handleCheck = (e) => {
-    const { name } = e.target;
-    this.setState((prevState) => ({ [name]: !prevState[name] }));
-  };
-
   handleSubmit = (e) => {
     e.preventDefault();
-    alert(this.state.otp);
+    this.props.addCode(this.props.events.eventId, this.state.otp);
+    this.clearOtp()
+    this.props.history.push('/events')
   };
 
   render() {
@@ -109,4 +93,19 @@ export default class EnterCode extends Component {
     );
   }
 }
+
+const mapStateToProps = state => ({
+  auth: state.auth,
+  events: state.events
+})
+
+const mapDispatchToProps = dispatch => ({
+  addCode: (id, code) => dispatch(addCode(id, code))
+})
+
+export default compose(
+    connect(mapStateToProps, mapDispatchToProps),
+    withAuthRedirect
+)(EnterCode)
+
 
