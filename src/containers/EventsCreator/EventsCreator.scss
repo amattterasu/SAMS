@@ -28,8 +28,7 @@
     }
   }
 
-.container-btn
-  ol li {
+  .container-btn ol li {
     color: #adadad;
     font-size: 24px;
     cursor: pointer;
@@ -59,7 +58,7 @@
     margin-right: 10px;
   }
 
-  .quizInfoElementContainer{
+  .quizInfoElementContainer {
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
