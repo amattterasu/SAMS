@@ -7,7 +7,8 @@ const initialState = {
   email: '',
   isAuth: true,
   accessToken: '',
-  isLoading: true
+  isLoading: true,
+  photo: ''
 }
 
 const authReducer = (state = initialState, action) => {
@@ -28,6 +29,14 @@ const authReducer = (state = initialState, action) => {
         email: action.payload.email,
         accessToken: action.payload.accessToken,
         isAuth: true,
+        isLoading: false
+      }
+    case 'UPDATE_USER':
+      return {...state,
+        name: action.payload.name,
+        surname: action.payload.surname,
+        patronymic:action.payload.patronymic,
+        group: action.payload.group,
         isLoading: false
       }
     case 'LOGOUT_USER':

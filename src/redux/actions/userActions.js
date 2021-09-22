@@ -10,6 +10,11 @@ const regUser = userObj => ({
   payload: userObj
 })
 
+const updateUser = userObj => ({
+  type: 'UPDATE_USER',
+  payload: userObj
+})
+
 export const setAuthUserData = (type = 'SET_USER_DATA', userId, email, login) => ({
   type: type,
   payload: {userId, email, login}
@@ -220,7 +225,14 @@ export const profileFetch = (id, userConfig) => {
           patronymic: userConfig.patronymic,
           group: userConfig.group
         })
-      })
+      }).then((resp => {
+        if (!resp.ok) {
+          throw new Error(resp.statusText)
+        }
+        return resp;
+      }))
+      .then( dispatch(updateUser(userConfig)))
+      .catch(err => err)
     }
   }
 }

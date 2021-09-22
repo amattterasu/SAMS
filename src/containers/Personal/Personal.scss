@@ -4,7 +4,7 @@
   padding-top: 50px;
   flex-grow: 1;
   min-height: 100%;
-  overflow:  hidden;
+  overflow: hidden;
 
   > div {
     width: 100%;
@@ -20,7 +20,6 @@
   button {
     margin-top: 5px;
     margin-left: 10px;
-
   }
 
   h1 {
@@ -30,6 +29,16 @@
   .block {
     min-width: 300px;
     padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    > form {
+      flex: 1;
+    }
+  }
+
+  .container-profile {
+    min-width: 50%;
   }
 
   .profileInfo {
@@ -42,4 +51,7 @@
     }
   }
 
+  img {
+    width: 30%;
+  }
 }
