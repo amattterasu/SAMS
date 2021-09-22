@@ -8,6 +8,7 @@ const Modal = props => {
 
   let columns = []
   let data;
+  let showAddToEvent = () => ``
 
   if (props.title === 'Участники события') {
     columns = [
@@ -45,6 +46,26 @@ const Modal = props => {
         email: el.email
       }
     })
+
+    showAddToEvent = () => {
+      // Если записан на событие
+      if (false) {
+        return <Button className='modal__btn-primary'
+          type='primary'
+          block
+          style={{"width": "98.6%", background: '#4BB543', borderColor: '#4BB543'}}
+          onClick={() => props.joinUser()}
+        > Записаться на событие</Button>
+      } else {
+        return <Button className='modal__btn-primary'
+          type='primary'
+          block
+          danger
+          style={{"width": "98.6%"}}
+          onClick={() => props.history.push('/code')}
+        >Ввести кодовое слово</Button>
+      }
+    }
   } else {
     columns = [
       {
@@ -88,13 +109,7 @@ const Modal = props => {
               {props.title}
             </div>
             <Table cellKey={Math.random()} columns={columns} style={{padding: '8px'}} dataSource={data}/>
-              <Button className='modal__btn-primary'
-                    type='primary'
-                    block
-                    style={{"width": "98.6%", background: '#4BB543', borderColor: '#4BB543'}}
-                    onClick={() => props.joinUser()}
-            >
-              Записаться на событие</Button>
+             { showAddToEvent() }
             <Button className='modal__btn-primary'
                     type='primary'
                     htmlType='submit'

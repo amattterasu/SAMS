@@ -278,3 +278,24 @@ export const joinUser = (id) => {
     }
   }
 }
+
+export const addCode = (id, code) => {
+  return dispatch => {
+    const accessToken = localStorage.accessToken
+    if (accessToken) {
+      return fetch(`${URL}/events/${id}/code`, {
+          method: "POST",
+          headers: {
+            'Content-Type': 'application/json',
+            Accept: 'application/json',
+            'Authorization': `Bearer ${accessToken}`
+          },
+          body: JSON.stringify({
+            code
+          })
+        })
+    } else {
+      return new Promise(() => {})
+    }
+  }
+}

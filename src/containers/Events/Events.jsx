@@ -163,6 +163,7 @@ class Events extends React.Component {
                  allUsers={this.state.allUsers}
                  visitors={this.state.visitors}
                  joinUser={this.joinUser}
+                 history={this.props.history}
           />
 
           <BaseModal
