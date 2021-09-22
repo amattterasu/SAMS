@@ -9,7 +9,7 @@ import { URL } from '../../constants/const'
 import {withAuthRedirect} from "../../hoc/withAuthRedirect"
 import BlockAuth from "../../components/BlockAuth/BlockAuth";
 import {DeleteOutlined, CloseOutlined, CheckOutlined, SearchOutlined} from '@ant-design/icons';
-import {deleteEvent, getEvents, getEventsUser, getVisitorUsers} from "../../redux/actions/userActions";
+import {deleteEvent, getEvents, getEventsUser, getVisitorUsers, joinUser} from "../../redux/actions/userActions";
 import {Popconfirm, message, Button, Switch, Tooltip, Modal as BaseModal} from 'antd';
 import Modal from "../../components/Modal/Modal";
 import QR from "../QR/QR";
@@ -17,17 +17,13 @@ import QR from "../QR/QR";
 class Events extends React.Component {
 
     state = {
-
       visible: false,
       idCode: '',
-
       eventsShow: [],
       title: 'Мои события',
       isShowAll: false,
-
       visitors: [],
       allUsers: [],
-
       isOpen: false,
       titleModal: 'Участники события'
     }
@@ -60,6 +56,20 @@ class Events extends React.Component {
               })
             }
           )
+      } else {
+        this.setState({
+          eventsShow: [{checkData: null,
+            checkMethod: "qr",
+            comments: "1",
+            date: "2021/09/22",
+            eventType: "lecture",
+            id: 1,
+            location: "12",
+            name: 1,
+            timeEnd: "20:49",
+            timeStart: "20:39",
+            }]
+        })
       }
     }
 
@@ -130,6 +140,10 @@ class Events extends React.Component {
       this.setState({isOpen: false})
     }
 
+    joinUser = () => {
+      this.props.joinUser(this.props.auth.id)
+    }
+
     generateQr = (id) => {
       this.setState({visible: !this.state.visible, idCode: id})
     }
@@ -148,6 +162,7 @@ class Events extends React.Component {
                  title={this.state.titleModal}
                  allUsers={this.state.allUsers}
                  visitors={this.state.visitors}
+                 joinUser={this.joinUser}
           />
 
           <BaseModal
@@ -207,7 +222,7 @@ class Events extends React.Component {
                             <span style={{fontSize: '12px', fontStyle: 'italic'}}>Нажмите для просмотра участников</span>
                             <strong>
                               <pre>
-                                {event.name.padEnd(35)}
+                                {/* {event.name.padEnd(35)} */}
                               </pre>
                             </strong>
                           </div>
@@ -275,15 +290,17 @@ class Events extends React.Component {
     }
 }
 
-let mapStateToProps = state => ({
-    globalState: state
+const mapStateToProps = state => ({
+  globalState: state,
+  auth: state.auth
 })
 
-let  mapDispatchToProps = dispatch => ({
+const mapDispatchToProps = dispatch => ({
   deleteEvent: (id) => dispatch(deleteEvent(id)),
   getEvents: (url) => dispatch(getEvents(url)),
   getEventsUser: (id) => dispatch(getEventsUser(id)),
   getVisitorUsers: (id) => dispatch(getVisitorUsers(id)),
+  joinUser: (id) => dispatch(joinUser(id))
 
 })
 

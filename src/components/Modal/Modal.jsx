@@ -46,7 +46,6 @@ const Modal = props => {
       }
     })
   } else {
-
     columns = [
       {
         title: 'Фамилия',
@@ -79,8 +78,6 @@ const Modal = props => {
     })
   }
 
-
-
   return (
     <>
       {
@@ -91,7 +88,13 @@ const Modal = props => {
               {props.title}
             </div>
             <Table cellKey={Math.random()} columns={columns} style={{padding: '8px'}} dataSource={data}/>
-
+              <Button className='modal__btn-primary'
+                    type='primary'
+                    block
+                    style={{"width": "98.6%", background: '#4BB543', borderColor: '#4BB543'}}
+                    onClick={() => props.joinUser()}
+            >
+              Записаться на событие</Button>
             <Button className='modal__btn-primary'
                     type='primary'
                     htmlType='submit'

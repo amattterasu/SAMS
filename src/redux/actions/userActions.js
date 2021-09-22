@@ -155,6 +155,8 @@ export const eventsFetch = (event, checkData) => {
           [checkData]: event.checkData
         })
       })
+    } else {
+      return new Promise(() => {})
     }
   }
 }
@@ -171,6 +173,8 @@ export const getEvents = (url) => {
           'Authorization': `Bearer ${accessToken}`
         }
       })
+    } else {
+        return new Promise(() => {})
     }
   }
 }
@@ -187,6 +191,8 @@ export const getEventsUser = (id) => {
           'Authorization': `Bearer ${accessToken}`
         }
       })
+    } else {
+      return new Promise(() => {})
     }
   }
 }
@@ -203,6 +209,8 @@ export const getVisitorUsers = (id) => {
           'Authorization': `Bearer ${accessToken}`
         }
       })
+    } else {
+      return new Promise(() => {})
     }
   }
 }
@@ -249,6 +257,24 @@ export const deleteEvent = id => {
           'Authorization': `Bearer ${accessToken}`
         }
       })
+    }
+  }
+}
+
+export const joinUser = (id) => {
+  return dispatch => {
+    const accessToken = localStorage.accessToken
+    if (accessToken) {
+      return fetch(`${URL}/events/${id}/users`, {
+        method: "POST",
+        headers: {
+          'Content-Type': 'application/json',
+          Accept: 'application/json',
+          'Authorization': `Bearer ${accessToken}`
+        }
+      })
+    } else {
+      return new Promise(() => {})
     }
   }
 }

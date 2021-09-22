@@ -14,7 +14,6 @@ import QuizCreator from "../QuizCreator/QuizCreator";
 import {Modal, Tooltip} from "antd";
 
 class Events extends React.Component {
-
   createNotification = (type) => {
     return (message, title) => {
       switch (type) {
@@ -30,16 +29,15 @@ class Events extends React.Component {
         case 'error':
           NotificationManager.error(message, title);
           break;
+         default:
+           return;
       }
     };
   };
 
   state = {
-
     showTestsCreate: false,
-
     visible: false,
-
     isFormValid: false,
     formControls: {
       title: createControl({
@@ -58,14 +56,12 @@ class Events extends React.Component {
       })
     },
     title: '',
-
     qrCode: {
       label: 'QR-код*',
       value: ''
     },
-
-    eventType: 'lecture', //по умолчанию леция
-    checkMethod: 'qr' // по умолчанию qrCode
+    eventType: 'lecture', 
+    checkMethod: 'qr' 
   }
 
   // clickHandler = (el) => {
@@ -91,23 +87,16 @@ class Events extends React.Component {
       title: this.state.formControls.title.value,
       eventType: this.state.eventType,
       location: this.state.formControls.location.value,
-
       checkMethod: this.state.checkMethod,
-
       checkData: checkData,
-
       date: this.props.date[0] || moment().format('YYYY/MM/DD'),
       timeStart: this.props.time[0] || moment().format('HH:mm'),
       timeEnd: this.props.time[1] || moment().add(10, 'minutes').format('HH:mm'),
       comments: this.state.formControls.comments.value,
     }
-    let promise = this.state.checkMethod === 'qr' ?
-      this.props.eventsFetch(eventsConfig, 'code') :
-      this.props.eventsFetch(eventsConfig, 'test')
-
-    promise
+    this.props.eventsFetch(eventsConfig, this.state.checkMethod === 'qr' ? 'code' : 'test')
       .then(resp => {
-        if(resp.ok) {
+        if(resp?.ok) {
           this.createNotification('success')( `Событие ${eventsConfig.title} создано`,'Создание события прошло успешно!')
         }
         else {
@@ -228,8 +217,6 @@ class Events extends React.Component {
             <QuizCreator toggleEventToTest={this.toggleEventToTest} />
             : (
               <div className='EventsCreator'>
-
-
                 <Modal
                   title="Информация о тесте"
                   visible={this.state.visible}
